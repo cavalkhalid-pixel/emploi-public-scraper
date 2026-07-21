@@ -1,16 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Agent de scraping pour emploi-public.ma
-Scanne les annonces d'emploi public marocain et envoie des notifications
-par email pour les postes situés dans les régions Souss-Massa ou Guelmim-Oued Noun.
+Agent de scraping pour emploi-public.ma - VERSION CORRIGÉE
 """
 
 import os
 import sys
 import json
 import re
-import hashlib
 import smtplib
 import tempfile
 import logging
@@ -18,7 +15,6 @@ from datetime import datetime, date
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from pathlib import Path
-from urllib.parse import urljoin, urlparse
 
 import requests
 from bs4 import BeautifulSoup
@@ -33,61 +29,40 @@ HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
     "Accept-Language": "ar,fr;q=0.9,en;q=0.8",
-    "Accept-Encoding": "gzip, deflate, br",
-    "Connection": "keep-alive",
 }
 
-# Catégories à scanner (3 premières pages chacune)
 CATEGORIES = [
-    {
-        "name": "مناصب المسؤولية",
-        "slug": "قائمة-مناصب-المسؤولية",
-        "detail_slug": "مناصب-المسؤولية"
-    },
-    {
-        "name": "المناصب العليا",
-        "slug": "قائمة-المناصب-العليا",
-        "detail_slug": "المناصب-العليا"
-    },
-    {
-        "name": "المباريات",
-        "slug": "قائمة-المباريات",
-        "detail_slug": "المباريات"
-    },
-    {
-        "name": "تشغيل الخبراء",
-        "slug": "قائمة-تشغيل-الخبراء",
-        "detail_slug": "تشغيل-الخبراء"
-    }
+    {"name": "مناصب المسؤولية", "slug": "قائمة-مناصب-المسؤولية", "detail_slug": "مناصب-المسؤولية"},
+    {"name": "المناصب العليا", "slug": "قائمة-المناصب-العليا", "detail_slug": "المناصب-العليا"},
+    {"name": "المباريات", "slug": "قائمة-المباريات", "detail_slug": "المباريات"},
+    {"name": "تشغيل الخبراء", "slug": "قائمة-تشغيل-الخبراء", "detail_slug": "تشغيل-الخبراء"}
 ]
 
-# Nombre de pages à scanner par catégorie
 MAX_PAGES = 3
 
-# Provinces cibles
 PROVINCES_SOUSS_MASSA = [
     "أكادير", "إداوتنان", "إنزكان", "آيت ملول", "تارودانت",
     "تيزنيت", "شتوكة", "آيت باها", "أكادير إداوتنان",
     "إنزكان آيت ملول", "شتوكة آيت باها", "سوس", "سوس ماسة",
-    "أكادير أيت ملول", "تارودانت", "تيزنيت"
+    "أكادير أيت ملول", "تارودانت", "تيزنيت", "أكادير-إداوتنان",
+    "إنزكان-آيت-ملول", "شتوكة-آيت-باها"
 ]
 
 PROVINCES_GUELMIM_OUED_NOUN = [
     "كلميم", "أسا الزاك", "طرفاية", "طانطان", "سيدي إفني",
     "أسا", "الزاك", "كلميم واد نون", "كلميم-واد-نون",
-    "كلميم واد نون", "أسا-الزاك"
+    "كلميم واد نون", "أسا-الزاك", "كلميم-واد-نون",
+    "سيدي-إفني", "طانطان", "طرفاية"
 ]
 
 REGIONS_CIBLES = PROVINCES_SOUSS_MASSA + PROVINCES_GUELMIM_OUED_NOUN
 
-# Fichiers de données
 DATA_DIR = Path("data")
 DATA_DIR.mkdir(exist_ok=True)
 SEEN_FILE = DATA_DIR / "annonces_vues.json"
 RESULTS_FILE = DATA_DIR / "resultats.json"
 LOG_FILE = DATA_DIR / "scraper.log"
 
-# Configuration email (depuis variables d'environnement)
 SMTP_SERVER = os.environ.get("SMTP_SERVER", "smtp.gmail.com")
 SMTP_PORT = int(os.environ.get("SMTP_PORT", "587"))
 SMTP_USER = os.environ.get("SMTP_USER", "")
@@ -113,7 +88,6 @@ logger = logging.getLogger(__name__)
 # ============================================================================
 
 def load_seen_annonces():
-    """Charge les UUID des annonces déjà traitées."""
     if SEEN_FILE.exists():
         with open(SEEN_FILE, "r", encoding="utf-8") as f:
             return set(json.load(f))
@@ -121,13 +95,11 @@ def load_seen_annonces():
 
 
 def save_seen_annonces(seen):
-    """Sauvegarde les UUID des annonces traitées."""
     with open(SEEN_FILE, "w", encoding="utf-8") as f:
         json.dump(list(seen), f, ensure_ascii=False, indent=2)
 
 
 def load_results():
-    """Charge les résultats précédents."""
     if RESULTS_FILE.exists():
         with open(RESULTS_FILE, "r", encoding="utf-8") as f:
             return json.load(f)
@@ -135,35 +107,24 @@ def load_results():
 
 
 def save_results(results):
-    """Sauvegarde les résultats."""
     with open(RESULTS_FILE, "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
 
 
 def parse_arabic_date(date_str):
-    """
-    Parse une date arabe marocaine.
-    Exemples: "17 يوليوز 2026", "5 يناير 2026", "4 غشت 2026"
-    """
     mois_arabe = {
         "يناير": 1, "فبراير": 2, "مارس": 3, "أبريل": 4,
         "ماي": 5, "يونيو": 6, "يوليوز": 7, "غشت": 8,
         "شتنبر": 9, "أكتوبر": 10, "نونبر": 11, "دجنبر": 12,
         "يوليو": 7, "أغسطس": 8, "سبتمبر": 9, "نوفمبر": 11, "ديسمبر": 12
     }
-    
-    # Nettoyer la chaîne
     date_str = date_str.strip()
-    
-    # Pattern: jour mois année
     pattern = r"(\d{1,2})\s+([\u0621-\u064A]+)\s+(\d{4})"
     match = re.search(pattern, date_str)
-    
     if match:
         jour = int(match.group(1))
         mois_nom = match.group(2)
         annee = int(match.group(3))
-        
         mois = mois_arabe.get(mois_nom)
         if mois:
             try:
@@ -171,74 +132,59 @@ def parse_arabic_date(date_str):
             except ValueError:
                 logger.warning(f"Date invalide: {date_str}")
                 return None
-    
     logger.warning(f"Format de date non reconnu: {date_str}")
     return None
 
 
 def is_date_en_cours(deadline_date):
-    """Vérifie si la date limite est encore en cours."""
     if not deadline_date:
         return False
     return deadline_date >= date.today()
 
 
 def extract_text_from_pdf(pdf_url):
-    """Télécharge et extrait le texte d'un PDF."""
     try:
         response = requests.get(pdf_url, headers=HEADERS, timeout=30)
         response.raise_for_status()
-        
         with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as tmp:
             tmp.write(response.content)
             tmp_path = tmp.name
-        
         text = ""
         with pdfplumber.open(tmp_path) as pdf:
             for page in pdf.pages:
                 page_text = page.extract_text()
                 if page_text:
                     text += page_text + "\n"
-        
         os.unlink(tmp_path)
         return text
-    
     except Exception as e:
         logger.error(f"Erreur extraction PDF {pdf_url}: {e}")
         return ""
 
 
 def check_region_in_text(text):
-    """
-    Vérifie si le texte contient une province des régions cibles.
-    Retourne la province trouvée ou None.
-    """
     if not text:
         return None
-    
-    text_lower = text.lower()
-    
+    text_normalized = text.lower().replace("-", " ").replace("_", " ")
     for province in REGIONS_CIBLES:
-        if province.lower() in text_lower:
+        province_normalized = province.lower().replace("-", " ").replace("_", " ")
+        if province_normalized in text_normalized:
             return province
-    
-    # Recherche plus souple pour les noms composés
     if "سوس" in text or "ماسة" in text:
         return "Région Souss-Massa (détectée)"
     if "كلميم" in text or "واد نون" in text or "واد النون" in text:
         return "Région Guelmim-Oued Noun (détectée)"
-    
     return None
 
 
 # ============================================================================
-# FONCTIONS DE SCRAPING
+# FONCTIONS DE SCRAPING - VERSION CORRIGÉE
 # ============================================================================
 
 def get_liste_annonces(category_slug, page=0):
     """
     Récupère la liste des annonces d'une page de catégorie.
-    Retourne une liste de dicts avec titre, URL, date_limite.
+    VERSION CORRIGÉE - Parse le HTML réel du site.
     """
     url = f"{BASE_URL}/ar/{category_slug}"
     if page > 0:
@@ -253,65 +199,57 @@ def get_liste_annonces(category_slug, page=0):
         
         annonces = []
         
-        # Rechercher les blocs d'annonces
-        # Structure: div contenant le titre en gras, puis l'administration, puis la date
-        content = soup.find("div", class_=re.compile("content|main|region-content"))
-        if not content:
-            content = soup
+        # Méthode 1: Chercher les liens vers les pages de détail
+        all_links = soup.find_all("a", href=True)
         
-        # Les annonces sont dans des éléments avec des titres en gras
-        for strong in content.find_all("strong"):
-            parent = strong.parent
-            if not parent:
-                continue
+        for link in all_links:
+            href = link.get("href", "")
             
-            # Chercher le lien vers la page détail
-            link = None
-            for a in parent.find_all("a", href=True):
-                href = a["href"]
-                if "/تفاصيل/" in href or "/ar/تفاصيل/" in href:
-                    link = href
-                    break
-            
-            if not link:
-                continue
-            
-            # URL complète
-            if link.startswith("/"):
-                detail_url = f"{BASE_URL}{link}"
-            elif link.startswith("http"):
-                detail_url = link
-            else:
-                detail_url = f"{BASE_URL}/ar/{link}"
-            
-            # Extraire l'UUID de l'URL
-            uuid_match = re.search(r"[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}", detail_url)
+            # Chercher les liens de détail avec UUID
+            uuid_match = re.search(r"[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}", href)
             if not uuid_match:
                 continue
             
             annonce_uuid = uuid_match.group(0)
             
-            # Titre
-            titre = strong.get_text(strip=True)
+            # Construire l'URL complète
+            if href.startswith("/"):
+                detail_url = f"{BASE_URL}{href}"
+            elif href.startswith("http"):
+                detail_url = href
+            else:
+                detail_url = f"{BASE_URL}/ar/{href}"
             
-            # Administration (texte après le titre)
-            admin = ""
-            next_sibling = strong.find_next_sibling()
-            if next_sibling:
-                admin = next_sibling.get_text(strip=True)
+            # Le titre est souvent dans le texte du lien ou dans un parent
+            titre = link.get_text(strip=True)
             
-            # Date limite - chercher dans le texte du parent
+            # Si le titre est vide, chercher dans les parents
+            if not titre:
+                parent = link.find_parent(["div", "li", "article", "td"])
+                if parent:
+                    strong = parent.find("strong")
+                    if strong:
+                        titre = strong.get_text(strip=True)
+                    else:
+                        titre = parent.get_text(strip=True)[:200]
+            
+            # Éviter les doublons
+            if any(a["uuid"] == annonce_uuid for a in annonces):
+                continue
+            
+            # Chercher la date limite dans le texte environnant
             date_text = ""
-            date_pattern = r"آخر أجل لإيداع ملفات الترشيح\s*:\s*(.+?)(?:\n|\r|\t|$)"
-            parent_text = parent.get_text()
-            date_match = re.search(date_pattern, parent_text)
-            if date_match:
-                date_text = date_match.group(1).strip()
+            parent = link.find_parent(["div", "li", "article", "td"])
+            if parent:
+                parent_text = parent.get_text()
+                date_match = re.search(r"آخر أجل لإيداع ملفات الترشيح\s*:\s*([0-9]{1,2}\s+[\u0621-\u064A]+\s+[0-9]{4})", parent_text)
+                if date_match:
+                    date_text = date_match.group(1).strip()
             
             annonces.append({
                 "uuid": annonce_uuid,
                 "titre": titre,
-                "administration": admin,
+                "administration": "",
                 "date_limite_text": date_text,
                 "detail_url": detail_url,
                 "categorie": category_slug
@@ -326,10 +264,6 @@ def get_liste_annonces(category_slug, page=0):
 
 
 def get_annonce_detail(detail_url):
-    """
-    Récupère les détails d'une annonce: date limite précise et lien PDF.
-    Retourne un dict avec date_limite, pdf_url, etc.
-    """
     logger.info(f"  Détails: {detail_url}")
     
     try:
@@ -346,68 +280,65 @@ def get_annonce_detail(detail_url):
             "description": ""
         }
         
-        # Chercher la date limite
-        # Format: "آخر أجل لإيداع الترشيحات" ou "آخر أجل لإيداع ملفات الترشيح"
-        for elem in soup.find_all(text=re.compile("آخر أجل")):
-            parent = elem.parent
-            if parent:
-                # Le texte de la date est souvent dans le même parent ou le suivant
-                full_text = parent.get_text()
-                date_match = re.search(r"آخر أجل[^\n]*:\s*(.+?)(?:\n|\r|$)", full_text)
-                if date_match:
-                    result["date_limite_text"] = date_match.group(1).strip()
-                    result["date_limite"] = parse_arabic_date(result["date_limite_text"])
-                    break
+        page_text = soup.get_text()
         
-        # Chercher le PDF dans "فضاء التحميل"
-        download_section = None
-        for heading in soup.find_all(["h2", "h3", "h4", "strong"]):
-            if "فضاء التحميل" in heading.get_text():
-                download_section = heading.find_parent("div")
+        # Chercher la date limite
+        date_patterns = [
+            r"آخر أجل لإيداع الترشيحات\s*[:]?s*([0-9]{1,2}\s+[\u0621-\u064A]+\s+[0-9]{4})",
+            r"آخر أجل لإيداع ملفات الترشيح\s*[:]?s*([0-9]{1,2}\s+[\u0621-\u064A]+\s+[0-9]{4})",
+            r"آخر أجل\s*[:]?s*([0-9]{1,2}\s+[\u0621-\u064A]+\s+[0-9]{4})",
+        ]
+        
+        for pattern in date_patterns:
+            date_match = re.search(pattern, page_text)
+            if date_match:
+                result["date_limite_text"] = date_match.group(1).strip()
+                result["date_limite"] = parse_arabic_date(result["date_limite_text"])
                 break
         
-        if download_section:
-            for link in download_section.find_all("a", href=True):
-                href = link["href"]
-                link_text = link.get_text(strip=True)
+        # Chercher les PDF
+        pdf_links = []
+        for link in soup.find_all("a", href=True):
+            href = link["href"]
+            link_text = link.get_text(strip=True)
+            
+            if href.endswith(".pdf") or ".pdf" in href:
+                if href.startswith("/"):
+                    full_url = f"{BASE_URL}{href}"
+                elif href.startswith("http"):
+                    full_url = href
+                else:
+                    full_url = f"{BASE_URL}/ar/{href}"
                 
-                if "قرار فتح باب الترشيح" in link_text or "قرار" in link_text:
-                    if href.startswith("/"):
-                        result["pdf_url"] = f"{BASE_URL}{href}"
-                    elif href.startswith("http"):
-                        result["pdf_url"] = href
-                    else:
-                        result["pdf_url"] = f"{BASE_URL}/ar/{href}"
-                    result["pdf_nom"] = link_text
-                    break
+                pdf_links.append({
+                    "url": full_url,
+                    "text": link_text,
+                    "score": 0
+                })
         
-        # Si pas trouvé dans la section, chercher tous les liens PDF
-        if not result["pdf_url"]:
-            for link in soup.find_all("a", href=re.compile(r"\.pdf$", re.I)):
-                href = link["href"]
-                link_text = link.get_text(strip=True)
-                if "قرار" in link_text or "فتح" in link_text:
-                    if href.startswith("/"):
-                        result["pdf_url"] = f"{BASE_URL}{href}"
-                    elif href.startswith("http"):
-                        result["pdf_url"] = href
-                    result["pdf_nom"] = link_text
-                    break
+        # Scorer les PDF
+        for pdf in pdf_links:
+            text_lower = pdf["text"].lower()
+            if "قرار" in text_lower:
+                pdf["score"] += 10
+            if "فتح" in text_lower:
+                pdf["score"] += 5
+            if "باب" in text_lower:
+                pdf["score"] += 5
+            if "ترشيح" in text_lower:
+                pdf["score"] += 5
+        
+        if pdf_links:
+            pdf_links.sort(key=lambda x: x["score"], reverse=True)
+            best_pdf = pdf_links[0]
+            result["pdf_url"] = best_pdf["url"]
+            result["pdf_nom"] = best_pdf["text"]
+            logger.info(f"    PDF trouvé: {best_pdf['text']} (score: {best_pdf['score']})")
         
         # Administration
-        for elem in soup.find_all(text=re.compile("الإدارة المنظمة")):
-            parent = elem.parent
-            if parent:
-                admin_text = parent.get_text()
-                admin_match = re.search(r"الإدارة المنظمة\s*:?\s*(.+?)(?:\n|\r|$)", admin_text)
-                if admin_match:
-                    result["administration"] = admin_match.group(1).strip()
-                    break
-        
-        # Description
-        content_div = soup.find("div", class_=re.compile("content|field-body"))
-        if content_div:
-            result["description"] = content_div.get_text(separator="\n", strip=True)[:500]
+        admin_match = re.search(r"الإدارة المنظمة\s*[:]?s*(.+?)(?:\n|\r|$)", page_text)
+        if admin_match:
+            result["administration"] = admin_match.group(1).strip()
         
         return result
     
@@ -421,25 +352,22 @@ def get_annonce_detail(detail_url):
 # ============================================================================
 
 def run_scraper():
-    """Fonction principale du scraper."""
     logger.info("=" * 60)
     logger.info("DÉMARRAGE DU SCRAPER emploi-public.ma")
     logger.info(f"Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     logger.info("=" * 60)
     
-    # Charger les annonces déjà vues
     seen = load_seen_annonces()
     logger.info(f"Annonces déjà traitées: {len(seen)}")
     
-    # Charger les résultats existants
     all_results = load_results()
-    
-    # Nouvelles annonces trouvées
     new_results = []
     
     total_traitees = 0
     total_pdf_lus = 0
     total_match_region = 0
+    total_en_cours = 0
+    total_expirees = 0
     
     for category in CATEGORIES:
         logger.info(f"\n--- Catégorie: {category['name']} ---")
@@ -457,33 +385,30 @@ def run_scraper():
                 total_traitees += 1
                 uuid = annonce["uuid"]
                 
-                # Vérifier si déjà traitée
                 if uuid in seen:
                     logger.info(f"  [DÉJÀ VU] {annonce['titre'][:60]}...")
                     continue
                 
                 seen.add(uuid)
                 
-                # Récupérer les détails
                 details = get_annonce_detail(annonce["detail_url"])
                 
-                # Mettre à jour avec les infos de la liste si manquantes
                 if not details["date_limite_text"] and annonce["date_limite_text"]:
                     details["date_limite_text"] = annonce["date_limite_text"]
                     details["date_limite"] = parse_arabic_date(annonce["date_limite_text"])
                 
-                # Vérifier la date
                 if not details["date_limite"]:
                     logger.info(f"  [PAS DE DATE] {annonce['titre'][:60]}...")
                     continue
                 
                 if not is_date_en_cours(details["date_limite"]):
+                    total_expirees += 1
                     logger.info(f"  [EXPIRÉE] {annonce['titre'][:60]}... → {details['date_limite']}")
                     continue
                 
+                total_en_cours += 1
                 logger.info(f"  [EN COURS] {annonce['titre'][:60]}... → {details['date_limite']}")
                 
-                # Vérifier le PDF
                 if not details["pdf_url"]:
                     logger.info(f"    → Pas de PDF trouvé")
                     continue
@@ -491,14 +416,12 @@ def run_scraper():
                 total_pdf_lus += 1
                 logger.info(f"    → PDF: {details['pdf_url']}")
                 
-                # Extraire le texte du PDF
                 pdf_text = extract_text_from_pdf(details["pdf_url"])
                 
                 if not pdf_text:
                     logger.info(f"    → PDF vide ou illisible")
                     continue
                 
-                # Vérifier la région
                 region_trouvee = check_region_in_text(pdf_text)
                 
                 if region_trouvee:
@@ -525,7 +448,6 @@ def run_scraper():
                 else:
                     logger.info(f"    → Pas de match région")
     
-    # Sauvegarder
     save_seen_annonces(seen)
     save_results(all_results)
     
@@ -533,43 +455,56 @@ def run_scraper():
     logger.info("RÉSUMÉ")
     logger.info(f"{'=' * 60}")
     logger.info(f"Annonces traitées: {total_traitees}")
+    logger.info(f"Dates en cours: {total_en_cours}")
+    logger.info(f"Dates expirées: {total_expirees}")
     logger.info(f"PDF lus: {total_pdf_lus}")
     logger.info(f"Match région: {total_match_region}")
     logger.info(f"Nouveaux résultats: {len(new_results)}")
     logger.info(f"Total résultats en base: {len(all_results)}")
     
-    return new_results, all_results
+    return new_results, all_results, total_traitees, total_en_cours, total_pdf_lus, total_match_region
 
 
 # ============================================================================
-# FONCTIONS EMAIL
+# FONCTIONS EMAIL - TOUJOURS ENVOYER UN RAPPORT
 # ============================================================================
 
-def send_email_notification(new_results, all_results):
-    """Envoie un email récapitulatif."""
+def send_email_report(new_results, all_results, total_traitees, total_en_cours, total_pdf_lus, total_match_region):
+    """Envoie TOUJOURS un email, même avec 0 résultats."""
     if not SMTP_USER or not SMTP_PASSWORD or not EMAIL_TO:
         logger.warning("Configuration email incomplète, pas d'envoi.")
-        logger.warning(f"SMTP_USER={SMTP_USER[:5] if SMTP_USER else 'VIDE'}..., EMAIL_TO={EMAIL_TO}")
         return False
     
     try:
-        # Créer le message
         msg = MIMEMultipart("alternative")
-        msg["Subject"] = f"[Emploi Public] {len(new_results)} nouvelle(s) annonce(s) - {date.today().isoformat()}"
+        
+        if new_results:
+            msg["Subject"] = f"[Emploi Public] {len(new_results)} nouvelle(s) annonce(s) - {date.today().isoformat()}"
+        else:
+            msg["Subject"] = f"[Emploi Public] Rapport quotidien - {date.today().isoformat()}"
+        
         msg["From"] = SMTP_USER
         msg["To"] = EMAIL_TO
         
         # Corps texte
         text_body = f"""
 Agent Emploi-Public.ma - Rapport du {date.today().isoformat()}
-{'=' * 50}
+{'=' * 60}
 
-NOUVELLES ANNONCES TROUVÉES: {len(new_results)}
+STATISTIQUES DE CETTE EXÉCUTION:
+- Annonces analysées: {total_traitees}
+- Dates en cours: {total_en_cours}
+- PDF lus: {total_pdf_lus}
+- Match région: {total_match_region}
+- Nouvelles annonces: {len(new_results)}
+- Total en base: {len(all_results)}
 
 """
         
-        for i, r in enumerate(new_results, 1):
-            text_body += f"""
+        if new_results:
+            text_body += f"NOUVELLES ANNONCES TROUVÉES: {len(new_results)}\n\n"
+            for i, r in enumerate(new_results, 1):
+                text_body += f"""
 --- Annonce {i} ---
 Titre: {r['titre']}
 Administration: {r['administration']}
@@ -580,12 +515,17 @@ Lien: {r['detail_url']}
 PDF: {r['pdf_url']}
 
 """
+        else:
+            text_body += "Aucune nouvelle annonce trouvée pour les régions cibles.\n"
+            text_body += "Le bot fonctionne correctement et continuera à surveiller.\n"
         
         text_body += f"""
-{'=' * 50}
-TOTAL ANNONCES EN BASE: {len(all_results)}
+{'=' * 60}
+RÉGIONS SURVEILLÉES:
+- Souss-Massa: أكادير، تارودانت، تيزنيت، إنزكان، شتوكة...
+- Guelmim-Oued Noun: كلميم، أسا الزاك، طرفاية، طانطان، سيدي إفني...
 
-Pour voir tous les résultats: consultez le fichier data/resultats.json
+Prochaine exécution: dans 3 jours
 """
         
         # Corps HTML
@@ -595,12 +535,17 @@ Pour voir tous les résultats: consultez le fichier data/resultats.json
 <meta charset="UTF-8">
 <style>
 body {{ font-family: Arial, sans-serif; direction: rtl; }}
+.header {{ background: #1a5276; color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; }}
+.stats {{ background: #f0f0f0; padding: 15px; border-radius: 8px; margin: 15px 0; }}
+.stat-item {{ display: inline-block; margin: 5px 15px; }}
+.stat-value {{ font-size: 24px; font-weight: bold; color: #1a5276; }}
+.stat-label {{ font-size: 12px; color: #666; }}
 .annonce {{ border: 1px solid #ddd; margin: 15px 0; padding: 15px; border-radius: 8px; background: #f9f9f9; }}
 .titre {{ color: #1a5276; font-size: 18px; font-weight: bold; margin-bottom: 10px; }}
 .info {{ margin: 5px 0; color: #333; }}
 .label {{ font-weight: bold; color: #555; }}
 .match {{ color: #27ae60; font-weight: bold; font-size: 16px; }}
-.header {{ background: #1a5276; color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; }}
+.no-result {{ background: #fff3cd; padding: 20px; border-radius: 8px; text-align: center; margin: 20px 0; }}
 .footer {{ margin-top: 30px; padding: 15px; background: #eee; border-radius: 8px; text-align: center; }}
 a {{ color: #2980b9; }}
 </style>
@@ -608,13 +553,22 @@ a {{ color: #2980b9; }}
 <body>
 <div class="header">
 <h2>📋 Agent Emploi-Public.ma</h2>
-<p> Rapport du {date.today().isoformat()}</p>
-<p><span class="match">{len(new_results)} nouvelle(s) annonce(s) trouvée(s)</span></p>
+<p>Rapport du {date.today().isoformat()}</p>
+</div>
+
+<div class="stats">
+<div class="stat-item"><div class="stat-value">{total_traitees}</div><div class="stat-label">Annonces analysées</div></div>
+<div class="stat-item"><div class="stat-value">{total_en_cours}</div><div class="stat-label">En cours</div></div>
+<div class="stat-item"><div class="stat-value">{total_pdf_lus}</div><div class="stat-label">PDF lus</div></div>
+<div class="stat-item"><div class="stat-value">{total_match_region}</div><div class="stat-label">Match région</div></div>
+<div class="stat-item"><div class="stat-value">{len(new_results)}</div><div class="stat-label">Nouvelles</div></div>
 </div>
 """
         
-        for r in new_results:
-            html_body += f"""
+        if new_results:
+            html_body += f"<h3>✅ {len(new_results)} nouvelle(s) annonce(s) trouvée(s)</h3>"
+            for r in new_results:
+                html_body += f"""
 <div class="annonce">
 <div class="titre">{r['titre']}</div>
 <div class="info"><span class="label">الإدارة:</span> {r['administration']}</div>
@@ -624,11 +578,20 @@ a {{ color: #2980b9; }}
 <div class="info"><a href="{r['detail_url']}">🔗 Voir l'annonce</a> | <a href="{r['pdf_url']}">📄 Télécharger le PDF</a></div>
 </div>
 """
+        else:
+            html_body += f"""
+<div class="no-result">
+<h3>📭 Aucune nouvelle annonce trouvée</h3>
+<p>Le bot a analysé <strong>{total_traitees}</strong> annonces mais aucune ne correspond aux régions cibles.</p>
+<p>Il continuera à surveiller automatiquement.</p>
+</div>
+"""
         
         html_body += f"""
 <div class="footer">
 <p>Total annonces en base: <strong>{len(all_results)}</strong></p>
 <p><em>Agent automatique - Emploi-Public.ma</em></p>
+<p>Prochaine exécution: dans 3 jours</p>
 </div>
 </body>
 </html>"""
@@ -636,53 +599,16 @@ a {{ color: #2980b9; }}
         msg.attach(MIMEText(text_body, "plain", "utf-8"))
         msg.attach(MIMEText(html_body, "html", "utf-8"))
         
-        # Envoyer
         with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
             server.starttls()
             server.login(SMTP_USER, SMTP_PASSWORD)
             server.send_message(msg)
         
-        logger.info(f"Email envoyé à {EMAIL_TO} ({len(new_results)} annonces)")
+        logger.info(f"Email envoyé à {EMAIL_TO}")
         return True
     
     except Exception as e:
         logger.error(f"Erreur envoi email: {e}")
-        return False
-
-
-def send_email_even_si_vide(all_results):
-    """Envoie un email même si aucune nouvelle annonce (pour confirmer que le bot tourne)."""
-    if not SMTP_USER or not SMTP_PASSWORD or not EMAIL_TO:
-        return False
-    
-    try:
-        msg = MIMEMultipart("alternative")
-        msg["Subject"] = f"[Emploi Public] Aucune nouvelle annonce - {date.today().isoformat()}"
-        msg["From"] = SMTP_USER
-        msg["To"] = EMAIL_TO
-        
-        text = f"""
-Agent Emploi-Public.ma - Rapport du {date.today().isoformat()}
-
-Aucune nouvelle annonce trouvée pour les régions cibles.
-
-Total annonces en base: {len(all_results)}
-
-Le bot fonctionne correctement.
-"""
-        
-        msg.attach(MIMEText(text, "plain", "utf-8"))
-        
-        with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
-            server.starttls()
-            server.login(SMTP_USER, SMTP_PASSWORD)
-            server.send_message(msg)
-        
-        logger.info(f"Email (vide) envoyé à {EMAIL_TO}")
-        return True
-    
-    except Exception as e:
-        logger.error(f"Erreur envoi email vide: {e}")
         return False
 
 
@@ -691,13 +617,9 @@ Le bot fonctionne correctement.
 # ============================================================================
 
 if __name__ == "__main__":
-    new_results, all_results = run_scraper()
+    new_results, all_results, total_traitees, total_en_cours, total_pdf_lus, total_match_region = run_scraper()
     
-    if new_results:
-        send_email_notification(new_results, all_results)
-    else:
-        # Optionnel: envoyer un email même si vide pour confirmer le fonctionnement
-        # send_email_even_si_vide(all_results)
-        logger.info("Aucune nouvelle annonce, pas d'email envoyé.")
+    # TOUJOURS envoyer un email, même avec 0 résultats
+    send_email_report(new_results, all_results, total_traitees, total_en_cours, total_pdf_lus, total_match_region)
     
     logger.info("\nScraper terminé.")
