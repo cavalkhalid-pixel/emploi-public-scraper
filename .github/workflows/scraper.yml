@@ -2,15 +2,14 @@ name: Emploi-Public Scraper
 
 on:
   schedule:
-    # Tous les 3 jours à 08:00 UTC (09:00/10:00 heure du Maroc selon l'heure d'été)
     - cron: '0 8 */3 * *'
-  
-  # Permet le déclenchement manuel depuis l'interface GitHub
   workflow_dispatch:
 
 jobs:
   scraper:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     
     steps:
       - name: Checkout du code
@@ -52,11 +51,11 @@ jobs:
             data/
           retention-days: 30
       
-      - name: Commit des données (optionnel - persistance entre exécutions)
+      - name: Commit des données
         if: always()
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git add data/ 2>/dev/null || true
+          git add data/
           git diff --cached --quiet || git commit -m "Mise à jour des données scraper - $(date -u +%Y-%m-%d)"
-          git push || true
+          git push
