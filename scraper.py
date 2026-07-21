@@ -184,7 +184,6 @@ def check_region_in_text(text):
 def get_liste_annonces(category_slug, page=0):
     """
     Récupère la liste des annonces d'une page de catégorie.
-    VERSION CORRIGÉE - Parse le HTML réel du site.
     """
     url = f"{BASE_URL}/ar/{category_slug}"
     if page > 0:
@@ -296,13 +295,16 @@ def get_annonce_detail(detail_url):
                 result["date_limite"] = parse_arabic_date(result["date_limite_text"])
                 break
         
-        # Chercher les PDF
+        # --- CORRECTION : Détection des PDF (liens avec "arrete" ou texte "قرار") ---
         pdf_links = []
         for link in soup.find_all("a", href=True):
             href = link["href"]
             link_text = link.get_text(strip=True)
             
-            if href.endswith(".pdf") or ".pdf" in href:
+            # Condition élargie : .pdf, ou "arrete" dans l'URL, ou "قرار" dans le texte
+            if (href.endswith(".pdf") or ".pdf" in href or 
+                "arrete" in href.lower() or "قرار" in link_text):
+                
                 if href.startswith("/"):
                     full_url = f"{BASE_URL}{href}"
                 elif href.startswith("http"):
@@ -316,7 +318,7 @@ def get_annonce_detail(detail_url):
                     "score": 0
                 })
         
-        # Scorer les PDF
+        # Scorer les PDF pour privilégier "قرار فتح المباراة"
         for pdf in pdf_links:
             text_lower = pdf["text"].lower()
             if "قرار" in text_lower:
@@ -334,6 +336,9 @@ def get_annonce_detail(detail_url):
             result["pdf_url"] = best_pdf["url"]
             result["pdf_nom"] = best_pdf["text"]
             logger.info(f"    PDF trouvé: {best_pdf['text']} (score: {best_pdf['score']})")
+        else:
+            logger.info("    Aucun PDF trouvé")
+        # --- FIN CORRECTION ---
         
         # Administration
         admin_match = re.search(r"الإدارة المنظمة\s*[:]?s*(.+?)(?:\n|\r|$)", page_text)
