@@ -1,0 +1,61 @@
+name: Emploi-Public Scraper (FR)
+
+on:
+  schedule:
+    - cron: '0 9 */3 * *'  # Tous les 3 jours à 9h UTC
+  workflow_dispatch:
+
+jobs:
+  scraper:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v4
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+      
+      - name: Installation des dépendances
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      
+      - name: Exécution du scraper (FR)
+        env:
+          SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        run: python scraper_fr.py
+      
+      - name: Sauvegarde des résultats
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: scraper-results-fr-${{ github.run_id }}
+          path: |
+            data/
+          retention-days: 30
+      
+      - name: Commit des données
+        if: always()
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add data/
+          git diff --cached --quiet || git commit -m "Mise à jour des données scraper FR - $(date -u +%Y-%m-%d)"
+          git push
