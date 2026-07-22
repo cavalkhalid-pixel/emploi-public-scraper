@@ -33,7 +33,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       
-      - name: Exécution du scraper
+      - name: Exécution du scraper (AR)
         env:
           SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
           SMTP_PORT: ${{ secrets.SMTP_PORT }}
@@ -56,6 +56,7 @@ jobs:
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
+          git pull --rebase origin main || true
           git add data/
           git diff --cached --quiet || git commit -m "Mise à jour des données scraper - $(date -u +%Y-%m-%d)"
-          git push
+          git push origin main || true
