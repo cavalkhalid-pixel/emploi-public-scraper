@@ -33,7 +33,6 @@ HEADERS = {
     "Accept-Language": "fr,en;q=0.9",
 }
 
-# Catégories en français
 CATEGORIES = [
     {"name": "Concours de recrutement", "slug": "concours-liste", "detail_prefix": "concours"},
     {"name": "Emplois supérieurs", "slug": "emploi-sup-liste", "detail_prefix": "emploi-sup"},
@@ -109,17 +108,12 @@ def save_results(results):
         json.dump(results, f, ensure_ascii=False, indent=2)
 
 def parse_french_date(date_str):
-    """
-    Parse une date en français.
-    Exemples: "5 Août 2026", "20 Juillet 2026"
-    """
     mois_fr = {
         "janvier": 1, "février": 2, "mars": 3, "avril": 4,
         "mai": 5, "juin": 6, "juillet": 7, "août": 8, "aout": 8,
         "septembre": 9, "octobre": 10, "novembre": 11, "décembre": 12
     }
     date_str = date_str.strip()
-    # Pattern: jour mois année
     pattern = r"(\d{1,2})\s+([a-zA-ZàâäéèêëïîôöùûüÿçÀÂÄÉÈÊËÏÎÔÖÙÛÜŸÇ]+)\s+(\d{4})"
     match = re.search(pattern, date_str)
     if match:
@@ -158,90 +152,63 @@ def extract_text_from_pdf(pdf_url):
         logger.error(f"Erreur extraction PDF {pdf_url}: {e}")
         return ""
 
+# =========================== MODIFICATION ===========================
+# Suppression des détections larges (sous-chaînes) pour éviter les faux positifs
 def check_region_in_text(text):
-    """Recherche les noms de provinces dans un texte (HTML ou PDF)"""
+    """Recherche les noms de provinces exacts dans le texte."""
     if not text:
         return None
     text_lower = text.lower()
     for province in REGIONS_CIBLES:
         if province.lower() in text_lower:
             return province
-    # Détection large
-    if "souss" in text_lower or "ماسة" in text_lower:
-        return "Région Souss-Massa (détectée)"
-    if "guelmim" in text_lower or "oued noun" in text_lower or "كلميم" in text_lower:
-        return "Région Guelmim-Oued Noun (détectée)"
     return None
+# ===================================================================
 
 # ============================================================================
 # SCRAPING - VERSION FRANÇAISE
 # ============================================================================
 
 def get_liste_annonces(category_slug, page=0):
-    """
-    Récupère la liste des annonces d'une page de catégorie (version FR).
-    """
     url = f"{BASE_URL}/fr/{category_slug}"
     if page > 0:
         url += f"?page={page}"
-    
     logger.info(f"Scraping page: {url}")
-    
     try:
         response = requests.get(url, headers=HEADERS, timeout=30)
         response.raise_for_status()
         soup = BeautifulSoup(response.text, "html.parser")
-        
         annonces = []
-        
-        # Rechercher les éléments .s-item qui contiennent les annonces
         items = soup.find_all("div", class_="s-item")
-        
         for item in items:
-            # Chercher le lien vers la page de détail
             link = item.find("a", href=True)
             if not link:
                 continue
-            
             href = link.get("href", "")
             uuid_match = re.search(r"[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}", href)
             if not uuid_match:
                 continue
-            
             uuid = uuid_match.group(0)
-            
-            # Construire l'URL complète
             if href.startswith("/"):
                 detail_url = f"{BASE_URL}{href}"
             elif href.startswith("http"):
                 detail_url = href
             else:
                 detail_url = f"{BASE_URL}/fr/{href}"
-            
-            # Titre
             titre_elem = item.find("h2", class_="card-title")
             titre = titre_elem.get_text(strip=True) if titre_elem else ""
-            
-            # Administration
             admin_elem = item.find("div", class_="card-text")
             administration = admin_elem.get_text(strip=True) if admin_elem else ""
-            if administration.startswith("Ministère") or administration.startswith("Province"):
-                pass
-            
-            # Date limite
             date_text = ""
             footer = item.find("div", class_="card-footer")
             if footer:
                 for div in footer.find_all("div"):
                     text = div.get_text(strip=True)
                     if "Limite de dépôt" in text or "Délai de dépôt" in text:
-                        # Extraire la date
                         date_match = re.search(r"(\d{1,2}\s+[a-zA-Zàâäéèêëïîôöùûüÿç]+\s+\d{4})", text)
                         if date_match:
                             date_text = date_match.group(1)
                         break
-            
-            # Nombre de postes
             nb_postes = ""
             if footer:
                 for div in footer.find_all("div"):
@@ -251,7 +218,6 @@ def get_liste_annonces(category_slug, page=0):
                         if nb_match:
                             nb_postes = nb_match.group(1)
                         break
-            
             annonces.append({
                 "uuid": uuid,
                 "titre": titre,
@@ -261,25 +227,18 @@ def get_liste_annonces(category_slug, page=0):
                 "categorie": category_slug,
                 "nb_postes": nb_postes
             })
-        
         logger.info(f"  → {len(annonces)} annonces trouvées sur cette page")
         return annonces
-    
     except Exception as e:
         logger.error(f"Erreur scraping page {url}: {e}")
         return []
 
 def get_annonce_detail(detail_url):
-    """
-    Récupère les détails d'une annonce (version FR).
-    """
     logger.info(f"  Détails: {detail_url}")
-    
     try:
         response = requests.get(detail_url, headers=HEADERS, timeout=30)
         response.raise_for_status()
         soup = BeautifulSoup(response.text, "html.parser")
-        
         result = {
             "date_limite": None,
             "date_limite_text": "",
@@ -289,12 +248,10 @@ def get_annonce_detail(detail_url):
             "description": "",
             "page_text": ""
         }
-        
         page_text = soup.get_text(separator=" ", strip=True)
         result["page_text"] = page_text
-        
-        # === DATE LIMITE ===
-        # Chercher dans les éléments de la sidebar
+
+        # Date limite
         sidebar = soup.find("div", class_="s-content-box")
         if sidebar:
             for h3 in sidebar.find_all("h3", class_="h4"):
@@ -305,8 +262,6 @@ def get_annonce_detail(detail_url):
                         result["date_limite_text"] = date_text
                         result["date_limite"] = parse_french_date(date_text)
                     break
-        
-        # Si non trouvé, chercher dans tout le texte
         if not result["date_limite_text"]:
             date_patterns = [
                 r"Délai de dépôt des candidatures\s*[:]?\s*(\d{1,2}\s+[a-zA-Zàâäéèêëïîôöùûüÿç]+\s+\d{4})",
@@ -318,15 +273,12 @@ def get_annonce_detail(detail_url):
                     result["date_limite_text"] = match.group(1).strip()
                     result["date_limite"] = parse_french_date(result["date_limite_text"])
                     break
-        
-        # === PDF (Arrêté d'ouverture) ===
-        # Chercher dans la section "Téléchargement"
+
+        # PDF
         pdf_links = []
         for link in soup.find_all("a", href=True):
             href = link["href"]
             link_text = link.get_text(strip=True)
-            
-            # Détecter l'arrêté
             if "arrete" in href.lower() or "Arrêté" in link_text or "arrêté" in link_text.lower():
                 if href.startswith("/"):
                     full_url = f"{BASE_URL}{href}"
@@ -334,13 +286,7 @@ def get_annonce_detail(detail_url):
                     full_url = href
                 else:
                     full_url = f"{BASE_URL}/fr/{href}"
-                pdf_links.append({
-                    "url": full_url,
-                    "text": link_text,
-                    "score": 10
-                })
-            
-            # Détecter les PDF en général
+                pdf_links.append({"url": full_url, "text": link_text, "score": 10})
             elif href.endswith(".pdf") or ".pdf" in href:
                 if href.startswith("/"):
                     full_url = f"{BASE_URL}{href}"
@@ -348,13 +294,7 @@ def get_annonce_detail(detail_url):
                     full_url = href
                 else:
                     full_url = f"{BASE_URL}/fr/{href}"
-                pdf_links.append({
-                    "url": full_url,
-                    "text": link_text,
-                    "score": 5
-                })
-        
-        # Prendre le meilleur PDF
+                pdf_links.append({"url": full_url, "text": link_text, "score": 5})
         if pdf_links:
             pdf_links.sort(key=lambda x: x["score"], reverse=True)
             best = pdf_links[0]
@@ -363,8 +303,8 @@ def get_annonce_detail(detail_url):
             logger.info(f"    PDF trouvé: {best['text']}")
         else:
             logger.info("    Aucun PDF trouvé")
-        
-        # === ADMINISTRATION ===
+
+        # Administration
         if sidebar:
             for h3 in sidebar.find_all("h3", class_="h4"):
                 span = h3.find("span")
@@ -373,14 +313,12 @@ def get_annonce_detail(detail_url):
                     if admin_text:
                         result["administration"] = admin_text
                     break
-        
         if not result["administration"]:
             admin_match = re.search(r"Administration qui recrute\s*[:]?\s*(.+?)(?:\n|$)", page_text)
             if admin_match:
                 result["administration"] = admin_match.group(1).strip()
-        
+
         return result
-    
     except Exception as e:
         logger.error(f"Erreur détails annonce {detail_url}: {e}")
         return {"date_limite": None, "date_limite_text": "", "pdf_url": None, "pdf_nom": "", "administration": "", "description": "", "page_text": ""}
@@ -425,8 +363,6 @@ def run_scraper():
                 seen.add(uuid)
 
                 details = get_annonce_detail(annonce["detail_url"])
-                
-                # Utiliser la date de la liste si non trouvée dans les détails
                 if not details["date_limite_text"] and annonce["date_limite_text"]:
                     details["date_limite_text"] = annonce["date_limite_text"]
                     details["date_limite"] = parse_french_date(annonce["date_limite_text"])
@@ -443,7 +379,6 @@ def run_scraper():
                 total_en_cours += 1
                 logger.info(f"  [EN COURS] {annonce['titre'][:60]}... → {details['date_limite']}")
 
-                # --- Détection de région ---
                 region_trouvee = None
                 pdf_text = ""
 
@@ -454,7 +389,6 @@ def run_scraper():
                     if pdf_text:
                         region_trouvee = check_region_in_text(pdf_text)
 
-                # Fallback : chercher dans le texte de la page HTML
                 if not region_trouvee and details.get("page_text"):
                     region_trouvee = check_region_in_text(details["page_text"])
                     if region_trouvee:
@@ -499,7 +433,7 @@ def run_scraper():
     return new_results, all_results, total_traitees, total_en_cours, total_pdf_lus, total_match_region
 
 # ============================================================================
-# ENVOI D'EMAIL
+# ENVOI D'EMAIL AVEC REGROUPEMENT PAR CATÉGORIE
 # ============================================================================
 
 def send_email_report(new_results, all_results, total_traitees, total_en_cours, total_pdf_lus, total_match_region):
@@ -516,6 +450,7 @@ def send_email_report(new_results, all_results, total_traitees, total_en_cours, 
         msg["From"] = SMTP_USER
         msg["To"] = EMAIL_TO
 
+        # Texte
         text_body = f"""
 Agent Emploi-Public.ma (FR) - Rapport du {date.today().isoformat()}
 {'=' * 60}
@@ -530,33 +465,36 @@ STATISTIQUES:
 
 """
         if new_results:
+            grouped = {}
+            for r in new_results:
+                cat = r.get('categorie', 'Autre')
+                grouped.setdefault(cat, []).append(r)
+            
             text_body += f"NOUVELLES ANNONCES TROUVÉES: {len(new_results)}\n\n"
-            for i, r in enumerate(new_results, 1):
-                text_body += f"""
---- Annonce {i} ---
-Titre: {r['titre']}
-Administration: {r['administration']}
-Catégorie: {r['categorie']}
-Date limite: {r['date_limite_text']}
-Région détectée: {r['region_detectee']}
-Lien: {r['detail_url']}
-PDF: {r['pdf_url']}
+            for cat, annonces in grouped.items():
+                text_body += f"\n--- {cat} ---\n"
+                for i, r in enumerate(annonces, 1):
+                    text_body += f"""
+{i}. Titre: {r['titre']}
+   Administration: {r['administration']}
+   Date limite: {r['date_limite_text']} ({r['date_limite']})
+   Région: {r['region_detectee']}
+   Lien: {r['detail_url']}
+   PDF: {r['pdf_url']}
 
 """
         else:
             text_body += "Aucune nouvelle annonce trouvée pour les régions cibles.\n"
-            text_body += "Le bot fonctionne correctement et continuera à surveiller.\n"
 
         text_body += f"""
 {'=' * 60}
 RÉGIONS SURVEILLÉES:
 - Souss-Massa: Agadir, Taroudant, Tiznit, Inezgane, Chtouka...
 - Guelmim-Oued Noun: Guelmim, Assa Zag, Tarfaya, Tan Tan, Sidi Ifni...
-
 Prochaine exécution: dans 3 jours
 """
 
-        # Version HTML simplifiée
+        # HTML
         html_body = f"""<!DOCTYPE html>
 <html dir="ltr" lang="fr">
 <head>
@@ -568,6 +506,7 @@ body {{ font-family: Arial, sans-serif; }}
 .stat-item {{ display: inline-block; margin: 5px 15px; }}
 .stat-value {{ font-size: 24px; font-weight: bold; color: #1a5276; }}
 .stat-label {{ font-size: 12px; color: #666; }}
+.categorie {{ margin-top: 25px; background: #e8f0fe; padding: 10px; border-radius: 5px; }}
 .annonce {{ border: 1px solid #ddd; margin: 15px 0; padding: 15px; border-radius: 8px; background: #f9f9f9; }}
 .titre {{ color: #1a5276; font-size: 18px; font-weight: bold; }}
 .match {{ color: #27ae60; font-weight: bold; }}
@@ -586,13 +525,19 @@ body {{ font-family: Arial, sans-serif; }}
 </div>
 """
         if new_results:
-            html_body += f"<h3>✅ {len(new_results)} nouvelle(s) annonce(s) trouvée(s)</h3>"
+            grouped = {}
             for r in new_results:
-                html_body += f"""
+                cat = r.get('categorie', 'Autre')
+                grouped.setdefault(cat, []).append(r)
+            
+            html_body += f"<h3>✅ {len(new_results)} nouvelle(s) annonce(s) trouvée(s)</h3>"
+            for cat, annonces in grouped.items():
+                html_body += f'<div class="categorie"><h3>{cat}</h3></div>'
+                for r in annonces:
+                    html_body += f"""
 <div class="annonce">
 <div class="titre">{r['titre']}</div>
 <div class="info"><strong>Administration:</strong> {r['administration']}</div>
-<div class="info"><strong>Catégorie:</strong> {r['categorie']}</div>
 <div class="info"><strong>Date limite:</strong> {r['date_limite_text']}</div>
 <div class="info match">📍 {r['region_detectee']}</div>
 <div class="info"><a href="{r['detail_url']}">🔗 Voir l'annonce</a> | <a href="{r['pdf_url']}">📄 Télécharger le PDF</a></div>
