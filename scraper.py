@@ -113,6 +113,8 @@ def parse_arabic_date(date_str):
         "يوليو": 7, "أغسطس": 8, "سبتمبر": 9, "نوفمبر": 11, "ديسمبر": 12
     }
     date_str = date_str.strip()
+    # Supprimer les éventuels préfixes comme "آخر أجل لإيداع ملفات الترشيح : "
+    date_str = re.sub(r'^.*?:\s*', '', date_str)
     pattern = r"(\d{1,2})\s+([\u0621-\u064A]+)\s+(\d{4})"
     match = re.search(pattern, date_str)
     if match:
@@ -175,46 +177,58 @@ def get_liste_annonces(category_slug, page=0):
         response.raise_for_status()
         soup = BeautifulSoup(response.text, "html.parser")
         annonces = []
-        # Recherche des liens vers les détails
-        for link in soup.find_all("a", href=True):
-            href = link["href"]
+
+        # Chercher chaque élément .s-item
+        items = soup.find_all("div", class_="s-item")
+        for item in items:
+            # Lien vers la page de détail
+            link = item.find("a", href=True)
+            if not link:
+                continue
+            href = link.get("href", "")
             uuid_match = re.search(r"[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}", href)
             if not uuid_match:
                 continue
             uuid = uuid_match.group(0)
-            if any(a["uuid"] == uuid for a in annonces):
-                continue
+
+            # URL complète
             if href.startswith("/"):
                 detail_url = f"{BASE_URL}{href}"
             elif href.startswith("http"):
                 detail_url = href
             else:
                 detail_url = f"{BASE_URL}/ar/{href}"
-            titre = link.get_text(strip=True)
-            if not titre:
-                parent = link.find_parent(["div", "li", "article", "td"])
-                if parent:
-                    strong = parent.find("strong")
-                    if strong:
-                        titre = strong.get_text(strip=True)
-                    else:
-                        titre = parent.get_text(strip=True)[:200]
-            # Date limite
+
+            # Titre
+            titre_elem = item.find("h2", class_="card-title")
+            titre = titre_elem.get_text(strip=True) if titre_elem else ""
+
+            # Administration
+            admin_elem = item.find("div", class_="card-text")
+            administration = admin_elem.get_text(strip=True) if admin_elem else ""
+
+            # Date limite : chercher dans .card-footer
             date_text = ""
-            parent = link.find_parent(["div", "li", "article", "td"])
-            if parent:
-                parent_text = parent.get_text()
-                date_match = re.search(r"آخر أجل لإيداع ملفات الترشيح\s*:\s*([0-9]{1,2}\s+[\u0621-\u064A]+\s+[0-9]{4})", parent_text)
-                if date_match:
-                    date_text = date_match.group(1).strip()
+            footer = item.find("div", class_="card-footer")
+            if footer:
+                for div in footer.find_all("div"):
+                    text = div.get_text(strip=True)
+                    if "آخر أجل" in text:
+                        # Extraire la date après les deux points
+                        match = re.search(r'آخر أجل[^:]*:\s*(.+)$', text)
+                        if match:
+                            date_text = match.group(1).strip()
+                        break
+
             annonces.append({
                 "uuid": uuid,
                 "titre": titre,
-                "administration": "",
+                "administration": administration,
                 "date_limite_text": date_text,
                 "detail_url": detail_url,
                 "categorie": category_slug
             })
+
         logger.info(f"  → {len(annonces)} annonces trouvées sur cette page")
         return annonces
     except Exception as e:
@@ -239,26 +253,32 @@ def get_annonce_detail(detail_url):
         page_text = soup.get_text(separator=" ", strip=True)
         result["page_text"] = page_text
 
-        # Date limite
-        date_patterns = [
-            r"آخر أجل لإيداع الترشيحات\s*[:]?\s*([0-9]{1,2}\s+[\u0621-\u064A]+\s+[0-9]{4})",
-            r"آخر أجل لإيداع ملفات الترشيح\s*[:]?\s*([0-9]{1,2}\s+[\u0621-\u064A]+\s+[0-9]{4})",
-            r"آخر أجل\s*[:]?\s*([0-9]{1,2}\s+[\u0621-\u064A]+\s+[0-9]{4})",
-        ]
-        for pattern in date_patterns:
-            match = re.search(pattern, page_text)
+        # Date limite - depuis la sidebar (s-content-box)
+        sidebar = soup.find("div", class_="s-content-box")
+        if sidebar:
+            for h3 in sidebar.find_all("h3", class_="h4"):
+                span = h3.find("span")
+                if span and "آخر أجل" in span.get_text():
+                    date_text = h3.get_text(strip=True).replace(span.get_text(strip=True), "").strip()
+                    if date_text:
+                        result["date_limite_text"] = date_text
+                        result["date_limite"] = parse_arabic_date(date_text)
+                    break
+
+        # Si non trouvé, chercher dans tout le texte
+        if not result["date_limite_text"]:
+            match = re.search(r"آخر أجل[^:]*:\s*([0-9]{1,2}\s+[\u0621-\u064A]+\s+[0-9]{4})", page_text)
             if match:
                 result["date_limite_text"] = match.group(1).strip()
                 result["date_limite"] = parse_arabic_date(result["date_limite_text"])
-                break
 
-        # PDF
+        # PDF - chercher "قرار فتح" ou "arrete"
         pdf_links = []
         for link in soup.find_all("a", href=True):
             href = link["href"]
             link_text = link.get_text(strip=True)
-            if (href.endswith(".pdf") or ".pdf" in href or
-                "arrete" in href.lower() or "قرار" in link_text or "فتح" in link_text):
+            # On cherche les liens qui contiennent "arrete" ou "قرار" dans le texte
+            if "arrete" in href.lower() or "قرار" in link_text or "فتح" in link_text:
                 if href.startswith("/"):
                     full_url = f"{BASE_URL}{href}"
                 elif href.startswith("http"):
@@ -266,12 +286,18 @@ def get_annonce_detail(detail_url):
                 else:
                     full_url = f"{BASE_URL}/ar/{href}"
                 pdf_links.append({"url": full_url, "text": link_text, "score": 0})
+
+        # Priorité au lien avec "قرار فتح المباراة"
         for pdf in pdf_links:
             t = pdf["text"].lower()
-            if "قرار" in t: pdf["score"] += 10
-            if "فتح" in t: pdf["score"] += 5
-            if "باب" in t: pdf["score"] += 5
-            if "ترشيح" in t: pdf["score"] += 5
+            if "قرار" in t:
+                pdf["score"] += 10
+            if "فتح" in t:
+                pdf["score"] += 5
+            if "باب" in t:
+                pdf["score"] += 5
+            if "ترشيح" in t:
+                pdf["score"] += 5
         if pdf_links:
             pdf_links.sort(key=lambda x: x["score"], reverse=True)
             best = pdf_links[0]
@@ -282,9 +308,18 @@ def get_annonce_detail(detail_url):
             logger.info("    Aucun PDF trouvé")
 
         # Administration
-        admin_match = re.search(r"الإدارة المنظمة\s*[:]?\s*(.+?)(?:\n|\r|$)", page_text)
-        if admin_match:
-            result["administration"] = admin_match.group(1).strip()
+        if sidebar:
+            for h3 in sidebar.find_all("h3", class_="h4"):
+                span = h3.find("span")
+                if span and "الإدارة المنظمة" in span.get_text():
+                    admin_text = h3.get_text(strip=True).replace(span.get_text(strip=True), "").strip()
+                    if admin_text:
+                        result["administration"] = admin_text
+                    break
+        if not result["administration"]:
+            match = re.search(r"الإدارة المنظمة\s*[:]?\s*(.+?)(?:\n|$)", page_text)
+            if match:
+                result["administration"] = match.group(1).strip()
 
         return result
     except Exception as e:
@@ -331,6 +366,7 @@ def run_scraper():
                 seen.add(uuid)
 
                 details = get_annonce_detail(annonce["detail_url"])
+                # Si la date n'a pas été trouvée dans la page détail, utiliser celle de la liste
                 if not details["date_limite_text"] and annonce["date_limite_text"]:
                     details["date_limite_text"] = annonce["date_limite_text"]
                     details["date_limite"] = parse_arabic_date(annonce["date_limite_text"])
@@ -357,6 +393,7 @@ def run_scraper():
                     if pdf_text:
                         region_trouvee = check_region_in_text(pdf_text)
 
+                # Fallback : chercher dans la page HTML si le PDF ne donne rien
                 if not region_trouvee and details.get("page_text"):
                     region_trouvee = check_region_in_text(details["page_text"])
                     if region_trouvee:
