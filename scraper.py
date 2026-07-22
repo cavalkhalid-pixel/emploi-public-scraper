@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Agent de scraping pour emploi-public.ma - VERSION AVEC DÉTECTION HTML + PDF
+Agent de scraping pour emploi-public.ma - VERSION ARABE
+Scanne les 4 catégories en arabe et recherche les annonces
+dans les régions Souss-Massa et Guelmim-Oued Noun.
 """
 
 import os
@@ -32,10 +34,10 @@ HEADERS = {
 }
 
 CATEGORIES = [
-    {"name": "مناصب المسؤولية", "slug": "قائمة-مناصب-المسؤولية"},
-    {"name": "المناصب العليا", "slug": "قائمة-المناصب-العليا"},
-    {"name": "المباريات", "slug": "قائمة-المباريات"},
-    {"name": "تشغيل الخبراء", "slug": "قائمة-تشغيل-الخبراء"}
+    {"name": "مناصب المسؤولية", "slug": "قائمة-مناصب-المسؤولية", "detail_slug": "مناصب-المسؤولية"},
+    {"name": "المناصب العليا", "slug": "قائمة-المناصب-العليا", "detail_slug": "المناصب-العليا"},
+    {"name": "المباريات", "slug": "قائمة-المباريات", "detail_slug": "المباريات"},
+    {"name": "تشغيل الخبراء", "slug": "قائمة-تشغيل-الخبراء", "detail_slug": "تشغيل-الخبراء"}
 ]
 
 MAX_PAGES = 3
@@ -44,13 +46,15 @@ PROVINCES_SOUSS_MASSA = [
     "أكادير", "إداوتنان", "إنزكان", "آيت ملول", "تارودانت",
     "تيزنيت", "شتوكة", "آيت باها", "أكادير إداوتنان",
     "إنزكان آيت ملول", "شتوكة آيت باها", "سوس", "سوس ماسة",
-    "أكادير أيت ملول"
+    "أكادير أيت ملول", "تارودانت", "تيزنيت", "أكادير-إداوتنان",
+    "إنزكان-آيت-ملول", "شتوكة-آيت-باها"
 ]
 
 PROVINCES_GUELMIM_OUED_NOUN = [
     "كلميم", "أسا الزاك", "طرفاية", "طانطان", "سيدي إفني",
     "أسا", "الزاك", "كلميم واد نون", "كلميم-واد-نون",
-    "سيدي-إفني"
+    "كلميم واد نون", "أسا-الزاك", "كلميم-واد-نون",
+    "سيدي-إفني", "طانطان", "طرفاية"
 ]
 
 REGIONS_CIBLES = PROVINCES_SOUSS_MASSA + PROVINCES_GUELMIM_OUED_NOUN
@@ -151,8 +155,10 @@ def extract_text_from_pdf(pdf_url):
         logger.error(f"Erreur extraction PDF {pdf_url}: {e}")
         return ""
 
+# =========================== MODIFICATION ===========================
+# Suppression des détections larges (sous-chaînes) pour éviter les faux positifs
 def check_region_in_text(text):
-    """Recherche les noms de provinces dans un texte (HTML ou PDF)"""
+    """Recherche les noms de provinces exacts dans le texte."""
     if not text:
         return None
     text_normalized = text.lower().replace("-", " ").replace("_", " ")
@@ -160,15 +166,11 @@ def check_region_in_text(text):
         province_normalized = province.lower().replace("-", " ").replace("_", " ")
         if province_normalized in text_normalized:
             return province
-    # Détection large
-    if "سوس" in text or "ماسة" in text:
-        return "Région Souss-Massa (détectée)"
-    if "كلميم" in text or "واد نون" in text or "واد النون" in text:
-        return "Région Guelmim-Oued Noun (détectée)"
     return None
+# ===================================================================
 
 # ============================================================================
-# SCRAPING
+# FONCTIONS DE SCRAPING
 # ============================================================================
 
 def get_liste_annonces(category_slug, page=0):
@@ -189,7 +191,6 @@ def get_liste_annonces(category_slug, page=0):
             uuid = uuid_match.group(0)
             if any(a["uuid"] == uuid for a in annonces):
                 continue
-            # Construire l'URL complète
             if href.startswith("/"):
                 detail_url = f"{BASE_URL}{href}"
             elif href.startswith("http"):
@@ -205,7 +206,6 @@ def get_liste_annonces(category_slug, page=0):
                         titre = strong.get_text(strip=True)
                     else:
                         titre = parent.get_text(strip=True)[:200]
-            # Date limite
             date_text = ""
             parent = link.find_parent(["div", "li", "article", "td"])
             if parent:
@@ -240,7 +240,7 @@ def get_annonce_detail(detail_url):
             "pdf_nom": "",
             "administration": "",
             "description": "",
-            "page_text": ""  # Texte complet de la page pour fallback
+            "page_text": ""
         }
         page_text = soup.get_text(separator=" ", strip=True)
         result["page_text"] = page_text
@@ -258,7 +258,7 @@ def get_annonce_detail(detail_url):
                 result["date_limite"] = parse_arabic_date(result["date_limite_text"])
                 break
 
-        # PDF (lien "arrete" ou texte "قرار")
+        # PDF
         pdf_links = []
         for link in soup.find_all("a", href=True):
             href = link["href"]
@@ -272,7 +272,6 @@ def get_annonce_detail(detail_url):
                 else:
                     full_url = f"{BASE_URL}/ar/{href}"
                 pdf_links.append({"url": full_url, "text": link_text, "score": 0})
-        # Score
         for pdf in pdf_links:
             t = pdf["text"].lower()
             if "قرار" in t: pdf["score"] += 10
@@ -304,7 +303,7 @@ def get_annonce_detail(detail_url):
 
 def run_scraper():
     logger.info("=" * 60)
-    logger.info("DÉMARRAGE DU SCRAPER emploi-public.ma")
+    logger.info("DÉMARRAGE DU SCRAPER emploi-public.ma (AR)")
     logger.info(f"Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     logger.info("=" * 60)
 
@@ -354,7 +353,6 @@ def run_scraper():
                 total_en_cours += 1
                 logger.info(f"  [EN COURS] {annonce['titre'][:60]}... → {details['date_limite']}")
 
-                # --- Détection de région : d'abord dans le PDF, puis dans la page HTML ---
                 region_trouvee = None
                 pdf_text = ""
 
@@ -373,7 +371,7 @@ def run_scraper():
 
                 if region_trouvee:
                     total_match_region += 1
-                    logger.info(f"    ✓✓✓ MATCH RÉGION: {region_trouvee} (source: {'PDF' if pdf_text else 'page HTML'})")
+                    logger.info(f"    ✓✓✓ MATCH RÉGION: {region_trouvee}")
                     result = {
                         "uuid": uuid,
                         "titre": annonce["titre"],
@@ -410,7 +408,7 @@ def run_scraper():
     return new_results, all_results, total_traitees, total_en_cours, total_pdf_lus, total_match_region
 
 # ============================================================================
-# ENVOI D'EMAIL (toujours)
+# ENVOI D'EMAIL AVEC REGROUPEMENT PAR CATÉGORIE
 # ============================================================================
 
 def send_email_report(new_results, all_results, total_traitees, total_en_cours, total_pdf_lus, total_match_region):
@@ -421,17 +419,18 @@ def send_email_report(new_results, all_results, total_traitees, total_en_cours, 
     try:
         msg = MIMEMultipart("alternative")
         if new_results:
-            msg["Subject"] = f"[Emploi Public] {len(new_results)} nouvelle(s) annonce(s) - {date.today().isoformat()}"
+            msg["Subject"] = f"[Emploi Public AR] {len(new_results)} nouvelle(s) annonce(s) - {date.today().isoformat()}"
         else:
-            msg["Subject"] = f"[Emploi Public] Rapport quotidien - {date.today().isoformat()}"
+            msg["Subject"] = f"[Emploi Public AR] Rapport - {date.today().isoformat()}"
         msg["From"] = SMTP_USER
         msg["To"] = EMAIL_TO
 
+        # Corps texte
         text_body = f"""
-Agent Emploi-Public.ma - Rapport du {date.today().isoformat()}
+Agent Emploi-Public.ma (AR) - Rapport du {date.today().isoformat()}
 {'=' * 60}
 
-STATISTIQUES DE CETTE EXÉCUTION:
+STATISTIQUES:
 - Annonces analysées: {total_traitees}
 - Dates en cours: {total_en_cours}
 - PDF lus: {total_pdf_lus}
@@ -441,21 +440,27 @@ STATISTIQUES DE CETTE EXÉCUTION:
 
 """
         if new_results:
+            # Grouper par catégorie
+            grouped = {}
+            for r in new_results:
+                cat = r.get('categorie', 'Autre')
+                grouped.setdefault(cat, []).append(r)
+            
             text_body += f"NOUVELLES ANNONCES TROUVÉES: {len(new_results)}\n\n"
-            for i, r in enumerate(new_results, 1):
-                text_body += f"""
---- Annonce {i} ---
-Titre: {r['titre']}
-Administration: {r['administration']}
-Catégorie: {r['categorie']}
-Date limite: {r['date_limite_text']} ({r['date_limite']})
-Région détectée: {r['region_detectee']}
-Lien: {r['detail_url']}
-PDF: {r['pdf_url']}
+            for cat, annonces in grouped.items():
+                text_body += f"\n--- {cat} ---\n"
+                for i, r in enumerate(annonces, 1):
+                    text_body += f"""
+{i}. Titre: {r['titre']}
+   Administration: {r['administration']}
+   Date limite: {r['date_limite_text']} ({r['date_limite']})
+   Région: {r['region_detectee']}
+   Lien: {r['detail_url']}
+   PDF: {r['pdf_url']}
+
 """
         else:
             text_body += "Aucune nouvelle annonce trouvée pour les régions cibles.\n"
-            text_body += "Le bot fonctionne correctement et continuera à surveiller.\n"
 
         text_body += f"""
 {'=' * 60}
@@ -465,24 +470,28 @@ RÉGIONS SURVEILLÉES:
 Prochaine exécution: dans 3 jours
 """
 
-        # Version HTML (similaire à l'ancienne)
+        # Corps HTML
         html_body = f"""<!DOCTYPE html>
 <html dir="rtl" lang="ar">
-<head><meta charset="UTF-8"><style>
+<head>
+<meta charset="UTF-8">
+<style>
 body {{ font-family: Arial, sans-serif; direction: rtl; }}
-.header {{ background: #1a5276; color: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; }}
+.header {{ background: #1a5276; color: white; padding: 20px; border-radius: 8px; }}
 .stats {{ background: #f0f0f0; padding: 15px; border-radius: 8px; margin: 15px 0; }}
 .stat-item {{ display: inline-block; margin: 5px 15px; }}
 .stat-value {{ font-size: 24px; font-weight: bold; color: #1a5276; }}
 .stat-label {{ font-size: 12px; color: #666; }}
+.categorie {{ margin-top: 25px; background: #e8f0fe; padding: 10px; border-radius: 5px; }}
 .annonce {{ border: 1px solid #ddd; margin: 15px 0; padding: 15px; border-radius: 8px; background: #f9f9f9; }}
 .titre {{ color: #1a5276; font-size: 18px; font-weight: bold; }}
 .match {{ color: #27ae60; font-weight: bold; }}
 .no-result {{ background: #fff3cd; padding: 20px; border-radius: 8px; text-align: center; }}
 .footer {{ margin-top: 30px; padding: 15px; background: #eee; border-radius: 8px; text-align: center; }}
-</style></head>
+</style>
+</head>
 <body>
-<div class="header"><h2>📋 Agent Emploi-Public.ma</h2><p>Rapport du {date.today().isoformat()}</p></div>
+<div class="header"><h2>📋 Agent Emploi-Public.ma (AR)</h2><p>Rapport du {date.today().isoformat()}</p></div>
 <div class="stats">
 <div class="stat-item"><div class="stat-value">{total_traitees}</div><div class="stat-label">Annonces analysées</div></div>
 <div class="stat-item"><div class="stat-value">{total_en_cours}</div><div class="stat-label">En cours</div></div>
@@ -492,13 +501,19 @@ body {{ font-family: Arial, sans-serif; direction: rtl; }}
 </div>
 """
         if new_results:
-            html_body += f"<h3>✅ {len(new_results)} nouvelle(s) annonce(s) trouvée(s)</h3>"
+            grouped = {}
             for r in new_results:
-                html_body += f"""
+                cat = r.get('categorie', 'Autre')
+                grouped.setdefault(cat, []).append(r)
+            
+            html_body += f"<h3>✅ {len(new_results)} nouvelle(s) annonce(s) trouvée(s)</h3>"
+            for cat, annonces in grouped.items():
+                html_body += f'<div class="categorie"><h3>{cat}</h3></div>'
+                for r in annonces:
+                    html_body += f"""
 <div class="annonce">
 <div class="titre">{r['titre']}</div>
 <div class="info"><span class="label">الإدارة:</span> {r['administration']}</div>
-<div class="info"><span class="label">الفئة:</span> {r['categorie']}</div>
 <div class="info"><span class="label">آخر أجل:</span> {r['date_limite_text']}</div>
 <div class="info match">📍 {r['region_detectee']}</div>
 <div class="info"><a href="{r['detail_url']}">🔗 Voir l'annonce</a> | <a href="{r['pdf_url']}">📄 Télécharger le PDF</a></div>
@@ -509,14 +524,12 @@ body {{ font-family: Arial, sans-serif; direction: rtl; }}
 <div class="no-result">
 <h3>📭 Aucune nouvelle annonce trouvée</h3>
 <p>Le bot a analysé <strong>{total_traitees}</strong> annonces mais aucune ne correspond aux régions cibles.</p>
-<p>Il continuera à surveiller automatiquement.</p>
 </div>
 """
         html_body += f"""
 <div class="footer">
 <p>Total annonces en base: <strong>{len(all_results)}</strong></p>
 <p><em>Agent automatique - Emploi-Public.ma</em></p>
-<p>Prochaine exécution: dans 3 jours</p>
 </div>
 </body>
 </html>"""
