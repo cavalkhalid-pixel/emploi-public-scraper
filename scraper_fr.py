@@ -111,6 +111,8 @@ def parse_french_date(date_str):
         "septembre": 9, "octobre": 10, "novembre": 11, "décembre": 12
     }
     date_str = date_str.strip()
+    # Supprimer les préfixes
+    date_str = re.sub(r'^.*?:\s*', '', date_str)
     pattern = r"(\d{1,2})\s+([a-zA-ZàâäéèêëïîôöùûüÿçÀÂÄÉÈÊËÏÎÔÖÙÛÜŸÇ]+)\s+(\d{4})"
     match = re.search(pattern, date_str)
     if match:
@@ -188,20 +190,25 @@ def get_liste_annonces(category_slug, page=0):
                 detail_url = href
             else:
                 detail_url = f"{BASE_URL}/fr/{href}"
+
             titre_elem = item.find("h2", class_="card-title")
             titre = titre_elem.get_text(strip=True) if titre_elem else ""
+
             admin_elem = item.find("div", class_="card-text")
             administration = admin_elem.get_text(strip=True) if admin_elem else ""
+
+            # Date limite
             date_text = ""
             footer = item.find("div", class_="card-footer")
             if footer:
                 for div in footer.find_all("div"):
                     text = div.get_text(strip=True)
                     if "Limite de dépôt" in text or "Délai de dépôt" in text:
-                        date_match = re.search(r"(\d{1,2}\s+[a-zA-Zàâäéèêëïîôöùûüÿç]+\s+\d{4})", text)
-                        if date_match:
-                            date_text = date_match.group(1)
+                        match = re.search(r'(?:Limite|Délai) de dépôt[^:]*:\s*(.+)$', text)
+                        if match:
+                            date_text = match.group(1).strip()
                         break
+
             annonces.append({
                 "uuid": uuid,
                 "titre": titre,
@@ -234,7 +241,7 @@ def get_annonce_detail(detail_url):
         page_text = soup.get_text(separator=" ", strip=True)
         result["page_text"] = page_text
 
-        # Date limite
+        # Date limite depuis la sidebar
         sidebar = soup.find("div", class_="s-content-box")
         if sidebar:
             for h3 in sidebar.find_all("h3", class_="h4"):
@@ -246,16 +253,10 @@ def get_annonce_detail(detail_url):
                         result["date_limite"] = parse_french_date(date_text)
                     break
         if not result["date_limite_text"]:
-            date_patterns = [
-                r"Délai de dépôt des candidatures\s*[:]?\s*(\d{1,2}\s+[a-zA-Zàâäéèêëïîôöùûüÿç]+\s+\d{4})",
-                r"Limite de dépôt\s*[:]?\s*(\d{1,2}\s+[a-zA-Zàâäéèêëïîôöùûüÿç]+\s+\d{4})",
-            ]
-            for pattern in date_patterns:
-                match = re.search(pattern, page_text, re.IGNORECASE)
-                if match:
-                    result["date_limite_text"] = match.group(1).strip()
-                    result["date_limite"] = parse_french_date(result["date_limite_text"])
-                    break
+            match = re.search(r"(?:Délai|Limite) de dépôt[^:]*:\s*(\d{1,2}\s+[a-zA-Zàâäéèêëïîôöùûüÿç]+\s+\d{4})", page_text, re.IGNORECASE)
+            if match:
+                result["date_limite_text"] = match.group(1).strip()
+                result["date_limite"] = parse_french_date(result["date_limite_text"])
 
         # PDF
         pdf_links = []
@@ -297,9 +298,9 @@ def get_annonce_detail(detail_url):
                         result["administration"] = admin_text
                     break
         if not result["administration"]:
-            admin_match = re.search(r"Administration qui recrute\s*[:]?\s*(.+?)(?:\n|$)", page_text)
-            if admin_match:
-                result["administration"] = admin_match.group(1).strip()
+            match = re.search(r"Administration qui recrute\s*[:]?\s*(.+?)(?:\n|$)", page_text)
+            if match:
+                result["administration"] = match.group(1).strip()
 
         return result
     except Exception as e:
