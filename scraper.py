@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*-
 """
 Agent de scraping pour emploi-public.ma - VERSION ARABE
-Scanne les 4 catégories en arabe et recherche les annonces
-dans les régions Souss-Massa et Guelmim-Oued Noun.
 """
 
 import os
@@ -34,10 +32,10 @@ HEADERS = {
 }
 
 CATEGORIES = [
-    {"name": "مناصب المسؤولية", "slug": "قائمة-مناصب-المسؤولية", "detail_slug": "مناصب-المسؤولية"},
-    {"name": "المناصب العليا", "slug": "قائمة-المناصب-العليا", "detail_slug": "المناصب-العليا"},
-    {"name": "المباريات", "slug": "قائمة-المباريات", "detail_slug": "المباريات"},
-    {"name": "تشغيل الخبراء", "slug": "قائمة-تشغيل-الخبراء", "detail_slug": "تشغيل-الخبراء"}
+    {"name": "مناصب المسؤولية", "slug": "قائمة-مناصب-المسؤولية"},
+    {"name": "المناصب العليا", "slug": "قائمة-المناصب-العليا"},
+    {"name": "المباريات", "slug": "قائمة-المباريات"},
+    {"name": "تشغيل الخبراء", "slug": "قائمة-تشغيل-الخبراء"}
 ]
 
 MAX_PAGES = 3
@@ -46,15 +44,13 @@ PROVINCES_SOUSS_MASSA = [
     "أكادير", "إداوتنان", "إنزكان", "آيت ملول", "تارودانت",
     "تيزنيت", "شتوكة", "آيت باها", "أكادير إداوتنان",
     "إنزكان آيت ملول", "شتوكة آيت باها", "سوس", "سوس ماسة",
-    "أكادير أيت ملول", "تارودانت", "تيزنيت", "أكادير-إداوتنان",
-    "إنزكان-آيت-ملول", "شتوكة-آيت-باها"
+    "أكادير أيت ملول"
 ]
 
 PROVINCES_GUELMIM_OUED_NOUN = [
     "كلميم", "أسا الزاك", "طرفاية", "طانطان", "سيدي إفني",
     "أسا", "الزاك", "كلميم واد نون", "كلميم-واد-نون",
-    "كلميم واد نون", "أسا-الزاك", "كلميم-واد-نون",
-    "سيدي-إفني", "طانطان", "طرفاية"
+    "سيدي-إفني"
 ]
 
 REGIONS_CIBLES = PROVINCES_SOUSS_MASSA + PROVINCES_GUELMIM_OUED_NOUN
@@ -155,10 +151,7 @@ def extract_text_from_pdf(pdf_url):
         logger.error(f"Erreur extraction PDF {pdf_url}: {e}")
         return ""
 
-# =========================== MODIFICATION ===========================
-# Suppression des détections larges (sous-chaînes) pour éviter les faux positifs
 def check_region_in_text(text):
-    """Recherche les noms de provinces exacts dans le texte."""
     if not text:
         return None
     text_normalized = text.lower().replace("-", " ").replace("_", " ")
@@ -167,10 +160,9 @@ def check_region_in_text(text):
         if province_normalized in text_normalized:
             return province
     return None
-# ===================================================================
 
 # ============================================================================
-# FONCTIONS DE SCRAPING
+# SCRAPING
 # ============================================================================
 
 def get_liste_annonces(category_slug, page=0):
@@ -183,6 +175,7 @@ def get_liste_annonces(category_slug, page=0):
         response.raise_for_status()
         soup = BeautifulSoup(response.text, "html.parser")
         annonces = []
+        # Recherche des liens vers les détails
         for link in soup.find_all("a", href=True):
             href = link["href"]
             uuid_match = re.search(r"[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}", href)
@@ -206,6 +199,7 @@ def get_liste_annonces(category_slug, page=0):
                         titre = strong.get_text(strip=True)
                     else:
                         titre = parent.get_text(strip=True)[:200]
+            # Date limite
             date_text = ""
             parent = link.find_parent(["div", "li", "article", "td"])
             if parent:
@@ -247,9 +241,9 @@ def get_annonce_detail(detail_url):
 
         # Date limite
         date_patterns = [
-            r"آخر أجل لإيداع الترشيحات\s*[:]?s*([0-9]{1,2}\s+[\u0621-\u064A]+\s+[0-9]{4})",
-            r"آخر أجل لإيداع ملفات الترشيح\s*[:]?s*([0-9]{1,2}\s+[\u0621-\u064A]+\s+[0-9]{4})",
-            r"آخر أجل\s*[:]?s*([0-9]{1,2}\s+[\u0621-\u064A]+\s+[0-9]{4})",
+            r"آخر أجل لإيداع الترشيحات\s*[:]?\s*([0-9]{1,2}\s+[\u0621-\u064A]+\s+[0-9]{4})",
+            r"آخر أجل لإيداع ملفات الترشيح\s*[:]?\s*([0-9]{1,2}\s+[\u0621-\u064A]+\s+[0-9]{4})",
+            r"آخر أجل\s*[:]?\s*([0-9]{1,2}\s+[\u0621-\u064A]+\s+[0-9]{4})",
         ]
         for pattern in date_patterns:
             match = re.search(pattern, page_text)
@@ -264,7 +258,7 @@ def get_annonce_detail(detail_url):
             href = link["href"]
             link_text = link.get_text(strip=True)
             if (href.endswith(".pdf") or ".pdf" in href or
-                "arrete" in href.lower() or "قرار" in link_text):
+                "arrete" in href.lower() or "قرار" in link_text or "فتح" in link_text):
                 if href.startswith("/"):
                     full_url = f"{BASE_URL}{href}"
                 elif href.startswith("http"):
@@ -288,7 +282,7 @@ def get_annonce_detail(detail_url):
             logger.info("    Aucun PDF trouvé")
 
         # Administration
-        admin_match = re.search(r"الإدارة المنظمة\s*[:]?s*(.+?)(?:\n|\r|$)", page_text)
+        admin_match = re.search(r"الإدارة المنظمة\s*[:]?\s*(.+?)(?:\n|\r|$)", page_text)
         if admin_match:
             result["administration"] = admin_match.group(1).strip()
 
@@ -363,7 +357,6 @@ def run_scraper():
                     if pdf_text:
                         region_trouvee = check_region_in_text(pdf_text)
 
-                # Fallback : chercher dans le texte de la page HTML
                 if not region_trouvee and details.get("page_text"):
                     region_trouvee = check_region_in_text(details["page_text"])
                     if region_trouvee:
@@ -408,7 +401,7 @@ def run_scraper():
     return new_results, all_results, total_traitees, total_en_cours, total_pdf_lus, total_match_region
 
 # ============================================================================
-# ENVOI D'EMAIL AVEC REGROUPEMENT PAR CATÉGORIE
+# ENVOI D'EMAIL
 # ============================================================================
 
 def send_email_report(new_results, all_results, total_traitees, total_en_cours, total_pdf_lus, total_match_region):
@@ -425,7 +418,6 @@ def send_email_report(new_results, all_results, total_traitees, total_en_cours, 
         msg["From"] = SMTP_USER
         msg["To"] = EMAIL_TO
 
-        # Corps texte
         text_body = f"""
 Agent Emploi-Public.ma (AR) - Rapport du {date.today().isoformat()}
 {'=' * 60}
@@ -440,12 +432,10 @@ STATISTIQUES:
 
 """
         if new_results:
-            # Grouper par catégorie
             grouped = {}
             for r in new_results:
                 cat = r.get('categorie', 'Autre')
                 grouped.setdefault(cat, []).append(r)
-            
             text_body += f"NOUVELLES ANNONCES TROUVÉES: {len(new_results)}\n\n"
             for cat, annonces in grouped.items():
                 text_body += f"\n--- {cat} ---\n"
@@ -470,7 +460,7 @@ RÉGIONS SURVEILLÉES:
 Prochaine exécution: dans 3 jours
 """
 
-        # Corps HTML
+        # HTML
         html_body = f"""<!DOCTYPE html>
 <html dir="rtl" lang="ar">
 <head>
@@ -505,7 +495,6 @@ body {{ font-family: Arial, sans-serif; direction: rtl; }}
             for r in new_results:
                 cat = r.get('categorie', 'Autre')
                 grouped.setdefault(cat, []).append(r)
-            
             html_body += f"<h3>✅ {len(new_results)} nouvelle(s) annonce(s) trouvée(s)</h3>"
             for cat, annonces in grouped.items():
                 html_body += f'<div class="categorie"><h3>{cat}</h3></div>'
