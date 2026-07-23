@@ -105,6 +105,10 @@ def save_results(results):
         json.dump(results, f, ensure_ascii=False, indent=2)
 
 def parse_french_date(date_str):
+    """
+    Parse une date française avec prise en charge de formats courants.
+    Exemples: "17 juillet 2026", "1er août 2026", "30/12/2026"
+    """
     mois_fr = {
         "janvier": 1, "février": 2, "mars": 3, "avril": 4,
         "mai": 5, "juin": 6, "juillet": 7, "août": 8, "aout": 8,
@@ -113,8 +117,12 @@ def parse_french_date(date_str):
     date_str = date_str.strip()
     # Supprimer les préfixes
     date_str = re.sub(r'^.*?:\s*', '', date_str)
+    # Supprimer les suffixes "er", "ère", "ème"
+    date_str = re.sub(r'(\d+)(er|ère|ème)', r'\1', date_str)
+
+    # Format standard: jour mois année
     pattern = r"(\d{1,2})\s+([a-zA-ZàâäéèêëïîôöùûüÿçÀÂÄÉÈÊËÏÎÔÖÙÛÜŸÇ]+)\s+(\d{4})"
-    match = re.search(pattern, date_str)
+    match = re.search(pattern, date_str, re.IGNORECASE)
     if match:
         jour = int(match.group(1))
         mois_nom = match.group(2).lower()
@@ -124,8 +132,17 @@ def parse_french_date(date_str):
             try:
                 return date(annee, mois, jour)
             except ValueError:
-                logger.warning(f"Date invalide: {date_str}")
-                return None
+                pass
+
+    # Fallback: format numérique jj/mm/aaaa ou jj-mm-aaaa
+    match2 = re.search(r"(\d{1,2})[/-](\d{1,2})[/-](\d{4})", date_str)
+    if match2:
+        jour, mois, annee = map(int, match2.groups())
+        try:
+            return date(annee, mois, jour)
+        except ValueError:
+            pass
+
     logger.warning(f"Format de date non reconnu: {date_str}")
     return None
 
@@ -152,11 +169,16 @@ def extract_text_from_pdf(pdf_url):
         return ""
 
 def check_region_in_text(text):
+    """
+    Recherche les provinces cibles dans le texte en utilisant des frontières de mots.
+    """
     if not text:
         return None
     text_lower = text.lower()
     for province in REGIONS_CIBLES:
-        if province.lower() in text_lower:
+        province_escaped = re.escape(province.lower())
+        pattern = r'\b' + province_escaped + r'\b'
+        if re.search(pattern, text_lower):
             return province
     return None
 
@@ -175,6 +197,7 @@ def get_liste_annonces(category_slug, page=0):
         soup = BeautifulSoup(response.text, "html.parser")
         annonces = []
         items = soup.find_all("div", class_="s-item")
+        logger.debug(f"Nombre d'items trouvés: {len(items)}")
         for item in items:
             link = item.find("a", href=True)
             if not link:
@@ -253,38 +276,49 @@ def get_annonce_detail(detail_url):
                         result["date_limite"] = parse_french_date(date_text)
                     break
         if not result["date_limite_text"]:
-            match = re.search(r"(?:Délai|Limite) de dépôt[^:]*:\s*(\d{1,2}\s+[a-zA-Zàâäéèêëïîôöùûüÿç]+\s+\d{4})", page_text, re.IGNORECASE)
+            match = re.search(r"(?:Délai|Limite) de dépôt[^:]*:\s*([0-9]{1,2}\s+[a-zA-Zàâäéèêëïîôöùûüÿç]+\s+[0-9]{4})", page_text, re.IGNORECASE)
             if match:
                 result["date_limite_text"] = match.group(1).strip()
                 result["date_limite"] = parse_french_date(result["date_limite_text"])
+        if not result["date_limite_text"]:
+            match2 = re.search(r"(\d{1,2})[/-](\d{1,2})[/-](\d{4})", page_text)
+            if match2:
+                result["date_limite_text"] = match2.group(0)
+                result["date_limite"] = parse_french_date(result["date_limite_text"])
 
-        # PDF
+        # PDF - recherche élargie
         pdf_links = []
         for link in soup.find_all("a", href=True):
             href = link["href"]
             link_text = link.get_text(strip=True)
-            if "arrete" in href.lower() or "Arrêté" in link_text or "arrêté" in link_text.lower():
+            if ("arrete" in href.lower() or 
+                ".pdf" in href.lower() or 
+                "arrêté" in link_text.lower() or 
+                "telecharger" in link_text.lower() or
+                "télécharger" in link_text.lower()):
                 if href.startswith("/"):
                     full_url = f"{BASE_URL}{href}"
                 elif href.startswith("http"):
                     full_url = href
                 else:
                     full_url = f"{BASE_URL}/fr/{href}"
-                pdf_links.append({"url": full_url, "text": link_text, "score": 10})
-            elif href.endswith(".pdf") or ".pdf" in href:
-                if href.startswith("/"):
-                    full_url = f"{BASE_URL}{href}"
-                elif href.startswith("http"):
-                    full_url = href
-                else:
-                    full_url = f"{BASE_URL}/fr/{href}"
-                pdf_links.append({"url": full_url, "text": link_text, "score": 5})
+                score = 0
+                if "arrete" in href.lower():
+                    score += 10
+                if "arrêté" in link_text.lower():
+                    score += 10
+                if "ouv" in link_text.lower() or "ouvert" in link_text.lower():
+                    score += 5
+                if ".pdf" in href.lower():
+                    score += 3
+                pdf_links.append({"url": full_url, "text": link_text, "score": score})
+
         if pdf_links:
             pdf_links.sort(key=lambda x: x["score"], reverse=True)
             best = pdf_links[0]
             result["pdf_url"] = best["url"]
             result["pdf_nom"] = best["text"]
-            logger.info(f"    PDF trouvé: {best['text']}")
+            logger.info(f"    PDF trouvé: {best['text']} (score: {best['score']})")
         else:
             logger.info("    Aucun PDF trouvé")
 
