@@ -2,7 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 Agent de scraping pour emploi-public.ma - VERSION ARABE
-Scanne toutes les annonces en cours et les regroupe par catégorie puis par administration.
+Scanne 5 pages de chaque catégorie, récupère toutes les annonces en cours,
+et les regroupe par catégorie puis par administration.
 """
 
 import os
@@ -40,10 +41,11 @@ CATEGORIES = [
     {"name": "تشغيل الخبراء", "slug": "قائمة-تشغيل-الخبراء"}
 ]
 
-MAX_PAGES = 3
+MAX_PAGES = 5  # ← 5 pages
 
 DATA_DIR = Path("data")
 DATA_DIR.mkdir(exist_ok=True)
+# On conserve le fichier des vues pour un usage interne (optionnel), mais on ne filtre plus.
 SEEN_FILE = DATA_DIR / "annonces_vues.json"
 RESULTS_FILE = DATA_DIR / "resultats.json"
 LOG_FILE = DATA_DIR / "scraper.log"
@@ -73,6 +75,7 @@ logger = logging.getLogger(__name__)
 # ============================================================================
 
 def load_seen_annonces():
+    # Optionnel : on garde pour mémoire, mais on ne l'utilise pas pour filtrer
     if SEEN_FILE.exists():
         with open(SEEN_FILE, "r", encoding="utf-8") as f:
             return set(json.load(f))
@@ -93,10 +96,6 @@ def save_results(results):
         json.dump(results, f, ensure_ascii=False, indent=2)
 
 def parse_arabic_date(date_str):
-    """
-    Parse une date arabe marocaine.
-    Exemples: "17 يوليوز 2026", "1 غشت 2026", "30/12/2026"
-    """
     mois_arabe = {
         "يناير": 1, "فبراير": 2, "مارس": 3, "أبريل": 4,
         "ماي": 5, "يونيو": 6, "يوليوز": 7, "غشت": 8,
@@ -323,13 +322,12 @@ def get_annonce_detail(detail_url):
 
 def run_scraper():
     logger.info("=" * 60)
-    logger.info("DÉMARRAGE DU SCRAPER emploi-public.ma (AR) - MODE TOUTES ANNONCES EN COURS")
+    logger.info("DÉMARRAGE DU SCRAPER emploi-public.ma (AR)")
     logger.info(f"Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     logger.info("=" * 60)
 
-    seen = load_seen_annonces()
-    logger.info(f"Annonces déjà traitées: {len(seen)}")
-
+    # On ignore le fichier des vues pour ne filtrer aucune annonce
+    # On charge les résultats existants pour les garder en base (optionnel)
     all_results = load_results()
     new_results = []  # toutes les annonces en cours
 
@@ -350,13 +348,7 @@ def run_scraper():
                 total_traitees += 1
                 uuid = annonce["uuid"]
 
-                # On ne marque pas comme vu pour l'instant, on veut tout afficher
-                # Mais on peut quand même éviter de re-scrapper en détail si déjà vu
-                if uuid in seen:
-                    logger.info(f"  [DÉJÀ VU] {annonce['titre'][:60]}...")
-                    continue
-
-                seen.add(uuid)
+                # On récupère les détails (PDF, date précise, administration)
                 details = get_annonce_detail(annonce["detail_url"])
 
                 if not details["date_limite_text"] and annonce["date_limite_text"]:
@@ -375,7 +367,6 @@ def run_scraper():
                 total_en_cours += 1
                 logger.info(f"  [EN COURS] {annonce['titre'][:60]}... → {details['date_limite']}")
 
-                # On construit le résultat sans filtre de région
                 result = {
                     "uuid": uuid,
                     "titre": annonce["titre"],
@@ -392,7 +383,7 @@ def run_scraper():
                 new_results.append(result)
                 all_results.append(result)
 
-    save_seen_annonces(seen)
+    # Sauvegarde (on n'utilise plus SEEN_FILE)
     save_results(all_results)
 
     logger.info(f"\n{'=' * 60}")
@@ -401,7 +392,6 @@ def run_scraper():
     logger.info(f"Annonces traitées: {total_traitees}")
     logger.info(f"Dates en cours: {total_en_cours}")
     logger.info(f"Dates expirées: {total_expirees}")
-    logger.info(f"Nouveaux résultats: {len(new_results)}")
     logger.info(f"Total résultats en base: {len(all_results)}")
 
     return new_results, all_results, total_traitees, total_en_cours
@@ -422,7 +412,7 @@ def send_email_report(new_results, all_results, total_traitees, total_en_cours):
             cat = r.get('categorie', 'Autre')
             if cat not in grouped:
                 grouped[cat] = {}
-            admin = r.get('administration', 'Administration inconnue')
+            admin = r.get('administration', 'إدارة غير معروفة')
             if admin not in grouped[cat]:
                 grouped[cat][admin] = []
             grouped[cat][admin].append(r)
@@ -455,9 +445,9 @@ STATISTIQUES:
                     for i, r in enumerate(annonces, 1):
                         text_body += f"""
     {i}. {r['titre']}
-       Date limite: {r['date_limite_text']} ({r['date_limite']})
-       Lien: {r['detail_url']}
-       PDF: {r['pdf_url'] if r['pdf_url'] else 'Non disponible'}
+       آخر أجل: {r['date_limite_text']} ({r['date_limite']})
+       الرابط: {r['detail_url']}
+       PDF: {r['pdf_url'] if r['pdf_url'] else 'غير متوفر'}
 
 """
         else:
@@ -483,11 +473,11 @@ body {{ font-family: Arial, sans-serif; direction: rtl; }}
 </style>
 </head>
 <body>
-<div class="header"><h2>📋 Agent Emploi-Public.ma (AR)</h2><p>Rapport du {date.today().isoformat()}</p></div>
+<div class="header"><h2>📋 Agent Emploi-Public.ma (AR)</h2><p>تقرير {date.today().isoformat()}</p></div>
 <div class="stats">
-<div class="stat-item"><div class="stat-value">{total_traitees}</div><div class="stat-label">Annonces analysées</div></div>
-<div class="stat-item"><div class="stat-value">{total_en_cours}</div><div class="stat-label">En cours</div></div>
-<div class="stat-item"><div class="stat-value">{len(all_results)}</div><div class="stat-label">Total en base</div></div>
+<div class="stat-item"><div class="stat-value">{total_traitees}</div><div class="stat-label">الإعلانات التي تم فحصها</div></div>
+<div class="stat-item"><div class="stat-value">{total_en_cours}</div><div class="stat-label">المباريات المفتوحة</div></div>
+<div class="stat-item"><div class="stat-value">{len(all_results)}</div><div class="stat-label">المجموع في القاعدة</div></div>
 </div>
 """
         if new_results:
@@ -500,17 +490,17 @@ body {{ font-family: Arial, sans-serif; direction: rtl; }}
 <div class="annonce">
 <div class="titre">{r['titre']}</div>
 <div class="info"><span class="label">آخر أجل:</span> {r['date_limite_text']}</div>
-<div class="info"><a href="{r['detail_url']}">🔗 Voir l'annonce</a> | <a href="{r['pdf_url'] if r['pdf_url'] else '#'}">📄 Télécharger le PDF</a></div>
+<div class="info"><a href="{r['detail_url']}">🔗 رابط الإعلان</a> | <a href="{r['pdf_url'] if r['pdf_url'] else '#'}">📄 تحميل PDF</a></div>
 </div>
 """
                     html_body += '</div>'
                 html_body += '</div>'
         else:
-            html_body += '<div style="background: #fff3cd; padding: 20px; border-radius: 8px;"><h3>📭 Aucune annonce en cours</h3></div>'
+            html_body += '<div style="background: #fff3cd; padding: 20px; border-radius: 8px;"><h3>📭 لا توجد مباريات مفتوحة</h3></div>'
 
         html_body += f"""
 <div class="footer">
-<p><em>Agent automatique - Emploi-Public.ma</em></p>
+<p><em>وكيل آلي - Emploi-Public.ma</em></p>
 </div>
 </body>
 </html>"""
