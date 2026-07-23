@@ -174,17 +174,56 @@ def extract_text_from_pdf(pdf_url):
 
 def check_region_in_text(text):
     """
-    Recherche les provinces cibles dans le texte en utilisant des frontières de mots.
+    Détecte si le texte mentionne explicitement une province cible,
+    ou si des indices montrent que le recrutement est national.
+    Retourne le nom de la province trouvée, ou "National (toutes les régions)".
     """
     if not text:
         return None
+
     text_lower = text.lower()
+    text_ar = text  # garder l'original pour les expressions arabes
+
+    # 1. Recherche des noms de provinces exacts
     for province in REGIONS_CIBLES:
-        # Échapper les caractères spéciaux et utiliser \b pour les mots complets
         province_escaped = re.escape(province.lower())
         pattern = r'\b' + province_escaped + r'\b'
         if re.search(pattern, text_lower):
             return province
+
+    # 2. Recherche d'indices de couverture nationale
+    # Mots-clés en arabe (on les garde en arabe pour éviter les problèmes de casse)
+    national_patterns = [
+        r'جميع\s+الجهات',
+        r'جميع\s+المدن',
+        r'جميع\s+التراب\s+الوطني',
+        r'جميع\s+مصالح',
+        r'جميع\s+أقاليم',
+        r'جميع\s+المحافظات',
+        r'جميع\s+مناطق',
+        r'مختلف\s+الجهات',
+        r'مختلف\s+المدن',
+        r'مختلف\s+مصالح',
+        r'مختلف\s+أقاليم',
+        r'مختلف\s+مناطق',
+        r'المركزية\s+والخارجية',
+        r'المركزية\s+و\s+الخارجية',
+        r'على\s+مستوى\s+التراب\s+الوطني',
+        r'على\s+مستوى\s+المملكة',
+        r'جهات\s+المملكة',
+        r'مدن\s+المملكة',
+        r'كافة\s+الجهات',
+        r'كافة\s+المدن',
+        r'كافة\s+مصالح',
+        r'جميع\s+مصالح\s+وزارة',
+        r'مختلف\s+مصالح\s+وزارة',
+        r'الخارجية\s+مصالح',  # parfois "المصالح الخارجية"
+    ]
+
+    for pattern in national_patterns:
+        if re.search(pattern, text_ar, re.IGNORECASE):
+            return "National (toutes les régions)"
+
     return None
 
 # ============================================================================
