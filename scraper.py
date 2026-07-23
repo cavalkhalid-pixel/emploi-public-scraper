@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Agent de scraping pour emploi-public.ma - VERSION ARABE
+Scanne toutes les annonces en cours et les regroupe par catégorie puis par administration.
 """
 
 import os
@@ -15,6 +16,7 @@ from datetime import datetime, date
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from pathlib import Path
+from collections import defaultdict
 
 import requests
 from bs4 import BeautifulSoup
@@ -39,21 +41,6 @@ CATEGORIES = [
 ]
 
 MAX_PAGES = 3
-
-PROVINCES_SOUSS_MASSA = [
-    "أكادير", "إداوتنان", "إنزكان", "آيت ملول", "تارودانت",
-    "تيزنيت", "شتوكة", "آيت باها", "أكادير إداوتنان",
-    "إنزكان آيت ملول", "شتوكة آيت باها", "سوس", "سوس ماسة",
-    "أكادير أيت ملول"
-]
-
-PROVINCES_GUELMIM_OUED_NOUN = [
-    "كلميم", "أسا الزاك", "طرفاية", "طانطان", "سيدي إفني",
-    "أسا", "الزاك", "كلميم واد نون", "كلميم-واد-نون",
-    "سيدي-إفني"
-]
-
-REGIONS_CIBLES = PROVINCES_SOUSS_MASSA + PROVINCES_GUELMIM_OUED_NOUN
 
 DATA_DIR = Path("data")
 DATA_DIR.mkdir(exist_ok=True)
@@ -107,7 +94,7 @@ def save_results(results):
 
 def parse_arabic_date(date_str):
     """
-    Parse une date arabe marocaine avec prise en charge de formats courants.
+    Parse une date arabe marocaine.
     Exemples: "17 يوليوز 2026", "1 غشت 2026", "30/12/2026"
     """
     mois_arabe = {
@@ -116,14 +103,10 @@ def parse_arabic_date(date_str):
         "شتنبر": 9, "أكتوبر": 10, "نونبر": 11, "دجنبر": 12,
         "يوليو": 7, "أغسطس": 8, "سبتمبر": 9, "نوفمبر": 11, "ديسمبر": 12
     }
-    # Nettoyer la chaîne
     date_str = date_str.strip()
-    # Supprimer les préfixes
     date_str = re.sub(r'^.*?:\s*', '', date_str)
-    # Supprimer les suffixes comme "er" ou "ème" (parfois en arabe)
     date_str = re.sub(r'(\d+)(er|ère|ème)?', r'\1', date_str)
 
-    # Essayer le format arabe standard: jour mois année
     pattern = r"(\d{1,2})\s+([\u0621-\u064A]+)\s+(\d{4})"
     match = re.search(pattern, date_str)
     if match:
@@ -135,10 +118,8 @@ def parse_arabic_date(date_str):
             try:
                 return date(annee, mois, jour)
             except ValueError:
-                logger.warning(f"Date invalide: {date_str}")
-                return None
+                pass
 
-    # Fallback: format numérique jj/mm/aaaa ou jj-mm-aaaa
     match2 = re.search(r"(\d{1,2})[/-](\d{1,2})[/-](\d{4})", date_str)
     if match2:
         jour, mois, annee = map(int, match2.groups())
@@ -171,60 +152,6 @@ def extract_text_from_pdf(pdf_url):
     except Exception as e:
         logger.error(f"Erreur extraction PDF {pdf_url}: {e}")
         return ""
-
-def check_region_in_text(text):
-    """
-    Détecte si le texte mentionne explicitement une province cible,
-    ou si des indices montrent que le recrutement est national.
-    Retourne le nom de la province trouvée, ou "National (toutes les régions)".
-    """
-    if not text:
-        return None
-
-    text_lower = text.lower()
-    text_ar = text  # garder l'original pour les expressions arabes
-
-    # 1. Recherche des noms de provinces exacts
-    for province in REGIONS_CIBLES:
-        province_escaped = re.escape(province.lower())
-        pattern = r'\b' + province_escaped + r'\b'
-        if re.search(pattern, text_lower):
-            return province
-
-    # 2. Recherche d'indices de couverture nationale
-    # Mots-clés en arabe (on les garde en arabe pour éviter les problèmes de casse)
-    national_patterns = [
-        r'جميع\s+الجهات',
-        r'جميع\s+المدن',
-        r'جميع\s+التراب\s+الوطني',
-        r'جميع\s+مصالح',
-        r'جميع\s+أقاليم',
-        r'جميع\s+المحافظات',
-        r'جميع\s+مناطق',
-        r'مختلف\s+الجهات',
-        r'مختلف\s+المدن',
-        r'مختلف\s+مصالح',
-        r'مختلف\s+أقاليم',
-        r'مختلف\s+مناطق',
-        r'المركزية\s+والخارجية',
-        r'المركزية\s+و\s+الخارجية',
-        r'على\s+مستوى\s+التراب\s+الوطني',
-        r'على\s+مستوى\s+المملكة',
-        r'جهات\s+المملكة',
-        r'مدن\s+المملكة',
-        r'كافة\s+الجهات',
-        r'كافة\s+المدن',
-        r'كافة\s+مصالح',
-        r'جميع\s+مصالح\s+وزارة',
-        r'مختلف\s+مصالح\s+وزارة',
-        r'الخارجية\s+مصالح',  # parfois "المصالح الخارجية"
-    ]
-
-    for pattern in national_patterns:
-        if re.search(pattern, text_ar, re.IGNORECASE):
-            return "National (toutes les régions)"
-
-    return None
 
 # ============================================================================
 # SCRAPING
@@ -266,7 +193,6 @@ def get_liste_annonces(category_slug, page=0):
             admin_elem = item.find("div", class_="card-text")
             administration = admin_elem.get_text(strip=True) if admin_elem else ""
 
-            # Date limite
             date_text = ""
             footer = item.find("div", class_="card-footer")
             if footer:
@@ -311,7 +237,6 @@ def get_annonce_detail(detail_url):
         page_text = soup.get_text(separator=" ", strip=True)
         result["page_text"] = page_text
 
-        # Date limite - depuis la sidebar
         sidebar = soup.find("div", class_="s-content-box")
         if sidebar:
             for h3 in sidebar.find_all("h3", class_="h4"):
@@ -323,7 +248,6 @@ def get_annonce_detail(detail_url):
                         result["date_limite"] = parse_arabic_date(date_text)
                     break
 
-        # Fallback dans tout le texte
         if not result["date_limite_text"]:
             match = re.search(r"آخر أجل[^:]*:\s*([0-9]{1,2}\s+[\u0621-\u064A]+\s+[0-9]{4})", page_text)
             if match:
@@ -335,16 +259,15 @@ def get_annonce_detail(detail_url):
                 result["date_limite_text"] = match2.group(0)
                 result["date_limite"] = parse_arabic_date(result["date_limite_text"])
 
-        # PDF - Recherche élargie
+        # PDF
         pdf_links = []
         for link in soup.find_all("a", href=True):
             href = link["href"]
             link_text = link.get_text(strip=True)
-            # On accepte tout lien qui contient "arrete" ou ".pdf" ou des mots-clés arabes
-            if ("arrete" in href.lower() or 
-                ".pdf" in href.lower() or 
-                "قرار" in link_text or 
-                "فتح" in link_text or 
+            if ("arrete" in href.lower() or
+                ".pdf" in href.lower() or
+                "قرار" in link_text or
+                "فتح" in link_text or
                 "ترشيح" in link_text):
                 if href.startswith("/"):
                     full_url = f"{BASE_URL}{href}"
@@ -352,7 +275,6 @@ def get_annonce_detail(detail_url):
                     full_url = href
                 else:
                     full_url = f"{BASE_URL}/ar/{href}"
-                # Calcul du score
                 score = 0
                 if "arrete" in href.lower():
                     score += 10
@@ -377,7 +299,6 @@ def get_annonce_detail(detail_url):
         else:
             logger.info("    Aucun PDF trouvé")
 
-        # Administration
         if sidebar:
             for h3 in sidebar.find_all("h3", class_="h4"):
                 span = h3.find("span")
@@ -402,7 +323,7 @@ def get_annonce_detail(detail_url):
 
 def run_scraper():
     logger.info("=" * 60)
-    logger.info("DÉMARRAGE DU SCRAPER emploi-public.ma (AR)")
+    logger.info("DÉMARRAGE DU SCRAPER emploi-public.ma (AR) - MODE TOUTES ANNONCES EN COURS")
     logger.info(f"Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     logger.info("=" * 60)
 
@@ -410,11 +331,9 @@ def run_scraper():
     logger.info(f"Annonces déjà traitées: {len(seen)}")
 
     all_results = load_results()
-    new_results = []
+    new_results = []  # toutes les annonces en cours
 
     total_traitees = 0
-    total_pdf_lus = 0
-    total_match_region = 0
     total_en_cours = 0
     total_expirees = 0
 
@@ -430,12 +349,16 @@ def run_scraper():
             for annonce in annonces:
                 total_traitees += 1
                 uuid = annonce["uuid"]
+
+                # On ne marque pas comme vu pour l'instant, on veut tout afficher
+                # Mais on peut quand même éviter de re-scrapper en détail si déjà vu
                 if uuid in seen:
                     logger.info(f"  [DÉJÀ VU] {annonce['titre'][:60]}...")
                     continue
-                seen.add(uuid)
 
+                seen.add(uuid)
                 details = get_annonce_detail(annonce["detail_url"])
+
                 if not details["date_limite_text"] and annonce["date_limite_text"]:
                     details["date_limite_text"] = annonce["date_limite_text"]
                     details["date_limite"] = parse_arabic_date(annonce["date_limite_text"])
@@ -452,43 +375,22 @@ def run_scraper():
                 total_en_cours += 1
                 logger.info(f"  [EN COURS] {annonce['titre'][:60]}... → {details['date_limite']}")
 
-                region_trouvee = None
-                pdf_text = ""
-
-                if details["pdf_url"]:
-                    total_pdf_lus += 1
-                    logger.info(f"    → PDF: {details['pdf_url']}")
-                    pdf_text = extract_text_from_pdf(details["pdf_url"])
-                    if pdf_text:
-                        region_trouvee = check_region_in_text(pdf_text)
-
-                # Fallback : chercher dans la page HTML si le PDF ne donne rien
-                if not region_trouvee and details.get("page_text"):
-                    region_trouvee = check_region_in_text(details["page_text"])
-                    if region_trouvee:
-                        logger.info(f"    → Région trouvée dans le texte de la page: {region_trouvee}")
-
-                if region_trouvee:
-                    total_match_region += 1
-                    logger.info(f"    ✓✓✓ MATCH RÉGION: {region_trouvee}")
-                    result = {
-                        "uuid": uuid,
-                        "titre": annonce["titre"],
-                        "administration": details["administration"] or annonce["administration"],
-                        "categorie": category["name"],
-                        "date_limite": details["date_limite"].isoformat(),
-                        "date_limite_text": details["date_limite_text"],
-                        "detail_url": annonce["detail_url"],
-                        "pdf_url": details["pdf_url"],
-                        "pdf_nom": details["pdf_nom"],
-                        "region_detectee": region_trouvee,
-                        "date_detection": datetime.now().isoformat(),
-                        "description": details["description"]
-                    }
-                    new_results.append(result)
-                    all_results.append(result)
-                else:
-                    logger.info(f"    → Pas de match région")
+                # On construit le résultat sans filtre de région
+                result = {
+                    "uuid": uuid,
+                    "titre": annonce["titre"],
+                    "administration": details["administration"] or annonce["administration"],
+                    "categorie": category["name"],
+                    "date_limite": details["date_limite"].isoformat(),
+                    "date_limite_text": details["date_limite_text"],
+                    "detail_url": annonce["detail_url"],
+                    "pdf_url": details["pdf_url"],
+                    "pdf_nom": details["pdf_nom"],
+                    "date_detection": datetime.now().isoformat(),
+                    "description": details["description"]
+                }
+                new_results.append(result)
+                all_results.append(result)
 
     save_seen_annonces(seen)
     save_results(all_results)
@@ -499,72 +401,67 @@ def run_scraper():
     logger.info(f"Annonces traitées: {total_traitees}")
     logger.info(f"Dates en cours: {total_en_cours}")
     logger.info(f"Dates expirées: {total_expirees}")
-    logger.info(f"PDF lus: {total_pdf_lus}")
-    logger.info(f"Match région: {total_match_region}")
     logger.info(f"Nouveaux résultats: {len(new_results)}")
     logger.info(f"Total résultats en base: {len(all_results)}")
 
-    return new_results, all_results, total_traitees, total_en_cours, total_pdf_lus, total_match_region
+    return new_results, all_results, total_traitees, total_en_cours
 
 # ============================================================================
-# ENVOI D'EMAIL
+# ENVOI D'EMAIL AVEC GROUPEMENT
 # ============================================================================
 
-def send_email_report(new_results, all_results, total_traitees, total_en_cours, total_pdf_lus, total_match_region):
+def send_email_report(new_results, all_results, total_traitees, total_en_cours):
     if not SMTP_USER or not SMTP_PASSWORD or not EMAIL_TO:
         logger.warning("Configuration email incomplète, pas d'envoi.")
         return False
 
     try:
+        # Regrouper par catégorie puis par administration
+        grouped = {}
+        for r in new_results:
+            cat = r.get('categorie', 'Autre')
+            if cat not in grouped:
+                grouped[cat] = {}
+            admin = r.get('administration', 'Administration inconnue')
+            if admin not in grouped[cat]:
+                grouped[cat][admin] = []
+            grouped[cat][admin].append(r)
+
         msg = MIMEMultipart("alternative")
         if new_results:
-            msg["Subject"] = f"[Emploi Public AR] {len(new_results)} nouvelle(s) annonce(s) - {date.today().isoformat()}"
+            msg["Subject"] = f"[Emploi Public AR] {len(new_results)} annonces en cours - {date.today().isoformat()}"
         else:
-            msg["Subject"] = f"[Emploi Public AR] Rapport - {date.today().isoformat()}"
+            msg["Subject"] = f"[Emploi Public AR] Aucune annonce en cours - {date.today().isoformat()}"
         msg["From"] = SMTP_USER
         msg["To"] = EMAIL_TO
 
+        # Texte brut
         text_body = f"""
 Agent Emploi-Public.ma (AR) - Rapport du {date.today().isoformat()}
 {'=' * 60}
 
 STATISTIQUES:
 - Annonces analysées: {total_traitees}
-- Dates en cours: {total_en_cours}
-- PDF lus: {total_pdf_lus}
-- Match région: {total_match_region}
-- Nouvelles annonces: {len(new_results)}
+- Annonces en cours: {total_en_cours}
 - Total en base: {len(all_results)}
 
 """
         if new_results:
-            grouped = {}
-            for r in new_results:
-                cat = r.get('categorie', 'Autre')
-                grouped.setdefault(cat, []).append(r)
-            text_body += f"NOUVELLES ANNONCES TROUVÉES: {len(new_results)}\n\n"
-            for cat, annonces in grouped.items():
+            text_body += "ANNONCES EN COURS (classées par catégorie et administration):\n\n"
+            for cat, admins in grouped.items():
                 text_body += f"\n--- {cat} ---\n"
-                for i, r in enumerate(annonces, 1):
-                    text_body += f"""
-{i}. Titre: {r['titre']}
-   Administration: {r['administration']}
-   Date limite: {r['date_limite_text']} ({r['date_limite']})
-   Région: {r['region_detectee']}
-   Lien: {r['detail_url']}
-   PDF: {r['pdf_url']}
+                for admin, annonces in admins.items():
+                    text_body += f"\n  ** {admin} **\n"
+                    for i, r in enumerate(annonces, 1):
+                        text_body += f"""
+    {i}. {r['titre']}
+       Date limite: {r['date_limite_text']} ({r['date_limite']})
+       Lien: {r['detail_url']}
+       PDF: {r['pdf_url'] if r['pdf_url'] else 'Non disponible'}
 
 """
         else:
-            text_body += "Aucune nouvelle annonce trouvée pour les régions cibles.\n"
-
-        text_body += f"""
-{'=' * 60}
-RÉGIONS SURVEILLÉES:
-- Souss-Massa: أكادير، تارودانت، تيزنيت، إنزكان، شتوكة...
-- Guelmim-Oued Noun: كلميم، أسا الزاك، طرفاية، طانطان، سيدي إفني...
-Prochaine exécution: dans 3 jours
-"""
+            text_body += "Aucune annonce en cours trouvée.\n"
 
         # HTML
         html_body = f"""<!DOCTYPE html>
@@ -579,10 +476,9 @@ body {{ font-family: Arial, sans-serif; direction: rtl; }}
 .stat-value {{ font-size: 24px; font-weight: bold; color: #1a5276; }}
 .stat-label {{ font-size: 12px; color: #666; }}
 .categorie {{ margin-top: 25px; background: #e8f0fe; padding: 10px; border-radius: 5px; }}
-.annonce {{ border: 1px solid #ddd; margin: 15px 0; padding: 15px; border-radius: 8px; background: #f9f9f9; }}
-.titre {{ color: #1a5276; font-size: 18px; font-weight: bold; }}
-.match {{ color: #27ae60; font-weight: bold; }}
-.no-result {{ background: #fff3cd; padding: 20px; border-radius: 8px; text-align: center; }}
+.administration {{ margin-top: 15px; background: #f0f8ff; padding: 10px; border-radius: 5px; }}
+.annonce {{ border: 1px solid #ddd; margin: 10px 0; padding: 10px; border-radius: 5px; background: #f9f9f9; }}
+.titre {{ color: #1a5276; font-weight: bold; }}
 .footer {{ margin-top: 30px; padding: 15px; background: #eee; border-radius: 8px; text-align: center; }}
 </style>
 </head>
@@ -591,39 +487,29 @@ body {{ font-family: Arial, sans-serif; direction: rtl; }}
 <div class="stats">
 <div class="stat-item"><div class="stat-value">{total_traitees}</div><div class="stat-label">Annonces analysées</div></div>
 <div class="stat-item"><div class="stat-value">{total_en_cours}</div><div class="stat-label">En cours</div></div>
-<div class="stat-item"><div class="stat-value">{total_pdf_lus}</div><div class="stat-label">PDF lus</div></div>
-<div class="stat-item"><div class="stat-value">{total_match_region}</div><div class="stat-label">Match région</div></div>
-<div class="stat-item"><div class="stat-value">{len(new_results)}</div><div class="stat-label">Nouvelles</div></div>
+<div class="stat-item"><div class="stat-value">{len(all_results)}</div><div class="stat-label">Total en base</div></div>
 </div>
 """
         if new_results:
-            grouped = {}
-            for r in new_results:
-                cat = r.get('categorie', 'Autre')
-                grouped.setdefault(cat, []).append(r)
-            html_body += f"<h3>✅ {len(new_results)} nouvelle(s) annonce(s) trouvée(s)</h3>"
-            for cat, annonces in grouped.items():
-                html_body += f'<div class="categorie"><h3>{cat}</h3></div>'
-                for r in annonces:
-                    html_body += f"""
+            for cat, admins in grouped.items():
+                html_body += f'<div class="categorie"><h3>{cat}</h3>'
+                for admin, annonces in admins.items():
+                    html_body += f'<div class="administration"><h4>{admin}</h4>'
+                    for r in annonces:
+                        html_body += f"""
 <div class="annonce">
 <div class="titre">{r['titre']}</div>
-<div class="info"><span class="label">الإدارة:</span> {r['administration']}</div>
 <div class="info"><span class="label">آخر أجل:</span> {r['date_limite_text']}</div>
-<div class="info match">📍 {r['region_detectee']}</div>
-<div class="info"><a href="{r['detail_url']}">🔗 Voir l'annonce</a> | <a href="{r['pdf_url']}">📄 Télécharger le PDF</a></div>
+<div class="info"><a href="{r['detail_url']}">🔗 Voir l'annonce</a> | <a href="{r['pdf_url'] if r['pdf_url'] else '#'}">📄 Télécharger le PDF</a></div>
 </div>
 """
+                    html_body += '</div>'
+                html_body += '</div>'
         else:
-            html_body += f"""
-<div class="no-result">
-<h3>📭 Aucune nouvelle annonce trouvée</h3>
-<p>Le bot a analysé <strong>{total_traitees}</strong> annonces mais aucune ne correspond aux régions cibles.</p>
-</div>
-"""
+            html_body += '<div style="background: #fff3cd; padding: 20px; border-radius: 8px;"><h3>📭 Aucune annonce en cours</h3></div>'
+
         html_body += f"""
 <div class="footer">
-<p>Total annonces en base: <strong>{len(all_results)}</strong></p>
 <p><em>Agent automatique - Emploi-Public.ma</em></p>
 </div>
 </body>
@@ -648,6 +534,6 @@ body {{ font-family: Arial, sans-serif; direction: rtl; }}
 # ============================================================================
 
 if __name__ == "__main__":
-    new_results, all_results, total_traitees, total_en_cours, total_pdf_lus, total_match_region = run_scraper()
-    send_email_report(new_results, all_results, total_traitees, total_en_cours, total_pdf_lus, total_match_region)
+    new_results, all_results, total_traitees, total_en_cours = run_scraper()
+    send_email_report(new_results, all_results, total_traitees, total_en_cours)
     logger.info("\nScraper terminé.")
