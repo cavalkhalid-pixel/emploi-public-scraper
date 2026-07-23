@@ -106,15 +106,24 @@ def save_results(results):
         json.dump(results, f, ensure_ascii=False, indent=2)
 
 def parse_arabic_date(date_str):
+    """
+    Parse une date arabe marocaine avec prise en charge de formats courants.
+    Exemples: "17 يوليوز 2026", "1 غشت 2026", "30/12/2026"
+    """
     mois_arabe = {
         "يناير": 1, "فبراير": 2, "مارس": 3, "أبريل": 4,
         "ماي": 5, "يونيو": 6, "يوليوز": 7, "غشت": 8,
         "شتنبر": 9, "أكتوبر": 10, "نونبر": 11, "دجنبر": 12,
         "يوليو": 7, "أغسطس": 8, "سبتمبر": 9, "نوفمبر": 11, "ديسمبر": 12
     }
+    # Nettoyer la chaîne
     date_str = date_str.strip()
-    # Supprimer les éventuels préfixes comme "آخر أجل لإيداع ملفات الترشيح : "
+    # Supprimer les préfixes
     date_str = re.sub(r'^.*?:\s*', '', date_str)
+    # Supprimer les suffixes comme "er" ou "ème" (parfois en arabe)
+    date_str = re.sub(r'(\d+)(er|ère|ème)?', r'\1', date_str)
+
+    # Essayer le format arabe standard: jour mois année
     pattern = r"(\d{1,2})\s+([\u0621-\u064A]+)\s+(\d{4})"
     match = re.search(pattern, date_str)
     if match:
@@ -128,6 +137,16 @@ def parse_arabic_date(date_str):
             except ValueError:
                 logger.warning(f"Date invalide: {date_str}")
                 return None
+
+    # Fallback: format numérique jj/mm/aaaa ou jj-mm-aaaa
+    match2 = re.search(r"(\d{1,2})[/-](\d{1,2})[/-](\d{4})", date_str)
+    if match2:
+        jour, mois, annee = map(int, match2.groups())
+        try:
+            return date(annee, mois, jour)
+        except ValueError:
+            pass
+
     logger.warning(f"Format de date non reconnu: {date_str}")
     return None
 
@@ -154,12 +173,17 @@ def extract_text_from_pdf(pdf_url):
         return ""
 
 def check_region_in_text(text):
+    """
+    Recherche les provinces cibles dans le texte en utilisant des frontières de mots.
+    """
     if not text:
         return None
-    text_normalized = text.lower().replace("-", " ").replace("_", " ")
+    text_lower = text.lower()
     for province in REGIONS_CIBLES:
-        province_normalized = province.lower().replace("-", " ").replace("_", " ")
-        if province_normalized in text_normalized:
+        # Échapper les caractères spéciaux et utiliser \b pour les mots complets
+        province_escaped = re.escape(province.lower())
+        pattern = r'\b' + province_escaped + r'\b'
+        if re.search(pattern, text_lower):
             return province
     return None
 
@@ -178,10 +202,9 @@ def get_liste_annonces(category_slug, page=0):
         soup = BeautifulSoup(response.text, "html.parser")
         annonces = []
 
-        # Chercher chaque élément .s-item
         items = soup.find_all("div", class_="s-item")
+        logger.debug(f"Nombre d'items trouvés: {len(items)}")
         for item in items:
-            # Lien vers la page de détail
             link = item.find("a", href=True)
             if not link:
                 continue
@@ -191,7 +214,6 @@ def get_liste_annonces(category_slug, page=0):
                 continue
             uuid = uuid_match.group(0)
 
-            # URL complète
             if href.startswith("/"):
                 detail_url = f"{BASE_URL}{href}"
             elif href.startswith("http"):
@@ -199,22 +221,19 @@ def get_liste_annonces(category_slug, page=0):
             else:
                 detail_url = f"{BASE_URL}/ar/{href}"
 
-            # Titre
             titre_elem = item.find("h2", class_="card-title")
             titre = titre_elem.get_text(strip=True) if titre_elem else ""
 
-            # Administration
             admin_elem = item.find("div", class_="card-text")
             administration = admin_elem.get_text(strip=True) if admin_elem else ""
 
-            # Date limite : chercher dans .card-footer
+            # Date limite
             date_text = ""
             footer = item.find("div", class_="card-footer")
             if footer:
                 for div in footer.find_all("div"):
                     text = div.get_text(strip=True)
                     if "آخر أجل" in text:
-                        # Extraire la date après les deux points
                         match = re.search(r'آخر أجل[^:]*:\s*(.+)$', text)
                         if match:
                             date_text = match.group(1).strip()
@@ -253,7 +272,7 @@ def get_annonce_detail(detail_url):
         page_text = soup.get_text(separator=" ", strip=True)
         result["page_text"] = page_text
 
-        # Date limite - depuis la sidebar (s-content-box)
+        # Date limite - depuis la sidebar
         sidebar = soup.find("div", class_="s-content-box")
         if sidebar:
             for h3 in sidebar.find_all("h3", class_="h4"):
@@ -265,39 +284,51 @@ def get_annonce_detail(detail_url):
                         result["date_limite"] = parse_arabic_date(date_text)
                     break
 
-        # Si non trouvé, chercher dans tout le texte
+        # Fallback dans tout le texte
         if not result["date_limite_text"]:
             match = re.search(r"آخر أجل[^:]*:\s*([0-9]{1,2}\s+[\u0621-\u064A]+\s+[0-9]{4})", page_text)
             if match:
                 result["date_limite_text"] = match.group(1).strip()
                 result["date_limite"] = parse_arabic_date(result["date_limite_text"])
+        if not result["date_limite_text"]:
+            match2 = re.search(r"(\d{1,2})[/-](\d{1,2})[/-](\d{4})", page_text)
+            if match2:
+                result["date_limite_text"] = match2.group(0)
+                result["date_limite"] = parse_arabic_date(result["date_limite_text"])
 
-        # PDF - chercher "قرار فتح" ou "arrete"
+        # PDF - Recherche élargie
         pdf_links = []
         for link in soup.find_all("a", href=True):
             href = link["href"]
             link_text = link.get_text(strip=True)
-            # On cherche les liens qui contiennent "arrete" ou "قرار" dans le texte
-            if "arrete" in href.lower() or "قرار" in link_text or "فتح" in link_text:
+            # On accepte tout lien qui contient "arrete" ou ".pdf" ou des mots-clés arabes
+            if ("arrete" in href.lower() or 
+                ".pdf" in href.lower() or 
+                "قرار" in link_text or 
+                "فتح" in link_text or 
+                "ترشيح" in link_text):
                 if href.startswith("/"):
                     full_url = f"{BASE_URL}{href}"
                 elif href.startswith("http"):
                     full_url = href
                 else:
                     full_url = f"{BASE_URL}/ar/{href}"
-                pdf_links.append({"url": full_url, "text": link_text, "score": 0})
+                # Calcul du score
+                score = 0
+                if "arrete" in href.lower():
+                    score += 10
+                if "قرار" in link_text:
+                    score += 10
+                if "فتح" in link_text:
+                    score += 5
+                if "باب" in link_text:
+                    score += 5
+                if "ترشيح" in link_text:
+                    score += 5
+                if ".pdf" in href.lower():
+                    score += 3
+                pdf_links.append({"url": full_url, "text": link_text, "score": score})
 
-        # Priorité au lien avec "قرار فتح المباراة"
-        for pdf in pdf_links:
-            t = pdf["text"].lower()
-            if "قرار" in t:
-                pdf["score"] += 10
-            if "فتح" in t:
-                pdf["score"] += 5
-            if "باب" in t:
-                pdf["score"] += 5
-            if "ترشيح" in t:
-                pdf["score"] += 5
         if pdf_links:
             pdf_links.sort(key=lambda x: x["score"], reverse=True)
             best = pdf_links[0]
@@ -366,7 +397,6 @@ def run_scraper():
                 seen.add(uuid)
 
                 details = get_annonce_detail(annonce["detail_url"])
-                # Si la date n'a pas été trouvée dans la page détail, utiliser celle de la liste
                 if not details["date_limite_text"] and annonce["date_limite_text"]:
                     details["date_limite_text"] = annonce["date_limite_text"]
                     details["date_limite"] = parse_arabic_date(annonce["date_limite_text"])
