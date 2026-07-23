@@ -170,16 +170,40 @@ def extract_text_from_pdf(pdf_url):
 
 def check_region_in_text(text):
     """
-    Recherche les provinces cibles dans le texte en utilisant des frontières de mots.
+    Détecte si le texte mentionne explicitement une province cible,
+    ou si des indices montrent que le recrutement est national.
+    Retourne le nom de la province trouvée, ou "National (toutes les régions)".
     """
     if not text:
         return None
+
     text_lower = text.lower()
+    text_original = text
+
+    # 1. Recherche des noms de provinces exacts (en français et en arabe)
     for province in REGIONS_CIBLES:
         province_escaped = re.escape(province.lower())
         pattern = r'\b' + province_escaped + r'\b'
         if re.search(pattern, text_lower):
             return province
+
+    # 2. Indices de couverture nationale (en français ou en arabe)
+    national_patterns = [
+        r'toutes les régions', r'toutes les villes', r'tout le territoire',
+        r'national', r'ensemble du territoire', r'à l\'échelle nationale',
+        r'services extérieurs', r'services déconcentrés',
+        r'administrations centrales et extérieures',
+        r'différentes régions', r'différentes villes',
+        r'جميع\s+الجهات', r'جميع\s+المدن', r'جميع\s+التراب\s+الوطني',
+        r'المركزية\s+والخارجية', r'مختلف\s+مصالح',
+        r'à travers le royaume', r'sur l\'ensemble du territoire',
+        r'différentes provinces', r'toutes les provinces'
+    ]
+
+    for pattern in national_patterns:
+        if re.search(pattern, text_original, re.IGNORECASE):
+            return "National (toutes les régions)"
+
     return None
 
 # ============================================================================
