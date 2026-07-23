@@ -1,15 +1,15 @@
-name: Emploi-Public Scraper FR
+name: Emploi-Public Scraper (FR)
 
 on:
   schedule:
-    - cron: '0 8 */3 * *'
-  workflow_dispatch:
+    - cron: '0 9 */3 * *'   # Tous les 3 jours à 9h UTC
+  workflow_dispatch:        # Déclenchement manuel depuis l'interface
 
 jobs:
   scraper:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: write        # Permet de push les modifications
     
     steps:
       - name: Checkout du code
@@ -33,20 +33,20 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       
-      - name: Exécution du scraper (AR)
+      - name: Exécution du scraper (FR)
         env:
           SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
           SMTP_PORT: ${{ secrets.SMTP_PORT }}
           SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
-        run: python scraper.py
+        run: python scraper_fr.py
       
       - name: Sauvegarde des résultats
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: scraper-results-${{ github.run_id }}
+          name: scraper-results-fr-${{ github.run_id }}
           path: |
             data/
           retention-days: 30
@@ -57,6 +57,6 @@ jobs:
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git add data/
-          git diff --cached --quiet || git commit -m "Mise à jour des données scraper - $(date -u +%Y-%m-%d)"
+          git diff --cached --quiet || git commit -m "Mise à jour des données scraper FR - $(date -u +%Y-%m-%d)"
           git pull --rebase --autostash origin main || true
           git push origin main || true
