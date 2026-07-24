@@ -33,11 +33,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       
-      - name: Installer Playwright et ses navigateurs
-        run: |
-          playwright install chromium
-          playwright install-deps
-      
       - name: Exécution du scraper CG
         env:
           SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
@@ -45,6 +40,7 @@ jobs:
           SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
           EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          SCRAPINGBEE_API_KEY: ${{ secrets.SCRAPINGBEE_API_KEY }}
         run: python scraper_cg.py
       
       - name: Sauvegarde des résultats
