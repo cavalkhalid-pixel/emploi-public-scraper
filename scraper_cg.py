@@ -2,8 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Agent de scraping pour les Conseils du Gouvernement (cg.gov.ma)
-Scanne la liste des conseils, récupère les détails (lois, accords, nominations, PDF)
-et envoie un email récapitulatif.
+Utilise cloudscraper pour contourner les protections anti-bot.
 """
 
 import os
@@ -16,9 +15,8 @@ from datetime import datetime, date
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from pathlib import Path
-from collections import defaultdict
 
-import requests
+import cloudscraper
 from bs4 import BeautifulSoup
 
 # ============================================================================
@@ -32,17 +30,14 @@ HEADERS = {
     "Accept-Language": "ar,fr;q=0.9,en;q=0.8",
 }
 
-# URL de la page de liste des conseils
 LIST_URL = "/ar/%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D8%AD%D9%83%D9%88%D9%85%D8%A9"
 
-# Dossier de données
 DATA_DIR = Path("data_cg")
 DATA_DIR.mkdir(exist_ok=True)
 SEEN_FILE = DATA_DIR / "conseils_vus.json"
 RESULTS_FILE = DATA_DIR / "conseils.json"
 LOG_FILE = DATA_DIR / "scraper_cg.log"
 
-# Configuration email
 SMTP_SERVER = os.environ.get("SMTP_SERVER", "smtp.gmail.com")
 SMTP_PORT = int(os.environ.get("SMTP_PORT", "587"))
 SMTP_USER = os.environ.get("SMTP_USER", "")
@@ -88,10 +83,6 @@ def save_results(results):
         json.dump(results, f, ensure_ascii=False, indent=2)
 
 def parse_arabic_date(date_str):
-    """
-    Parse une date arabe marocaine.
-    Exemples: "الأربعاء 22 يوليوز 2026", "الخميس 09 يوليوز 2026"
-    """
     mois_arabe = {
         "يناير": 1, "فبراير": 2, "مارس": 3, "أبريل": 4,
         "ماي": 5, "يونيو": 6, "يوليوز": 7, "غشت": 8,
@@ -99,11 +90,8 @@ def parse_arabic_date(date_str):
         "يوليو": 7, "أغسطس": 8, "سبتمبر": 9, "نوفمبر": 11, "ديسمبر": 12
     }
     date_str = date_str.strip()
-    # Enlever le jour de la semaine (ex: "الأربعاء ")
     date_str = re.sub(r'^(الأحد|الاثنين|الثلاثاء|الأربعاء|الخميس|الجمعة|السبت)\s+', '', date_str)
-    # Nettoyer
     date_str = re.sub(r'(\d+)(er|ère|ème)?', r'\1', date_str)
-
     pattern = r"(\d{1,2})\s+([\u0621-\u064A]+)\s+(\d{4})"
     match = re.search(pattern, date_str)
     if match:
@@ -116,8 +104,6 @@ def parse_arabic_date(date_str):
                 return date(annee, mois, jour)
             except ValueError:
                 pass
-
-    # Fallback: format numérique
     match2 = re.search(r"(\d{1,2})[/-](\d{1,2})[/-](\d{4})", date_str)
     if match2:
         jour, mois, annee = map(int, match2.groups())
@@ -125,26 +111,15 @@ def parse_arabic_date(date_str):
             return date(annee, mois, jour)
         except ValueError:
             pass
-
-    logger.warning(f"Format de date non reconnu: {date_str}")
     return None
 
 def clean_text(text):
-    """Nettoie le texte : supprime les espaces multiples, les sauts de ligne, etc."""
     if not text:
         return ""
     text = re.sub(r'\s+', ' ', text)
     return text.strip()
 
-def extract_text_from_element(soup, element_id, default=""):
-    """Extrait le texte d'un élément par son ID."""
-    elem = soup.find(id=element_id)
-    if elem:
-        return clean_text(elem.get_text(separator="\n"))
-    return default
-
 def extract_list_items(soup, element_id):
-    """Extrait les éléments d'une liste (ul/ol) depuis un conteneur."""
     container = soup.find(id=element_id)
     if not container:
         return []
@@ -156,31 +131,31 @@ def extract_list_items(soup, element_id):
     return items
 
 # ============================================================================
-# SCRAPING
+# SCRAPING avec cloudscraper
 # ============================================================================
 
+# Création du scraper une fois pour toutes
+scraper = cloudscraper.create_scraper(
+    browser={
+        'browser': 'chrome',
+        'platform': 'windows',
+        'mobile': False
+    }
+)
+
 def get_liste_conseils(page=0):
-    """
-    Récupère la liste des conseils depuis la page principale.
-    Retourne une liste de dicts avec: url, titre, date, extrait.
-    """
     url = f"{BASE_URL}{LIST_URL}"
     if page > 0:
         url += f"?page={page}"
     logger.info(f"Scraping page: {url}")
-
     try:
-        response = requests.get(url, headers=HEADERS, timeout=30)
+        response = scraper.get(url, headers=HEADERS, timeout=30)
         response.raise_for_status()
         soup = BeautifulSoup(response.text, "html.parser")
-
         conseils = []
-        # Les articles sont dans des div avec la classe "article-format c-gov-img-wrp"
         articles = soup.find_all("div", class_="article-format c-gov-img-wrp")
         logger.info(f"  → {len(articles)} conseils trouvés sur cette page")
-
         for article in articles:
-            # Lien vers la page détail
             link = article.find("a", href=True)
             if not link:
                 continue
@@ -189,26 +164,17 @@ def get_liste_conseils(page=0):
                 detail_url = f"{BASE_URL}{href}"
             else:
                 detail_url = href
-
-            # Extraire l'ID du conseil (ex: /ar/node/13007)
             node_match = re.search(r"/node/(\d+)", detail_url)
             if not node_match:
                 continue
             node_id = node_match.group(1)
-
-            # Titre
             title_elem = article.find("h4", class_="h4")
             titre = clean_text(title_elem.get_text()) if title_elem else ""
-
-            # Date
             date_elem = article.find("span", class_="date")
             date_text = clean_text(date_elem.get_text()) if date_elem else ""
             date_obj = parse_arabic_date(date_text) if date_text else None
-
-            # Extrait (paragraphe)
             p_elem = article.find("p")
             extrait = clean_text(p_elem.get_text()) if p_elem else ""
-
             conseils.append({
                 "id": node_id,
                 "url": detail_url,
@@ -217,22 +183,17 @@ def get_liste_conseils(page=0):
                 "date": date_obj.isoformat() if date_obj else "",
                 "extrait": extrait
             })
-
         return conseils
     except Exception as e:
         logger.error(f"Erreur scraping page {url}: {e}")
         return []
 
 def get_conseil_detail(url):
-    """
-    Récupère les détails d'un conseil: contenu des onglets, PDF, etc.
-    """
     logger.info(f"  Détails: {url}")
     try:
-        response = requests.get(url, headers=HEADERS, timeout=30)
+        response = scraper.get(url, headers=HEADERS, timeout=30)
         response.raise_for_status()
         soup = BeautifulSoup(response.text, "html.parser")
-
         result = {
             "lois": [],
             "accords": [],
@@ -245,13 +206,9 @@ def get_conseil_detail(url):
             "date": "",
             "contenu": ""
         }
-
-        # Titre
         title_elem = soup.find("h1", class_="h1")
         if title_elem:
             result["titre"] = clean_text(title_elem.get_text())
-
-        # Date
         date_elem = soup.find("span", class_="date")
         if date_elem:
             date_text = clean_text(date_elem.get_text())
@@ -259,26 +216,13 @@ def get_conseil_detail(url):
             date_obj = parse_arabic_date(date_text)
             if date_obj:
                 result["date"] = date_obj.isoformat()
-
-        # Description (contenu principal)
         content_div = soup.find("div", id="read_content")
         if content_div:
-            # On récupère le texte complet, mais on va extraire les onglets séparément
             result["contenu"] = clean_text(content_div.get_text(separator="\n"))
-
-        # Onglet "مراسيم و قوانين" (lois)
-        lois_items = extract_list_items(soup, "loi")
-        result["lois"] = lois_items
-
-        # Onglet "اتفاقيات و معاهدات" (accords)
-        accords_items = extract_list_items(soup, "agreement")
-        result["accords"] = accords_items
-
-        # Onglet "تعيينات" (nominations)
-        nominations_items = extract_list_items(soup, "nomination")
-        result["nominations"] = nominations_items
-
-        # PDF "البلاغ الصحفي"
+        result["lois"] = extract_list_items(soup, "loi")
+        result["accords"] = extract_list_items(soup, "agreement")
+        result["nominations"] = extract_list_items(soup, "nomination")
+        # PDF
         pdf_link = None
         for a in soup.find_all("a", href=True):
             href = a.get("href", "")
@@ -292,7 +236,6 @@ def get_conseil_detail(url):
                     result["pdf_nom"] = text
                     break
         result["pdf_url"] = pdf_link
-
         return result
     except Exception as e:
         logger.error(f"Erreur récupération détails {url}: {e}")
@@ -317,7 +260,6 @@ def run_scraper():
     total_traites = 0
     total_nouveaux = 0
 
-    # On parcourt les pages (jusqu'à 5 pages)
     for page in range(5):
         conseils = get_liste_conseils(page)
         if not conseils:
@@ -334,10 +276,8 @@ def run_scraper():
             seen.add(cid)
             logger.info(f"  [NOUVEAU] {conseil['titre'][:50]}...")
 
-            # Récupérer les détails
             details = get_conseil_detail(conseil["url"])
 
-            # Fusionner les données
             result = {
                 "id": cid,
                 "url": conseil["url"],
@@ -371,7 +311,7 @@ def run_scraper():
     return new_results, all_results, total_traites, total_nouveaux
 
 # ============================================================================
-# ENVOI D'EMAIL AVEC RAPPORT
+# ENVOI D'EMAIL
 # ============================================================================
 
 def send_email_report(new_results, all_results, total_traites, total_nouveaux):
@@ -388,7 +328,6 @@ def send_email_report(new_results, all_results, total_traites, total_nouveaux):
         msg["From"] = SMTP_USER
         msg["To"] = EMAIL_TO
 
-        # Texte brut
         text_body = f"""
 Agent Conseil du Gouvernement (cg.gov.ma) - Rapport du {date.today().isoformat()}
 {'=' * 60}
@@ -432,7 +371,7 @@ PDF: {r['pdf_url'] if r['pdf_url'] else 'Non disponible'}
         else:
             text_body += "Aucun nouveau conseil trouvé.\n"
 
-        # HTML
+        # HTML (même structure que précédemment)
         html_body = f"""<!DOCTYPE html>
 <html dir="rtl" lang="ar">
 <head>
