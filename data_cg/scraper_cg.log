@@ -52,3 +52,20 @@ Call log:
 2026-07-24 14:25:41,017 [INFO] Email envoyé à cavalkhalid@gmail.com
 2026-07-24 14:25:41,018 [INFO] 
 Scraper terminé.
+2026-07-24 14:32:16,217 [INFO] ============================================================
+2026-07-24 14:32:16,217 [INFO] DÉMARRAGE DU SCRAPER Conseil du Gouvernement (cg.gov.ma) - Playwright optimisé
+2026-07-24 14:32:16,217 [INFO] Date: 2026-07-24 14:32:16
+2026-07-24 14:32:16,217 [INFO] ============================================================
+2026-07-24 14:32:16,217 [INFO] Conseils déjà traités: 0
+2026-07-24 14:32:16,218 [INFO] Scraping page with Playwright: https://www.cg.gov.ma/ar/%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D8%AD%D9%83%D9%88%D9%85%D8%A9
+2026-07-24 14:32:17,044 [ERROR] Erreur HTTP 403 pour https://www.cg.gov.ma/ar/%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D8%AD%D9%83%D9%88%D9%85%D8%A9
+2026-07-24 14:32:17,113 [INFO] 
+============================================================
+2026-07-24 14:32:17,114 [INFO] RÉSUMÉ
+2026-07-24 14:32:17,114 [INFO] ============================================================
+2026-07-24 14:32:17,114 [INFO] Conseils analysés: 0
+2026-07-24 14:32:17,114 [INFO] Nouveaux conseils: 0
+2026-07-24 14:32:17,114 [INFO] Total en base: 0
+2026-07-24 14:32:19,282 [INFO] Email envoyé à cavalkhalid@gmail.com
+2026-07-24 14:32:19,282 [INFO] 
+Scraper terminé.
