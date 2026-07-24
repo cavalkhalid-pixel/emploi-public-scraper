@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Agent de scraping pour les Conseils du Gouvernement (cg.gov.ma)
-Utilise cloudscraper pour contourner les protections anti-bot.
+Utilise Playwright pour contourner les protections Cloudflare.
 """
 
 import os
@@ -15,21 +15,15 @@ from datetime import datetime, date
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from pathlib import Path
+import asyncio
 
-import cloudscraper
-from bs4 import BeautifulSoup
+from playwright.async_api import async_playwright
 
 # ============================================================================
 # CONFIGURATION
 # ============================================================================
 
 BASE_URL = "https://www.cg.gov.ma"
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-    "Accept-Language": "ar,fr;q=0.9,en;q=0.8",
-}
-
 LIST_URL = "/ar/%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D8%AD%D9%83%D9%88%D9%85%D8%A9"
 
 DATA_DIR = Path("data_cg")
@@ -119,7 +113,10 @@ def clean_text(text):
     text = re.sub(r'\s+', ' ', text)
     return text.strip()
 
-def extract_list_items(soup, element_id):
+def extract_list_items(html, element_id):
+    """Extrait les éléments d'une liste depuis un conteneur HTML."""
+    from bs4 import BeautifulSoup
+    soup = BeautifulSoup(html, "html.parser")
     container = soup.find(id=element_id)
     if not container:
         return []
@@ -131,27 +128,40 @@ def extract_list_items(soup, element_id):
     return items
 
 # ============================================================================
-# SCRAPING avec cloudscraper
+# SCRAPING avec Playwright
 # ============================================================================
 
-# Création du scraper une fois pour toutes
-scraper = cloudscraper.create_scraper(
-    browser={
-        'browser': 'chrome',
-        'platform': 'windows',
-        'mobile': False
-    }
-)
+async def get_page_content(url):
+    """Récupère le contenu HTML d'une page en utilisant Playwright."""
+    async with async_playwright() as p:
+        browser = await p.chromium.launch(
+            headless=True,
+            args=[
+                '--no-sandbox',
+                '--disable-setuid-sandbox',
+                '--disable-blink-features=AutomationControlled',
+                '--disable-dev-shm-usage'
+            ]
+        )
+        context = await browser.new_context(
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+            viewport={'width': 1280, 'height': 800}
+        )
+        page = await context.new_page()
+        await page.goto(url, wait_until="networkidle", timeout=60000)
+        content = await page.content()
+        await browser.close()
+        return content
 
-def get_liste_conseils(page=0):
+async def get_liste_conseils_async(page=0):
     url = f"{BASE_URL}{LIST_URL}"
     if page > 0:
         url += f"?page={page}"
-    logger.info(f"Scraping page: {url}")
+    logger.info(f"Scraping page with Playwright: {url}")
     try:
-        response = scraper.get(url, headers=HEADERS, timeout=30)
-        response.raise_for_status()
-        soup = BeautifulSoup(response.text, "html.parser")
+        html = await get_page_content(url)
+        from bs4 import BeautifulSoup
+        soup = BeautifulSoup(html, "html.parser")
         conseils = []
         articles = soup.find_all("div", class_="article-format c-gov-img-wrp")
         logger.info(f"  → {len(articles)} conseils trouvés sur cette page")
@@ -188,12 +198,12 @@ def get_liste_conseils(page=0):
         logger.error(f"Erreur scraping page {url}: {e}")
         return []
 
-def get_conseil_detail(url):
+async def get_conseil_detail_async(url):
     logger.info(f"  Détails: {url}")
     try:
-        response = scraper.get(url, headers=HEADERS, timeout=30)
-        response.raise_for_status()
-        soup = BeautifulSoup(response.text, "html.parser")
+        html = await get_page_content(url)
+        from bs4 import BeautifulSoup
+        soup = BeautifulSoup(html, "html.parser")
         result = {
             "lois": [],
             "accords": [],
@@ -219,9 +229,10 @@ def get_conseil_detail(url):
         content_div = soup.find("div", id="read_content")
         if content_div:
             result["contenu"] = clean_text(content_div.get_text(separator="\n"))
-        result["lois"] = extract_list_items(soup, "loi")
-        result["accords"] = extract_list_items(soup, "agreement")
-        result["nominations"] = extract_list_items(soup, "nomination")
+        # Extraire les onglets
+        result["lois"] = extract_list_items(html, "loi")
+        result["accords"] = extract_list_items(html, "agreement")
+        result["nominations"] = extract_list_items(html, "nomination")
         # PDF
         pdf_link = None
         for a in soup.find_all("a", href=True):
@@ -245,9 +256,9 @@ def get_conseil_detail(url):
 # EXÉCUTION PRINCIPALE
 # ============================================================================
 
-def run_scraper():
+async def run_scraper_async():
     logger.info("=" * 60)
-    logger.info("DÉMARRAGE DU SCRAPER Conseil du Gouvernement (cg.gov.ma)")
+    logger.info("DÉMARRAGE DU SCRAPER Conseil du Gouvernement (cg.gov.ma) - Playwright")
     logger.info(f"Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     logger.info("=" * 60)
 
@@ -261,7 +272,7 @@ def run_scraper():
     total_nouveaux = 0
 
     for page in range(5):
-        conseils = get_liste_conseils(page)
+        conseils = await get_liste_conseils_async(page)
         if not conseils:
             break
 
@@ -276,7 +287,7 @@ def run_scraper():
             seen.add(cid)
             logger.info(f"  [NOUVEAU] {conseil['titre'][:50]}...")
 
-            details = get_conseil_detail(conseil["url"])
+            details = await get_conseil_detail_async(conseil["url"])
 
             result = {
                 "id": cid,
@@ -310,8 +321,11 @@ def run_scraper():
 
     return new_results, all_results, total_traites, total_nouveaux
 
+def run_scraper():
+    return asyncio.run(run_scraper_async())
+
 # ============================================================================
-# ENVOI D'EMAIL
+# ENVOI D'EMAIL (identique à avant)
 # ============================================================================
 
 def send_email_report(new_results, all_results, total_traites, total_nouveaux):
@@ -371,7 +385,7 @@ PDF: {r['pdf_url'] if r['pdf_url'] else 'Non disponible'}
         else:
             text_body += "Aucun nouveau conseil trouvé.\n"
 
-        # HTML (même structure que précédemment)
+        # HTML
         html_body = f"""<!DOCTYPE html>
 <html dir="rtl" lang="ar">
 <head>
