@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Agent de scraping pour les Conseils du Gouvernement (cg.gov.ma)
-Utilise l'API ScrapingBee pour contourner Cloudflare.
+Utilise Selenium avec undetected-chromedriver pour contourner Cloudflare.
 """
 
 import os
@@ -11,14 +11,17 @@ import json
 import re
 import smtplib
 import logging
+import time
 from datetime import datetime, date
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from pathlib import Path
-import time
 
-import requests
+import undetected_chromedriver as uc
 from bs4 import BeautifulSoup
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 # ============================================================================
 # CONFIGURATION
@@ -26,7 +29,6 @@ from bs4 import BeautifulSoup
 
 BASE_URL = "https://www.cg.gov.ma"
 LIST_URL = "/ar/%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D8%AD%D9%83%D9%88%D9%85%D8%A9"
-SCRAPINGBEE_API_KEY = os.environ.get("SCRAPINGBEE_API_KEY", "")  # À configurer dans secrets
 
 DATA_DIR = Path("data_cg")
 DATA_DIR.mkdir(exist_ok=True)
@@ -115,8 +117,7 @@ def clean_text(text):
     text = re.sub(r'\s+', ' ', text)
     return text.strip()
 
-def extract_list_items(html, element_id):
-    soup = BeautifulSoup(html, "html.parser")
+def extract_list_items(soup, element_id):
     container = soup.find(id=element_id)
     if not container:
         return []
@@ -128,47 +129,48 @@ def extract_list_items(html, element_id):
     return items
 
 # ============================================================================
-# SCRAPING via ScrapingBee
+# SCRAPING avec Selenium
 # ============================================================================
 
-def get_page_with_scrapingbee(url):
+def get_page_with_selenium(url, max_retries=3):
     """
-    Récupère le contenu HTML d'une page via ScrapingBee.
+    Récupère le HTML d'une page avec undetected-chromedriver.
     """
-    if not SCRAPINGBEE_API_KEY:
-        logger.error("Clé API ScrapingBee manquante. Veuillez définir SCRAPINGBEE_API_KEY.")
-        return None
+    for attempt in range(max_retries):
+        driver = None
+        try:
+            options = uc.ChromeOptions()
+            options.add_argument('--no-sandbox')
+            options.add_argument('--disable-dev-shm-usage')
+            options.add_argument('--disable-gpu')
+            options.add_argument('--window-size=1280,800')
+            options.add_argument('--disable-blink-features=AutomationControlled')
+            options.add_experimental_option('excludeSwitches', ['enable-automation'])
+            options.add_experimental_option('useAutomationExtension', False)
+            
+            driver = uc.Chrome(options=options, headless=True)
+            
+            driver.get(url)
+            # Attendre que le contenu apparaisse (max 30s)
+            WebDriverWait(driver, 30).until(
+                EC.presence_of_element_located((By.CLASS_NAME, "article-format"))
+            )
+            html = driver.page_source
+            return html
+        except Exception as e:
+            logger.error(f"Tentative {attempt+1}/{max_retries} échouée pour {url}: {e}")
+            time.sleep(5)
+        finally:
+            if driver:
+                driver.quit()
+    return None
 
-    params = {
-        "api_key": SCRAPINGBEE_API_KEY,
-        "url": url,
-        "render_js": "true",          # Exécute JavaScript
-        "premium_proxy": "true",      # Utilise des IP résidentielles
-        "country_code": "ma",         # Simule une localisation Maroc
-        "wait": "5000",               # Attend 5s pour que la page se charge
-        "block_resources": "true",    # Bloque images/CSS pour accélérer
-        "screenshot": "false",
-        "return_page_source": "true"
-    }
-
-    api_url = "https://app.scrapingbee.com/api/v1/"
-    try:
-        response = requests.get(api_url, params=params, timeout=60)
-        if response.status_code == 200:
-            return response.text
-        else:
-            logger.error(f"Erreur ScrapingBee: {response.status_code} - {response.text}")
-            return None
-    except Exception as e:
-        logger.error(f"Erreur requête ScrapingBee: {e}")
-        return None
-
-def get_liste_conseils_using_api(page=0):
+def get_liste_conseils_using_selenium(page=0):
     url = f"{BASE_URL}{LIST_URL}"
     if page > 0:
         url += f"?page={page}"
-    logger.info(f"Scraping avec ScrapingBee: {url}")
-    html = get_page_with_scrapingbee(url)
+    logger.info(f"Scraping avec Selenium: {url}")
+    html = get_page_with_selenium(url)
     if not html:
         return []
     soup = BeautifulSoup(html, "html.parser")
@@ -205,9 +207,9 @@ def get_liste_conseils_using_api(page=0):
         })
     return conseils
 
-def get_conseil_detail_using_api(url):
+def get_conseil_detail_using_selenium(url):
     logger.info(f"  Détails: {url}")
-    html = get_page_with_scrapingbee(url)
+    html = get_page_with_selenium(url)
     if not html:
         return {"lois": [], "accords": [], "nominations": [], "pdf_url": None, "pdf_nom": "", "titre": "", "date_text": "", "date": "", "contenu": ""}
     soup = BeautifulSoup(html, "html.parser")
@@ -236,9 +238,9 @@ def get_conseil_detail_using_api(url):
     content_div = soup.find("div", id="read_content")
     if content_div:
         result["contenu"] = clean_text(content_div.get_text(separator="\n"))
-    result["lois"] = extract_list_items(html, "loi")
-    result["accords"] = extract_list_items(html, "agreement")
-    result["nominations"] = extract_list_items(html, "nomination")
+    result["lois"] = extract_list_items(soup, "loi")
+    result["accords"] = extract_list_items(soup, "agreement")
+    result["nominations"] = extract_list_items(soup, "nomination")
     pdf_link = None
     for a in soup.find_all("a", href=True):
         href = a.get("href", "")
@@ -260,13 +262,9 @@ def get_conseil_detail_using_api(url):
 
 def run_scraper():
     logger.info("=" * 60)
-    logger.info("DÉMARRAGE DU SCRAPER Conseil du Gouvernement (cg.gov.ma) - ScrapingBee")
+    logger.info("DÉMARRAGE DU SCRAPER Conseil du Gouvernement (cg.gov.ma) - Selenium")
     logger.info(f"Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     logger.info("=" * 60)
-
-    if not SCRAPINGBEE_API_KEY:
-        logger.error("SCRAPINGBEE_API_KEY non définie. Arrêt.")
-        return [], [], 0, 0
 
     seen = load_seen()
     logger.info(f"Conseils déjà traités: {len(seen)}")
@@ -277,9 +275,8 @@ def run_scraper():
     total_traites = 0
     total_nouveaux = 0
 
-    # Scanne 5 pages
-    for page in range(5):
-        conseils = get_liste_conseils_using_api(page)
+    for page in range(1):  # 1 page pour test
+        conseils = get_liste_conseils_using_selenium(page)
         if not conseils:
             break
 
@@ -294,7 +291,7 @@ def run_scraper():
             seen.add(cid)
             logger.info(f"  [NOUVEAU] {conseil['titre'][:50]}...")
 
-            details = get_conseil_detail_using_api(conseil["url"])
+            details = get_conseil_detail_using_selenium(conseil["url"])
 
             result = {
                 "id": cid,
@@ -329,7 +326,7 @@ def run_scraper():
     return new_results, all_results, total_traites, total_nouveaux
 
 # ============================================================================
-# ENVOI D'EMAIL (identique à avant)
+# ENVOI D'EMAIL (inchangé)
 # ============================================================================
 
 def send_email_report(new_results, all_results, total_traites, total_nouveaux):
@@ -389,7 +386,6 @@ PDF: {r['pdf_url'] if r['pdf_url'] else 'Non disponible'}
         else:
             text_body += "Aucun nouveau conseil trouvé.\n"
 
-        # HTML
         html_body = f"""<!DOCTYPE html>
 <html dir="rtl" lang="ar">
 <head>
@@ -485,6 +481,10 @@ body {{ font-family: Arial, sans-serif; direction: rtl; }}
 # ============================================================================
 
 if __name__ == "__main__":
-    new_results, all_results, total_traites, total_nouveaux = run_scraper()
-    send_email_report(new_results, all_results, total_traites, total_nouveaux)
-    logger.info("\nScraper terminé.")
+    try:
+        new_results, all_results, total_traites, total_nouveaux = run_scraper()
+        send_email_report(new_results, all_results, total_traites, total_nouveaux)
+        logger.info("\nScraper terminé.")
+    except Exception as e:
+        logger.error(f"Erreur fatale: {e}")
+        sys.exit(1)
