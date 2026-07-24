@@ -69,3 +69,20 @@ Scraper terminé.
 2026-07-24 14:32:19,282 [INFO] Email envoyé à cavalkhalid@gmail.com
 2026-07-24 14:32:19,282 [INFO] 
 Scraper terminé.
+2026-07-24 14:48:46,515 [INFO] ============================================================
+2026-07-24 14:48:46,515 [INFO] DÉMARRAGE DU SCRAPER Conseil du Gouvernement (cg.gov.ma) - ScrapingBee
+2026-07-24 14:48:46,515 [INFO] Date: 2026-07-24 14:48:46
+2026-07-24 14:48:46,515 [INFO] ============================================================
+2026-07-24 14:48:46,515 [INFO] Conseils déjà traités: 0
+2026-07-24 14:48:46,515 [INFO] Scraping avec ScrapingBee: https://www.cg.gov.ma/ar/%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D8%AD%D9%83%D9%88%D9%85%D8%A9
+2026-07-24 14:48:55,138 [INFO]   → 0 conseils trouvés sur cette page
+2026-07-24 14:48:55,139 [INFO] 
+============================================================
+2026-07-24 14:48:55,139 [INFO] RÉSUMÉ
+2026-07-24 14:48:55,139 [INFO] ============================================================
+2026-07-24 14:48:55,139 [INFO] Conseils analysés: 0
+2026-07-24 14:48:55,139 [INFO] Nouveaux conseils: 0
+2026-07-24 14:48:55,139 [INFO] Total en base: 0
+2026-07-24 14:48:56,775 [INFO] Email envoyé à cavalkhalid@gmail.com
+2026-07-24 14:48:56,775 [INFO] 
+Scraper terminé.
