@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Agent de scraping pour les Conseils du Gouvernement (cg.gov.ma)
-Utilise Playwright pour contourner les protections Cloudflare.
+Utilise Playwright avec blocage des ressources inutiles pour accélérer.
 """
 
 import os
@@ -114,7 +114,6 @@ def clean_text(text):
     return text.strip()
 
 def extract_list_items(html, element_id):
-    """Extrait les éléments d'une liste depuis un conteneur HTML."""
     from bs4 import BeautifulSoup
     soup = BeautifulSoup(html, "html.parser")
     container = soup.find(id=element_id)
@@ -128,11 +127,11 @@ def extract_list_items(html, element_id):
     return items
 
 # ============================================================================
-# SCRAPING avec Playwright
+# SCRAPING avec Playwright optimisé
 # ============================================================================
 
 async def get_page_content(url):
-    """Récupère le contenu HTML d'une page en utilisant Playwright."""
+    """Récupère le contenu HTML d'une page en utilisant Playwright avec blocage des ressources."""
     async with async_playwright() as p:
         browser = await p.chromium.launch(
             headless=True,
@@ -140,7 +139,10 @@ async def get_page_content(url):
                 '--no-sandbox',
                 '--disable-setuid-sandbox',
                 '--disable-blink-features=AutomationControlled',
-                '--disable-dev-shm-usage'
+                '--disable-dev-shm-usage',
+                '--disable-accelerated-2d-canvas',
+                '--disable-gpu',
+                '--window-size=1280,800'
             ]
         )
         context = await browser.new_context(
@@ -148,109 +150,125 @@ async def get_page_content(url):
             viewport={'width': 1280, 'height': 800}
         )
         page = await context.new_page()
-        await page.goto(url, wait_until="networkidle", timeout=60000)
-        content = await page.content()
-        await browser.close()
-        return content
+
+        # Bloquer les requêtes inutiles (images, polices, CSS, etc.)
+        await page.route("**/*.{png,jpg,jpeg,gif,webp,svg,css,woff,woff2,ttf,otf,eot,ico}", lambda route: route.abort())
+        # Optionnel : bloquer aussi les scripts tiers si besoin
+        # await page.route("**/*.js", lambda route: route.abort())
+
+        try:
+            response = await page.goto(url, wait_until="domcontentloaded", timeout=90000)
+            if response and response.status >= 400:
+                logger.error(f"Erreur HTTP {response.status} pour {url}")
+                return None
+
+            # Attendre l'apparition des articles (pour la page liste) ou du contenu principal
+            # On attend 5 secondes max pour que le DOM se construise
+            await page.wait_for_selector('.article-format', timeout=10000).catch(lambda _: None)
+            # Si on est sur une page détail, attendre le h1
+            await page.wait_for_selector('h1.h1', timeout=5000).catch(lambda _: None)
+
+            content = await page.content()
+            await browser.close()
+            return content
+        except Exception as e:
+            logger.error(f"Erreur lors du chargement de {url}: {e}")
+            await browser.close()
+            return None
 
 async def get_liste_conseils_async(page=0):
     url = f"{BASE_URL}{LIST_URL}"
     if page > 0:
         url += f"?page={page}"
     logger.info(f"Scraping page with Playwright: {url}")
-    try:
-        html = await get_page_content(url)
-        from bs4 import BeautifulSoup
-        soup = BeautifulSoup(html, "html.parser")
-        conseils = []
-        articles = soup.find_all("div", class_="article-format c-gov-img-wrp")
-        logger.info(f"  → {len(articles)} conseils trouvés sur cette page")
-        for article in articles:
-            link = article.find("a", href=True)
-            if not link:
-                continue
-            href = link.get("href")
-            if href.startswith("/"):
-                detail_url = f"{BASE_URL}{href}"
-            else:
-                detail_url = href
-            node_match = re.search(r"/node/(\d+)", detail_url)
-            if not node_match:
-                continue
-            node_id = node_match.group(1)
-            title_elem = article.find("h4", class_="h4")
-            titre = clean_text(title_elem.get_text()) if title_elem else ""
-            date_elem = article.find("span", class_="date")
-            date_text = clean_text(date_elem.get_text()) if date_elem else ""
-            date_obj = parse_arabic_date(date_text) if date_text else None
-            p_elem = article.find("p")
-            extrait = clean_text(p_elem.get_text()) if p_elem else ""
-            conseils.append({
-                "id": node_id,
-                "url": detail_url,
-                "titre": titre,
-                "date_text": date_text,
-                "date": date_obj.isoformat() if date_obj else "",
-                "extrait": extrait
-            })
-        return conseils
-    except Exception as e:
-        logger.error(f"Erreur scraping page {url}: {e}")
+    html = await get_page_content(url)
+    if not html:
         return []
+    from bs4 import BeautifulSoup
+    soup = BeautifulSoup(html, "html.parser")
+    conseils = []
+    articles = soup.find_all("div", class_="article-format c-gov-img-wrp")
+    logger.info(f"  → {len(articles)} conseils trouvés sur cette page")
+    for article in articles:
+        link = article.find("a", href=True)
+        if not link:
+            continue
+        href = link.get("href")
+        if href.startswith("/"):
+            detail_url = f"{BASE_URL}{href}"
+        else:
+            detail_url = href
+        node_match = re.search(r"/node/(\d+)", detail_url)
+        if not node_match:
+            continue
+        node_id = node_match.group(1)
+        title_elem = article.find("h4", class_="h4")
+        titre = clean_text(title_elem.get_text()) if title_elem else ""
+        date_elem = article.find("span", class_="date")
+        date_text = clean_text(date_elem.get_text()) if date_elem else ""
+        date_obj = parse_arabic_date(date_text) if date_text else None
+        p_elem = article.find("p")
+        extrait = clean_text(p_elem.get_text()) if p_elem else ""
+        conseils.append({
+            "id": node_id,
+            "url": detail_url,
+            "titre": titre,
+            "date_text": date_text,
+            "date": date_obj.isoformat() if date_obj else "",
+            "extrait": extrait
+        })
+    return conseils
 
 async def get_conseil_detail_async(url):
     logger.info(f"  Détails: {url}")
-    try:
-        html = await get_page_content(url)
-        from bs4 import BeautifulSoup
-        soup = BeautifulSoup(html, "html.parser")
-        result = {
-            "lois": [],
-            "accords": [],
-            "nominations": [],
-            "pdf_url": None,
-            "pdf_nom": "",
-            "description": "",
-            "titre": "",
-            "date_text": "",
-            "date": "",
-            "contenu": ""
-        }
-        title_elem = soup.find("h1", class_="h1")
-        if title_elem:
-            result["titre"] = clean_text(title_elem.get_text())
-        date_elem = soup.find("span", class_="date")
-        if date_elem:
-            date_text = clean_text(date_elem.get_text())
-            result["date_text"] = date_text
-            date_obj = parse_arabic_date(date_text)
-            if date_obj:
-                result["date"] = date_obj.isoformat()
-        content_div = soup.find("div", id="read_content")
-        if content_div:
-            result["contenu"] = clean_text(content_div.get_text(separator="\n"))
-        # Extraire les onglets
-        result["lois"] = extract_list_items(html, "loi")
-        result["accords"] = extract_list_items(html, "agreement")
-        result["nominations"] = extract_list_items(html, "nomination")
-        # PDF
-        pdf_link = None
-        for a in soup.find_all("a", href=True):
-            href = a.get("href", "")
-            text = clean_text(a.get_text())
-            if "البلاغ الصحفي" in text or "COMM" in href:
-                if href.endswith(".pdf") or ".pdf" in href:
-                    if href.startswith("/"):
-                        pdf_link = f"{BASE_URL}{href}"
-                    else:
-                        pdf_link = href
-                    result["pdf_nom"] = text
-                    break
-        result["pdf_url"] = pdf_link
-        return result
-    except Exception as e:
-        logger.error(f"Erreur récupération détails {url}: {e}")
+    html = await get_page_content(url)
+    if not html:
         return {"lois": [], "accords": [], "nominations": [], "pdf_url": None, "pdf_nom": "", "titre": "", "date_text": "", "date": "", "contenu": ""}
+    from bs4 import BeautifulSoup
+    soup = BeautifulSoup(html, "html.parser")
+    result = {
+        "lois": [],
+        "accords": [],
+        "nominations": [],
+        "pdf_url": None,
+        "pdf_nom": "",
+        "description": "",
+        "titre": "",
+        "date_text": "",
+        "date": "",
+        "contenu": ""
+    }
+    title_elem = soup.find("h1", class_="h1")
+    if title_elem:
+        result["titre"] = clean_text(title_elem.get_text())
+    date_elem = soup.find("span", class_="date")
+    if date_elem:
+        date_text = clean_text(date_elem.get_text())
+        result["date_text"] = date_text
+        date_obj = parse_arabic_date(date_text)
+        if date_obj:
+            result["date"] = date_obj.isoformat()
+    content_div = soup.find("div", id="read_content")
+    if content_div:
+        result["contenu"] = clean_text(content_div.get_text(separator="\n"))
+    result["lois"] = extract_list_items(html, "loi")
+    result["accords"] = extract_list_items(html, "agreement")
+    result["nominations"] = extract_list_items(html, "nomination")
+    # PDF
+    pdf_link = None
+    for a in soup.find_all("a", href=True):
+        href = a.get("href", "")
+        text = clean_text(a.get_text())
+        if "البلاغ الصحفي" in text or "COMM" in href:
+            if href.endswith(".pdf") or ".pdf" in href:
+                if href.startswith("/"):
+                    pdf_link = f"{BASE_URL}{href}"
+                else:
+                    pdf_link = href
+                result["pdf_nom"] = text
+                break
+    result["pdf_url"] = pdf_link
+    return result
 
 # ============================================================================
 # EXÉCUTION PRINCIPALE
@@ -258,7 +276,7 @@ async def get_conseil_detail_async(url):
 
 async def run_scraper_async():
     logger.info("=" * 60)
-    logger.info("DÉMARRAGE DU SCRAPER Conseil du Gouvernement (cg.gov.ma) - Playwright")
+    logger.info("DÉMARRAGE DU SCRAPER Conseil du Gouvernement (cg.gov.ma) - Playwright optimisé")
     logger.info(f"Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     logger.info("=" * 60)
 
@@ -271,7 +289,8 @@ async def run_scraper_async():
     total_traites = 0
     total_nouveaux = 0
 
-    for page in range(5):
+    # On ne scanne que la première page pour le test (on peut mettre 5)
+    for page in range(1):  # 1 page pour test, passer à 5 après validation
         conseils = await get_liste_conseils_async(page)
         if not conseils:
             break
@@ -325,7 +344,7 @@ def run_scraper():
     return asyncio.run(run_scraper_async())
 
 # ============================================================================
-# ENVOI D'EMAIL (identique à avant)
+# ENVOI D'EMAIL (inchangé, identique à avant)
 # ============================================================================
 
 def send_email_report(new_results, all_results, total_traites, total_nouveaux):
