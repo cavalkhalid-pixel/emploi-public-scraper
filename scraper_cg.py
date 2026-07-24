@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Agent de scraping pour les Conseils du Gouvernement (cg.gov.ma)
-Utilise Playwright avec blocage des ressources inutiles pour accélérer.
+Utilise l'API ScrapingBee pour contourner Cloudflare.
 """
 
 import os
@@ -15,9 +15,10 @@ from datetime import datetime, date
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from pathlib import Path
-import asyncio
+import time
 
-from playwright.async_api import async_playwright
+import requests
+from bs4 import BeautifulSoup
 
 # ============================================================================
 # CONFIGURATION
@@ -25,6 +26,7 @@ from playwright.async_api import async_playwright
 
 BASE_URL = "https://www.cg.gov.ma"
 LIST_URL = "/ar/%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D8%AD%D9%83%D9%88%D9%85%D8%A9"
+SCRAPINGBEE_API_KEY = os.environ.get("SCRAPINGBEE_API_KEY", "")  # À configurer dans secrets
 
 DATA_DIR = Path("data_cg")
 DATA_DIR.mkdir(exist_ok=True)
@@ -114,7 +116,6 @@ def clean_text(text):
     return text.strip()
 
 def extract_list_items(html, element_id):
-    from bs4 import BeautifulSoup
     soup = BeautifulSoup(html, "html.parser")
     container = soup.find(id=element_id)
     if not container:
@@ -127,64 +128,49 @@ def extract_list_items(html, element_id):
     return items
 
 # ============================================================================
-# SCRAPING avec Playwright optimisé
+# SCRAPING via ScrapingBee
 # ============================================================================
 
-async def get_page_content(url):
-    """Récupère le contenu HTML d'une page en utilisant Playwright avec blocage des ressources."""
-    async with async_playwright() as p:
-        browser = await p.chromium.launch(
-            headless=True,
-            args=[
-                '--no-sandbox',
-                '--disable-setuid-sandbox',
-                '--disable-blink-features=AutomationControlled',
-                '--disable-dev-shm-usage',
-                '--disable-accelerated-2d-canvas',
-                '--disable-gpu',
-                '--window-size=1280,800'
-            ]
-        )
-        context = await browser.new_context(
-            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
-            viewport={'width': 1280, 'height': 800}
-        )
-        page = await context.new_page()
+def get_page_with_scrapingbee(url):
+    """
+    Récupère le contenu HTML d'une page via ScrapingBee.
+    """
+    if not SCRAPINGBEE_API_KEY:
+        logger.error("Clé API ScrapingBee manquante. Veuillez définir SCRAPINGBEE_API_KEY.")
+        return None
 
-        # Bloquer les requêtes inutiles (images, polices, CSS, etc.)
-        await page.route("**/*.{png,jpg,jpeg,gif,webp,svg,css,woff,woff2,ttf,otf,eot,ico}", lambda route: route.abort())
-        # Optionnel : bloquer aussi les scripts tiers si besoin
-        # await page.route("**/*.js", lambda route: route.abort())
+    params = {
+        "api_key": SCRAPINGBEE_API_KEY,
+        "url": url,
+        "render_js": "true",          # Exécute JavaScript
+        "premium_proxy": "true",      # Utilise des IP résidentielles
+        "country_code": "ma",         # Simule une localisation Maroc
+        "wait": "5000",               # Attend 5s pour que la page se charge
+        "block_resources": "true",    # Bloque images/CSS pour accélérer
+        "screenshot": "false",
+        "return_page_source": "true"
+    }
 
-        try:
-            response = await page.goto(url, wait_until="domcontentloaded", timeout=90000)
-            if response and response.status >= 400:
-                logger.error(f"Erreur HTTP {response.status} pour {url}")
-                return None
-
-            # Attendre l'apparition des articles (pour la page liste) ou du contenu principal
-            # On attend 5 secondes max pour que le DOM se construise
-            await page.wait_for_selector('.article-format', timeout=10000).catch(lambda _: None)
-            # Si on est sur une page détail, attendre le h1
-            await page.wait_for_selector('h1.h1', timeout=5000).catch(lambda _: None)
-
-            content = await page.content()
-            await browser.close()
-            return content
-        except Exception as e:
-            logger.error(f"Erreur lors du chargement de {url}: {e}")
-            await browser.close()
+    api_url = "https://app.scrapingbee.com/api/v1/"
+    try:
+        response = requests.get(api_url, params=params, timeout=60)
+        if response.status_code == 200:
+            return response.text
+        else:
+            logger.error(f"Erreur ScrapingBee: {response.status_code} - {response.text}")
             return None
+    except Exception as e:
+        logger.error(f"Erreur requête ScrapingBee: {e}")
+        return None
 
-async def get_liste_conseils_async(page=0):
+def get_liste_conseils_using_api(page=0):
     url = f"{BASE_URL}{LIST_URL}"
     if page > 0:
         url += f"?page={page}"
-    logger.info(f"Scraping page with Playwright: {url}")
-    html = await get_page_content(url)
+    logger.info(f"Scraping avec ScrapingBee: {url}")
+    html = get_page_with_scrapingbee(url)
     if not html:
         return []
-    from bs4 import BeautifulSoup
     soup = BeautifulSoup(html, "html.parser")
     conseils = []
     articles = soup.find_all("div", class_="article-format c-gov-img-wrp")
@@ -219,12 +205,11 @@ async def get_liste_conseils_async(page=0):
         })
     return conseils
 
-async def get_conseil_detail_async(url):
+def get_conseil_detail_using_api(url):
     logger.info(f"  Détails: {url}")
-    html = await get_page_content(url)
+    html = get_page_with_scrapingbee(url)
     if not html:
         return {"lois": [], "accords": [], "nominations": [], "pdf_url": None, "pdf_nom": "", "titre": "", "date_text": "", "date": "", "contenu": ""}
-    from bs4 import BeautifulSoup
     soup = BeautifulSoup(html, "html.parser")
     result = {
         "lois": [],
@@ -254,7 +239,6 @@ async def get_conseil_detail_async(url):
     result["lois"] = extract_list_items(html, "loi")
     result["accords"] = extract_list_items(html, "agreement")
     result["nominations"] = extract_list_items(html, "nomination")
-    # PDF
     pdf_link = None
     for a in soup.find_all("a", href=True):
         href = a.get("href", "")
@@ -274,11 +258,15 @@ async def get_conseil_detail_async(url):
 # EXÉCUTION PRINCIPALE
 # ============================================================================
 
-async def run_scraper_async():
+def run_scraper():
     logger.info("=" * 60)
-    logger.info("DÉMARRAGE DU SCRAPER Conseil du Gouvernement (cg.gov.ma) - Playwright optimisé")
+    logger.info("DÉMARRAGE DU SCRAPER Conseil du Gouvernement (cg.gov.ma) - ScrapingBee")
     logger.info(f"Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     logger.info("=" * 60)
+
+    if not SCRAPINGBEE_API_KEY:
+        logger.error("SCRAPINGBEE_API_KEY non définie. Arrêt.")
+        return [], [], 0, 0
 
     seen = load_seen()
     logger.info(f"Conseils déjà traités: {len(seen)}")
@@ -289,9 +277,9 @@ async def run_scraper_async():
     total_traites = 0
     total_nouveaux = 0
 
-    # On ne scanne que la première page pour le test (on peut mettre 5)
-    for page in range(1):  # 1 page pour test, passer à 5 après validation
-        conseils = await get_liste_conseils_async(page)
+    # Scanne 5 pages
+    for page in range(5):
+        conseils = get_liste_conseils_using_api(page)
         if not conseils:
             break
 
@@ -306,7 +294,7 @@ async def run_scraper_async():
             seen.add(cid)
             logger.info(f"  [NOUVEAU] {conseil['titre'][:50]}...")
 
-            details = await get_conseil_detail_async(conseil["url"])
+            details = get_conseil_detail_using_api(conseil["url"])
 
             result = {
                 "id": cid,
@@ -340,11 +328,8 @@ async def run_scraper_async():
 
     return new_results, all_results, total_traites, total_nouveaux
 
-def run_scraper():
-    return asyncio.run(run_scraper_async())
-
 # ============================================================================
-# ENVOI D'EMAIL (inchangé, identique à avant)
+# ENVOI D'EMAIL (identique à avant)
 # ============================================================================
 
 def send_email_report(new_results, all_results, total_traites, total_nouveaux):
