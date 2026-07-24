@@ -15,3 +15,20 @@
 2026-07-24 14:09:35,695 [INFO] Email envoyé à cavalkhalid@gmail.com
 2026-07-24 14:09:35,695 [INFO] 
 Scraper terminé.
+2026-07-24 14:17:39,588 [INFO] ============================================================
+2026-07-24 14:17:39,588 [INFO] DÉMARRAGE DU SCRAPER Conseil du Gouvernement (cg.gov.ma)
+2026-07-24 14:17:39,588 [INFO] Date: 2026-07-24 14:17:39
+2026-07-24 14:17:39,588 [INFO] ============================================================
+2026-07-24 14:17:39,588 [INFO] Conseils déjà traités: 0
+2026-07-24 14:17:39,588 [INFO] Scraping page: https://www.cg.gov.ma/ar/%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D8%AD%D9%83%D9%88%D9%85%D8%A9
+2026-07-24 14:17:39,792 [ERROR] Erreur scraping page https://www.cg.gov.ma/ar/%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D8%AD%D9%83%D9%88%D9%85%D8%A9: 403 Client Error: Forbidden for url: https://www.cg.gov.ma/ar/%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D8%AD%D9%83%D9%88%D9%85%D8%A9
+2026-07-24 14:17:39,792 [INFO] 
+============================================================
+2026-07-24 14:17:39,792 [INFO] RÉSUMÉ
+2026-07-24 14:17:39,792 [INFO] ============================================================
+2026-07-24 14:17:39,793 [INFO] Conseils analysés: 0
+2026-07-24 14:17:39,793 [INFO] Nouveaux conseils: 0
+2026-07-24 14:17:39,793 [INFO] Total en base: 0
+2026-07-24 14:17:42,036 [INFO] Email envoyé à cavalkhalid@gmail.com
+2026-07-24 14:17:42,036 [INFO] 
+Scraper terminé.
