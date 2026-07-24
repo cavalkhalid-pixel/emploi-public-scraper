@@ -32,3 +32,23 @@ Scraper terminé.
 2026-07-24 14:17:42,036 [INFO] Email envoyé à cavalkhalid@gmail.com
 2026-07-24 14:17:42,036 [INFO] 
 Scraper terminé.
+2026-07-24 14:24:37,821 [INFO] ============================================================
+2026-07-24 14:24:37,821 [INFO] DÉMARRAGE DU SCRAPER Conseil du Gouvernement (cg.gov.ma) - Playwright
+2026-07-24 14:24:37,821 [INFO] Date: 2026-07-24 14:24:37
+2026-07-24 14:24:37,821 [INFO] ============================================================
+2026-07-24 14:24:37,821 [INFO] Conseils déjà traités: 0
+2026-07-24 14:24:37,821 [INFO] Scraping page with Playwright: https://www.cg.gov.ma/ar/%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D8%AD%D9%83%D9%88%D9%85%D8%A9
+2026-07-24 14:25:39,711 [ERROR] Erreur scraping page https://www.cg.gov.ma/ar/%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D8%AD%D9%83%D9%88%D9%85%D8%A9: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.cg.gov.ma/ar/%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D8%AD%D9%83%D9%88%D9%85%D8%A9", waiting until "networkidle"
+
+2026-07-24 14:25:39,711 [INFO] 
+============================================================
+2026-07-24 14:25:39,711 [INFO] RÉSUMÉ
+2026-07-24 14:25:39,711 [INFO] ============================================================
+2026-07-24 14:25:39,711 [INFO] Conseils analysés: 0
+2026-07-24 14:25:39,711 [INFO] Nouveaux conseils: 0
+2026-07-24 14:25:39,711 [INFO] Total en base: 0
+2026-07-24 14:25:41,017 [INFO] Email envoyé à cavalkhalid@gmail.com
+2026-07-24 14:25:41,018 [INFO] 
+Scraper terminé.
