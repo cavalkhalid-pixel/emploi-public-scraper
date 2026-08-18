@@ -2378,3 +2378,94 @@ Stacktrace:
 2026-08-17 10:23:36,808 [INFO] Email envoyé à cavalkhalid@gmail.com
 2026-08-17 10:23:36,808 [INFO] 
 Scraper terminé.
+2026-08-18 10:19:09,905 [INFO] ============================================================
+2026-08-18 10:19:09,905 [INFO] DÉMARRAGE DU SCRAPER Conseil du Gouvernement (cg.gov.ma) - Selenium
+2026-08-18 10:19:09,905 [INFO] Date: 2026-08-18 10:19:09
+2026-08-18 10:19:09,905 [INFO] ============================================================
+2026-08-18 10:19:09,905 [INFO] Conseils déjà traités: 0
+2026-08-18 10:19:09,905 [INFO] Scraping avec Selenium: https://www.cg.gov.ma/ar/%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D8%AD%D9%83%D9%88%D9%85%D8%A9
+2026-08-18 10:19:10,286 [INFO] patching driver executable /home/runner/.local/share/undetected_chromedriver/undetected_chromedriver
+2026-08-18 10:19:10,320 [ERROR] Tentative 1/3 échouée pour https://www.cg.gov.ma/ar/%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D8%AD%D9%83%D9%88%D9%85%D8%A9: Message: invalid argument: cannot parse capability: goog:chromeOptions
+from invalid argument: unrecognized chrome option: excludeSwitches
+Stacktrace:
+#0 0x56187f3302ca <unknown>
+#1 0x56187ec93b39 <unknown>
+#2 0x56187ecc3d30 <unknown>
+#3 0x56187ecbfca7 <unknown>
+#4 0x56187ed1c03b <unknown>
+#5 0x56187ed1b99d <unknown>
+#6 0x56187ed1d657 <unknown>
+#7 0x56187ed1d42c <unknown>
+#8 0x56187ecdcecb <unknown>
+#9 0x56187ecddcb1 <unknown>
+#10 0x56187f2f47f0 <unknown>
+#11 0x56187f2f2e6a <unknown>
+#12 0x56187f2ddbb5 <unknown>
+#13 0x56187f2f3b2a <unknown>
+#14 0x56187f2c6df0 <unknown>
+#15 0x56187f31b238 <unknown>
+#16 0x56187f31b3d5 <unknown>
+#17 0x56187f32ee53 <unknown>
+#18 0x7fb1e029cb84 <unknown>
+#19 0x7fb1e0329d6c <unknown>
+
+2026-08-18 10:19:15,699 [INFO] patching driver executable /home/runner/.local/share/undetected_chromedriver/undetected_chromedriver
+2026-08-18 10:19:15,727 [ERROR] Tentative 2/3 échouée pour https://www.cg.gov.ma/ar/%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D8%AD%D9%83%D9%88%D9%85%D8%A9: Message: invalid argument: cannot parse capability: goog:chromeOptions
+from invalid argument: unrecognized chrome option: excludeSwitches
+Stacktrace:
+#0 0x56221fa762ca <unknown>
+#1 0x56221f3d9b39 <unknown>
+#2 0x56221f409d30 <unknown>
+#3 0x56221f405ca7 <unknown>
+#4 0x56221f46203b <unknown>
+#5 0x56221f46199d <unknown>
+#6 0x56221f463657 <unknown>
+#7 0x56221f46342c <unknown>
+#8 0x56221f422ecb <unknown>
+#9 0x56221f423cb1 <unknown>
+#10 0x56221fa3a7f0 <unknown>
+#11 0x56221fa38e6a <unknown>
+#12 0x56221fa23bb5 <unknown>
+#13 0x56221fa39b2a <unknown>
+#14 0x56221fa0cdf0 <unknown>
+#15 0x56221fa61238 <unknown>
+#16 0x56221fa613d5 <unknown>
+#17 0x56221fa74e53 <unknown>
+#18 0x7f0a0389cb84 <unknown>
+#19 0x7f0a03929d6c <unknown>
+
+2026-08-18 10:19:21,113 [INFO] patching driver executable /home/runner/.local/share/undetected_chromedriver/undetected_chromedriver
+2026-08-18 10:19:21,141 [ERROR] Tentative 3/3 échouée pour https://www.cg.gov.ma/ar/%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D8%AD%D9%83%D9%88%D9%85%D8%A9: Message: invalid argument: cannot parse capability: goog:chromeOptions
+from invalid argument: unrecognized chrome option: excludeSwitches
+Stacktrace:
+#0 0x55e6016402ca <unknown>
+#1 0x55e600fa3b39 <unknown>
+#2 0x55e600fd3d30 <unknown>
+#3 0x55e600fcfca7 <unknown>
+#4 0x55e60102c03b <unknown>
+#5 0x55e60102b99d <unknown>
+#6 0x55e60102d657 <unknown>
+#7 0x55e60102d42c <unknown>
+#8 0x55e600fececb <unknown>
+#9 0x55e600fedcb1 <unknown>
+#10 0x55e6016047f0 <unknown>
+#11 0x55e601602e6a <unknown>
+#12 0x55e6015edbb5 <unknown>
+#13 0x55e601603b2a <unknown>
+#14 0x55e6015d6df0 <unknown>
+#15 0x55e60162b238 <unknown>
+#16 0x55e60162b3d5 <unknown>
+#17 0x55e60163ee53 <unknown>
+#18 0x7f791dc9cb84 <unknown>
+#19 0x7f791dd29d6c <unknown>
+
+2026-08-18 10:19:26,142 [INFO] 
+============================================================
+2026-08-18 10:19:26,142 [INFO] RÉSUMÉ
+2026-08-18 10:19:26,142 [INFO] ============================================================
+2026-08-18 10:19:26,142 [INFO] Conseils analysés: 0
+2026-08-18 10:19:26,142 [INFO] Nouveaux conseils: 0
+2026-08-18 10:19:26,142 [INFO] Total en base: 0
+2026-08-18 10:19:27,497 [INFO] Email envoyé à cavalkhalid@gmail.com
+2026-08-18 10:19:27,497 [INFO] 
+Scraper terminé.
