@@ -4289,3 +4289,94 @@ Stacktrace:
 2026-09-07 15:24:58,699 [ERROR] Erreur envoi email: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 6a1803df08f44-9105823090bsm26956896d6.27 - gsmtp')
 2026-09-07 15:24:58,699 [INFO] 
 Scraper terminé.
+2026-09-08 14:00:48,919 [INFO] ============================================================
+2026-09-08 14:00:48,919 [INFO] DÉMARRAGE DU SCRAPER Conseil du Gouvernement (cg.gov.ma) - Selenium
+2026-09-08 14:00:48,919 [INFO] Date: 2026-09-08 14:00:48
+2026-09-08 14:00:48,919 [INFO] ============================================================
+2026-09-08 14:00:48,919 [INFO] Conseils déjà traités: 0
+2026-09-08 14:00:48,919 [INFO] Scraping avec Selenium: https://www.cg.gov.ma/ar/%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D8%AD%D9%83%D9%88%D9%85%D8%A9
+2026-09-08 14:00:49,392 [INFO] patching driver executable /home/runner/.local/share/undetected_chromedriver/undetected_chromedriver
+2026-09-08 14:00:49,426 [ERROR] Tentative 1/3 échouée pour https://www.cg.gov.ma/ar/%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D8%AD%D9%83%D9%88%D9%85%D8%A9: Message: invalid argument: cannot parse capability: goog:chromeOptions
+from invalid argument: unrecognized chrome option: excludeSwitches
+Stacktrace:
+#0 0x55f228d0503a <unknown>
+#1 0x55f22866d4c9 <unknown>
+#2 0x55f22869d6b0 <unknown>
+#3 0x55f228699627 <unknown>
+#4 0x55f2286f59ab <unknown>
+#5 0x55f2286f530d <unknown>
+#6 0x55f2286f6fc7 <unknown>
+#7 0x55f2286f6d9c <unknown>
+#8 0x55f2286b683b <unknown>
+#9 0x55f2286b7621 <unknown>
+#10 0x55f228cc95f0 <unknown>
+#11 0x55f228cc7c6a <unknown>
+#12 0x55f228cb29f5 <unknown>
+#13 0x55f228cc892a <unknown>
+#14 0x55f228c9bd10 <unknown>
+#15 0x55f228cf0158 <unknown>
+#16 0x55f228cf02f5 <unknown>
+#17 0x55f228d03bc3 <unknown>
+#18 0x7f981f29cb84 <unknown>
+#19 0x7f981f329d6c <unknown>
+
+2026-09-08 14:00:54,768 [INFO] patching driver executable /home/runner/.local/share/undetected_chromedriver/undetected_chromedriver
+2026-09-08 14:00:54,800 [ERROR] Tentative 2/3 échouée pour https://www.cg.gov.ma/ar/%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D8%AD%D9%83%D9%88%D9%85%D8%A9: Message: invalid argument: cannot parse capability: goog:chromeOptions
+from invalid argument: unrecognized chrome option: excludeSwitches
+Stacktrace:
+#0 0x55d5b4f0003a <unknown>
+#1 0x55d5b48684c9 <unknown>
+#2 0x55d5b48986b0 <unknown>
+#3 0x55d5b4894627 <unknown>
+#4 0x55d5b48f09ab <unknown>
+#5 0x55d5b48f030d <unknown>
+#6 0x55d5b48f1fc7 <unknown>
+#7 0x55d5b48f1d9c <unknown>
+#8 0x55d5b48b183b <unknown>
+#9 0x55d5b48b2621 <unknown>
+#10 0x55d5b4ec45f0 <unknown>
+#11 0x55d5b4ec2c6a <unknown>
+#12 0x55d5b4ead9f5 <unknown>
+#13 0x55d5b4ec392a <unknown>
+#14 0x55d5b4e96d10 <unknown>
+#15 0x55d5b4eeb158 <unknown>
+#16 0x55d5b4eeb2f5 <unknown>
+#17 0x55d5b4efebc3 <unknown>
+#18 0x7f884249cb84 <unknown>
+#19 0x7f8842529d6c <unknown>
+
+2026-09-08 14:01:00,309 [INFO] patching driver executable /home/runner/.local/share/undetected_chromedriver/undetected_chromedriver
+2026-09-08 14:01:00,342 [ERROR] Tentative 3/3 échouée pour https://www.cg.gov.ma/ar/%D9%85%D8%AC%D9%84%D8%B3-%D8%A7%D9%84%D8%AD%D9%83%D9%88%D9%85%D8%A9: Message: invalid argument: cannot parse capability: goog:chromeOptions
+from invalid argument: unrecognized chrome option: excludeSwitches
+Stacktrace:
+#0 0x55e6c6de403a <unknown>
+#1 0x55e6c674c4c9 <unknown>
+#2 0x55e6c677c6b0 <unknown>
+#3 0x55e6c6778627 <unknown>
+#4 0x55e6c67d49ab <unknown>
+#5 0x55e6c67d430d <unknown>
+#6 0x55e6c67d5fc7 <unknown>
+#7 0x55e6c67d5d9c <unknown>
+#8 0x55e6c679583b <unknown>
+#9 0x55e6c6796621 <unknown>
+#10 0x55e6c6da85f0 <unknown>
+#11 0x55e6c6da6c6a <unknown>
+#12 0x55e6c6d919f5 <unknown>
+#13 0x55e6c6da792a <unknown>
+#14 0x55e6c6d7ad10 <unknown>
+#15 0x55e6c6dcf158 <unknown>
+#16 0x55e6c6dcf2f5 <unknown>
+#17 0x55e6c6de2bc3 <unknown>
+#18 0x7f986089cb84 <unknown>
+#19 0x7f9860929d6c <unknown>
+
+2026-09-08 14:01:05,342 [INFO] 
+============================================================
+2026-09-08 14:01:05,343 [INFO] RÉSUMÉ
+2026-09-08 14:01:05,343 [INFO] ============================================================
+2026-09-08 14:01:05,343 [INFO] Conseils analysés: 0
+2026-09-08 14:01:05,343 [INFO] Nouveaux conseils: 0
+2026-09-08 14:01:05,343 [INFO] Total en base: 0
+2026-09-08 14:01:07,291 [ERROR] Erreur envoi email: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials af79cd13be357-9397f9ee9fbsm1150290785a.1 - gsmtp')
+2026-09-08 14:01:07,291 [INFO] 
+Scraper terminé.
