@@ -145,11 +145,14 @@ def get_page_with_selenium(url, max_retries=3):
             options.add_argument('--disable-gpu')
             options.add_argument('--window-size=1280,800')
             options.add_argument('--disable-blink-features=AutomationControlled')
-            options.add_experimental_option('excludeSwitches', ['enable-automation'])
-            options.add_experimental_option('useAutomationExtension', False)
-            
+            # NOTE: les options expérimentales 'excludeSwitches' et
+            # 'useAutomationExtension' ont été retirées : elles entrent en
+            # conflit avec les versions récentes de Chrome sur les runners
+            # GitHub Actions ("unrecognized chrome option: excludeSwitches").
+            # undetected-chromedriver gère déjà ce masquage nativement.
+
             driver = uc.Chrome(options=options, headless=True)
-            
+
             driver.get(url)
             # Attendre que le contenu apparaisse (max 30s)
             WebDriverWait(driver, 30).until(
