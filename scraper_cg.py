@@ -25,7 +25,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from html import escape
 from pathlib import Path
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
 
 import requests
 from bs4 import BeautifulSoup
@@ -195,6 +195,11 @@ def parse_cg_detail(html):
 # RÉSEAU
 # ============================================================================
 
+def short_error(e):
+    resp = getattr(e, "response", None)
+    return f"HTTP {resp.status_code}" if resp is not None else type(e).__name__
+
+
 def http_get(session, url, tries=3):
     last = None
     for i in range(tries):
@@ -206,7 +211,7 @@ def http_get(session, url, tries=3):
             last = e
             log.warning("  tentative %d/%d échouée (%s): %s", i + 1, tries, url[:60], e)
             time.sleep(3 * (i + 1))
-    raise RuntimeError(str(last))
+    raise RuntimeError(short_error(last))
 
 
 SOURCES = [
@@ -259,6 +264,15 @@ def save_json(path, data):
 # EMAIL
 # ============================================================================
 
+SOURCE_LINKS = {name: url for name, url, _ in SOURCES}
+
+
+def src_link(name):
+    """Lien explicite : sans ça Gmail auto-lie « sgg.gov.ma » vers http://sgg.gov.ma (introuvable, il faut www)."""
+    url = SOURCE_LINKS.get(name)
+    return f'<a href="{escape(url)}">{escape(name)}</a>' if url else escape(name)
+
+
 def build_email(new, status, all_failed, baseline):
     if all_failed:
         subject = "[Conseil du Gouvernement] ⚠ ERREUR : aucune source accessible"
@@ -268,7 +282,7 @@ def build_email(new, status, all_failed, baseline):
         subject = f"[Conseil du Gouvernement] Aucun nouveau conseil - {date.today().isoformat()}"
 
     rows = "".join(
-        f"<li><b>{escape(n)}</b> : {escape(s)}</li>" for n, s in status.items()
+        f"<li><b>{src_link(n)}</b> : {escape(s)}</li>" for n, s in status.items()
     )
     body = [f'<html dir="rtl" lang="ar"><body style="font-family:Arial,sans-serif">',
             f"<h2>📋 Agent Conseil du Gouvernement</h2><p>Rapport du {date.today().isoformat()}</p>",
@@ -281,17 +295,18 @@ def build_email(new, status, all_failed, baseline):
     for r in new:
         body.append('<div style="border:1px solid #ddd;padding:12px;margin:12px 0;border-radius:6px">')
         body.append(f'<h3 style="color:#056e52">{escape(r.get("titre") or "مجلس الحكومة " + r["date"])}</h3>')
-        body.append(f"<p>📅 {r['date']} — sources : {escape(', '.join(sorted(set(r['sources']))))}</p>")
+        body.append(f"<p>📅 {r['date']} — sources : {', '.join(src_link(n) for n in sorted(set(r['sources'])))}</p>")
         if r.get("extrait"):
             body.append(f"<p>{escape(r['extrait'])}</p>")
-        links = [("🔗 Page", r.get("url")), ("📄 Communiqué PDF", r.get("pdf_url")),
+        host = urlparse(r.get("url", "")).hostname or ""
+        links = [(f"🔗 Page ({host.replace('www.', '')})" if host else "🔗 Page", r.get("url")), ("📄 Communiqué PDF", r.get("pdf_url")),
                  ("🗒 Ordre du jour", r.get("ordre_du_jour_url")), ("📑 Compte rendu", r.get("compte_rendu_url"))]
         body.append("<p>" + " | ".join(f'<a href="{escape(u)}">{t}</a>' for t, u in links if u) + "</p>")
         for label, key in (("📜 مراسيم و قوانين", "lois"), ("🤝 اتفاقيات", "accords"), ("👤 تعيينات", "nominations")):
             if r.get(key):
                 body.append(f"<h4>{label}</h4>" + "".join(f"<div>• {escape(x)}</div>" for x in r[key]))
         body.append("</div>")
-    body.append("<hr><p><i>Agent automatique — cg.gov.ma / sgg.gov.ma / mcrpsc.gov.ma</i></p></body></html>")
+    body.append("<hr><p><i>Agent automatique — " + " / ".join(src_link(n) for n in SOURCE_LINKS) + "</i></p></body></html>")
     return subject, "".join(body)
 
 
