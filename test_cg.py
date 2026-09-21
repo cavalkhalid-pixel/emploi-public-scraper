@@ -59,6 +59,18 @@ def test_email_panne_totale():
     assert "ERREUR" in subject and "PAS" in html
 
 
+def test_email_liens_explicites():
+    import re
+    new = [{"date": "2026-09-10", "sources": ["mcrpsc.gov.ma", "sgg.gov.ma"], "titre": "t",
+            "url": "https://www.mcrpsc.gov.ma/x/", "ordre_du_jour_url": "https://www.sgg.gov.ma/oj.pdf"}]
+    status = {"cg.gov.ma": "ERREUR : HTTP 403", "sgg.gov.ma": "OK (407 conseils)", "mcrpsc.gov.ma": "OK (5 conseils)"}
+    _, html = build_email(new, status, all_failed=False, baseline=False)
+    # aucun nom de domaine ne doit rester hors d'une balise <a> (Gmail l'auto-lierait sans www)
+    hors_lien = re.sub(r"<a [^>]*>.*?</a>", "", html)
+    assert not re.search(r"[a-z]+\.gov\.ma", hors_lien), hors_lien
+    assert 'href="https://www.sgg.gov.ma/arabe/travailgouvernemental.aspx">sgg.gov.ma</a>' in html
+
+
 if __name__ == "__main__":
     for name, fn in list(globals().items()):
         if name.startswith("test_"):
