@@ -28947,3 +28947,42 @@ Scraper terminé.
 2026-11-01 14:50:39,094 [INFO] Email envoyé à cavalkhalid@gmail.com
 2026-11-01 14:50:39,094 [INFO] 
 Scraper terminé.
+2026-11-04 15:58:43,252 [INFO] ============================================================
+2026-11-04 15:58:43,252 [INFO] DÉMARRAGE DU SCRAPER emploi-public.ma (AR)
+2026-11-04 15:58:43,252 [INFO] Date: 2026-11-04 15:58:43
+2026-11-04 15:58:43,252 [INFO] ============================================================
+2026-11-04 15:58:43,263 [INFO] 
+--- Catégorie: مناصب المسؤولية ---
+2026-11-04 15:58:43,264 [INFO] Page 1/5
+2026-11-04 15:58:43,264 [INFO] Scraping page: https://www.emploi-public.ma/ar/قائمة-مناصب-المسؤولية
+2026-11-04 15:58:43,926 [ERROR] Erreur scraping page https://www.emploi-public.ma/ar/قائمة-مناصب-المسؤولية: 502 Server Error: Bad Gateway for url: https://www.emploi-public.ma/ar/%D9%82%D8%A7%D8%A6%D9%85%D8%A9-%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9
+2026-11-04 15:58:43,927 [INFO]   Aucune annonce trouvée, arrêt.
+2026-11-04 15:58:43,927 [INFO] 
+--- Catégorie: المناصب العليا ---
+2026-11-04 15:58:43,927 [INFO] Page 1/5
+2026-11-04 15:58:43,927 [INFO] Scraping page: https://www.emploi-public.ma/ar/قائمة-المناصب-العليا
+2026-11-04 15:58:45,329 [ERROR] Erreur scraping page https://www.emploi-public.ma/ar/قائمة-المناصب-العليا: 502 Server Error: Bad Gateway for url: https://www.emploi-public.ma/ar/%D9%82%D8%A7%D8%A6%D9%85%D8%A9-%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7
+2026-11-04 15:58:45,330 [INFO]   Aucune annonce trouvée, arrêt.
+2026-11-04 15:58:45,330 [INFO] 
+--- Catégorie: المباريات ---
+2026-11-04 15:58:45,330 [INFO] Page 1/5
+2026-11-04 15:58:45,330 [INFO] Scraping page: https://www.emploi-public.ma/ar/قائمة-المباريات
+2026-11-04 15:58:45,985 [ERROR] Erreur scraping page https://www.emploi-public.ma/ar/قائمة-المباريات: 502 Server Error: Bad Gateway for url: https://www.emploi-public.ma/ar/%D9%82%D8%A7%D8%A6%D9%85%D8%A9-%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA
+2026-11-04 15:58:45,986 [INFO]   Aucune annonce trouvée, arrêt.
+2026-11-04 15:58:45,986 [INFO] 
+--- Catégorie: تشغيل الخبراء ---
+2026-11-04 15:58:45,986 [INFO] Page 1/5
+2026-11-04 15:58:45,986 [INFO] Scraping page: https://www.emploi-public.ma/ar/قائمة-تشغيل-الخبراء
+2026-11-04 15:58:46,421 [ERROR] Erreur scraping page https://www.emploi-public.ma/ar/قائمة-تشغيل-الخبراء: 502 Server Error: Bad Gateway for url: https://www.emploi-public.ma/ar/%D9%82%D8%A7%D8%A6%D9%85%D8%A9-%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1
+2026-11-04 15:58:46,422 [INFO]   Aucune annonce trouvée, arrêt.
+2026-11-04 15:58:46,443 [INFO] 
+============================================================
+2026-11-04 15:58:46,443 [INFO] RÉSUMÉ
+2026-11-04 15:58:46,443 [INFO] ============================================================
+2026-11-04 15:58:46,443 [INFO] Annonces traitées: 0
+2026-11-04 15:58:46,443 [INFO] Dates en cours: 0
+2026-11-04 15:58:46,443 [INFO] Dates expirées: 0
+2026-11-04 15:58:46,443 [INFO] Total résultats en base: 1788
+2026-11-04 15:58:47,512 [INFO] Email envoyé à cavalkhalid@gmail.com
+2026-11-04 15:58:47,513 [INFO] 
+Scraper terminé.
