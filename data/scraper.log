@@ -29714,3 +29714,645 @@ Scraper terminé.
 2026-11-07 14:46:28,006 [INFO] Email envoyé à cavalkhalid@gmail.com
 2026-11-07 14:46:28,006 [INFO] 
 Scraper terminé.
+2026-11-10 16:08:52,516 [INFO] ============================================================
+2026-11-10 16:08:52,516 [INFO] DÉMARRAGE DU SCRAPER emploi-public.ma (AR)
+2026-11-10 16:08:52,516 [INFO] Date: 2026-11-10 16:08:52
+2026-11-10 16:08:52,516 [INFO] ============================================================
+2026-11-10 16:08:52,527 [INFO] 
+--- Catégorie: مناصب المسؤولية ---
+2026-11-10 16:08:52,527 [INFO] Page 1/5
+2026-11-10 16:08:52,527 [INFO] Scraping page: https://www.emploi-public.ma/ar/قائمة-مناصب-المسؤولية
+2026-11-10 16:08:54,401 [INFO]   → 13 annonces trouvées sur cette page
+2026-11-10 16:08:54,402 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/e11e8a63-a9e5-4d56-b9fa-4462a625007a
+2026-11-10 16:08:55,405 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:08:55,406 [INFO]   [EN COURS] فتح باب الترشيح ل مناصب المسؤولية ب وزارة النقل واللوجيستيك... → 2026-11-26
+2026-11-10 16:08:55,406 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/058aa888-21b8-4b10-973c-f7c1e5e5854f
+2026-11-10 16:09:08,467 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:09:08,468 [INFO]   [EN COURS] فتح باب الترشيح ل مناصب المسؤولية ب وزارة التربية الوطنية وا... → 2026-11-25
+2026-11-10 16:09:08,468 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/0e5d58da-4e01-4c93-aa2e-19742d24534c
+2026-11-10 16:09:39,219 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:09:39,220 [INFO]   [EN COURS] فتح باب الترشيح ل مناصب المسؤولية ب وزارة التربية الوطنية وا... → 2026-11-25
+2026-11-10 16:09:39,220 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/b17ef8a6-3e8f-4526-9e8e-a24ef4a0665c
+2026-11-10 16:09:57,926 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:09:57,927 [INFO]   [EN COURS] فتح باب الترشيح ل مناصب المسؤولية ب وزارة التربية الوطنية وا... → 2026-11-25
+2026-11-10 16:09:57,927 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/4048cf75-62bb-480f-b89f-14a71a768a3f
+2026-11-10 16:09:59,548 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:09:59,549 [INFO]   [EN COURS] فتح باب الترشيح ل مناصب المسؤولية ب وزارة التربية الوطنية وا... → 2026-11-25
+2026-11-10 16:09:59,549 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/51719149-c7a8-4731-9f7b-0e1ea6851b01
+2026-11-10 16:10:04,758 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:10:04,759 [INFO]   [EXPIRÉE] فتح باب الترشيح ل مناصب المسؤولية ب المندوبية السامية للتخطي... → 2026-11-09
+2026-11-10 16:10:04,759 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/472b283a-287d-40db-80f8-e326043c8b45
+2026-11-10 16:10:35,034 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:10:35,035 [INFO]   [EXPIRÉE] لائحة الناجحين في مناصب المسؤولية ب وزارة الشباب والثقافة وا... → 2026-07-03
+2026-11-10 16:10:35,035 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/329616b8-f812-4d70-a8fe-1509e09fae9d
+2026-11-10 16:10:48,209 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:10:48,210 [INFO]   [EXPIRÉE] فتح باب الترشيح ل مناصب المسؤولية ب وزارة الداخلية -عمالة إق... → 2026-11-06
+2026-11-10 16:10:48,210 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/f1130f93-2717-43ec-9285-7b6b4a9a16f4
+2026-11-10 16:11:09,337 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:11:09,338 [INFO]   [EN COURS] فتح باب الترشيح ل مناصب المسؤولية ب وزارة الداخلية -عمالة إق... → 2026-12-11
+2026-11-10 16:11:09,338 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/c65d81d0-32ab-4849-81c8-61e94816e01b
+2026-11-10 16:11:11,206 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:11:11,207 [INFO]   [EN COURS] رئيس قسم تنسيق مراكز تنمية المهارات (RH 138/2026)... → 2026-11-11
+2026-11-10 16:11:11,208 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/14a4fe0d-028f-435b-8ddf-bbddd1716763
+2026-11-10 16:11:14,100 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:11:14,101 [INFO]   [EN COURS] تقني المساحات الخضراء... → 2026-11-11
+2026-11-10 16:11:14,101 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/4d5b8114-375b-4865-87db-68dca55c6ed1
+2026-11-10 16:11:15,895 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:11:15,896 [INFO]   [EN COURS] مدير المعهد المتخصص للتكنولوجيا في الفندقة و السياحة - كلميم... → 2026-11-12
+2026-11-10 16:11:15,896 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/64b8f55c-4903-4d8c-982d-0277677aeb03
+2026-11-10 16:11:17,284 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:11:17,285 [INFO]   [EN COURS] رئيس مصلحة المشتريات و الصفقات... → 2026-11-12
+2026-11-10 16:11:17,285 [INFO] Page 2/5
+2026-11-10 16:11:17,285 [INFO] Scraping page: https://www.emploi-public.ma/ar/قائمة-مناصب-المسؤولية?page=1
+2026-11-10 16:11:18,366 [INFO]   → 13 annonces trouvées sur cette page
+2026-11-10 16:11:18,367 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/e11e8a63-a9e5-4d56-b9fa-4462a625007a
+2026-11-10 16:11:20,060 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:11:20,061 [INFO]   [EN COURS] فتح باب الترشيح ل مناصب المسؤولية ب وزارة النقل واللوجيستيك... → 2026-11-26
+2026-11-10 16:11:20,061 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/058aa888-21b8-4b10-973c-f7c1e5e5854f
+2026-11-10 16:11:21,443 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:11:21,444 [INFO]   [EN COURS] فتح باب الترشيح ل مناصب المسؤولية ب وزارة التربية الوطنية وا... → 2026-11-25
+2026-11-10 16:11:21,444 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/0e5d58da-4e01-4c93-aa2e-19742d24534c
+2026-11-10 16:11:22,512 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:11:22,513 [INFO]   [EN COURS] فتح باب الترشيح ل مناصب المسؤولية ب وزارة التربية الوطنية وا... → 2026-11-25
+2026-11-10 16:11:22,513 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/b17ef8a6-3e8f-4526-9e8e-a24ef4a0665c
+2026-11-10 16:11:24,088 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:11:24,089 [INFO]   [EN COURS] فتح باب الترشيح ل مناصب المسؤولية ب وزارة التربية الوطنية وا... → 2026-11-25
+2026-11-10 16:11:24,089 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/4048cf75-62bb-480f-b89f-14a71a768a3f
+2026-11-10 16:11:40,489 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:11:40,490 [INFO]   [EN COURS] فتح باب الترشيح ل مناصب المسؤولية ب وزارة التربية الوطنية وا... → 2026-11-25
+2026-11-10 16:11:40,490 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/51719149-c7a8-4731-9f7b-0e1ea6851b01
+2026-11-10 16:11:42,019 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:11:42,020 [INFO]   [EXPIRÉE] فتح باب الترشيح ل مناصب المسؤولية ب المندوبية السامية للتخطي... → 2026-11-09
+2026-11-10 16:11:42,020 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/472b283a-287d-40db-80f8-e326043c8b45
+2026-11-10 16:11:43,028 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:11:43,029 [INFO]   [EXPIRÉE] لائحة الناجحين في مناصب المسؤولية ب وزارة الشباب والثقافة وا... → 2026-07-03
+2026-11-10 16:11:43,029 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/329616b8-f812-4d70-a8fe-1509e09fae9d
+2026-11-10 16:11:43,872 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:11:43,873 [INFO]   [EXPIRÉE] فتح باب الترشيح ل مناصب المسؤولية ب وزارة الداخلية -عمالة إق... → 2026-11-06
+2026-11-10 16:11:43,873 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/f1130f93-2717-43ec-9285-7b6b4a9a16f4
+2026-11-10 16:11:57,046 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:11:57,047 [INFO]   [EN COURS] فتح باب الترشيح ل مناصب المسؤولية ب وزارة الداخلية -عمالة إق... → 2026-12-11
+2026-11-10 16:11:57,047 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/c65d81d0-32ab-4849-81c8-61e94816e01b
+2026-11-10 16:12:02,486 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:12:02,487 [INFO]   [EN COURS] رئيس قسم تنسيق مراكز تنمية المهارات (RH 138/2026)... → 2026-11-11
+2026-11-10 16:12:02,487 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/14a4fe0d-028f-435b-8ddf-bbddd1716763
+2026-11-10 16:12:32,907 [ERROR] Erreur détails annonce https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/14a4fe0d-028f-435b-8ddf-bbddd1716763: HTTPSConnectionPool(host='www.emploi-public.ma', port=443): Read timed out. (read timeout=30)
+2026-11-10 16:12:32,907 [INFO]   [PAS DE DATE] تقني المساحات الخضراء...
+2026-11-10 16:12:32,907 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/4d5b8114-375b-4865-87db-68dca55c6ed1
+2026-11-10 16:12:35,132 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:12:35,133 [INFO]   [EN COURS] مدير المعهد المتخصص للتكنولوجيا في الفندقة و السياحة - كلميم... → 2026-11-12
+2026-11-10 16:12:35,133 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/64b8f55c-4903-4d8c-982d-0277677aeb03
+2026-11-10 16:12:37,219 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:12:37,220 [INFO]   [EN COURS] رئيس مصلحة المشتريات و الصفقات... → 2026-11-12
+2026-11-10 16:12:37,220 [INFO] Page 3/5
+2026-11-10 16:12:37,220 [INFO] Scraping page: https://www.emploi-public.ma/ar/قائمة-مناصب-المسؤولية?page=2
+2026-11-10 16:12:40,008 [INFO]   → 13 annonces trouvées sur cette page
+2026-11-10 16:12:40,009 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/342a430f-cf89-4f73-960b-703aa5b39ad6
+2026-11-10 16:12:56,795 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:12:56,796 [INFO]   [EN COURS] فتح باب الترشيح ل مناصب المسؤولية ب وزارة الداخلية -عمالة إق... → 2026-12-11
+2026-11-10 16:12:56,796 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/380cc257-4b11-4cca-9474-a7b47f2c97d4
+2026-11-10 16:12:57,812 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:12:57,813 [INFO]   [EXPIRÉE] لائحة الناجحين في مناصب المسؤولية ب وزارة الداخلية... → 2026-09-23
+2026-11-10 16:12:57,813 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/881fad78-1510-43dd-a038-743c67dd20f8
+2026-11-10 16:13:23,596 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:13:23,597 [INFO]   [EXPIRÉE] لائحة الناجحين في مناصب المسؤولية ب وزارة الداخلية... → 2026-04-24
+2026-11-10 16:13:23,597 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/eac64629-ab0d-40e6-a610-b2f2070c3bb7
+2026-11-10 16:13:25,709 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:13:25,710 [INFO]   [EN COURS] فتح باب الترشيح ل مناصب المسؤولية ب وزارة الداخلية -عمالة إق... → 2026-11-20
+2026-11-10 16:13:25,710 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/0b087935-61e3-43d5-ab62-99cb036491be
+2026-11-10 16:13:38,422 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:13:38,423 [INFO]   [EXPIRÉE] لائحة الناجحين في مناصب المسؤولية ب وزارة الداخلية -عمالة إق... → 2026-05-04
+2026-11-10 16:13:38,423 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/e87230b9-5c31-441a-99c0-ef3d70e8fccb
+2026-11-10 16:13:39,335 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:13:39,336 [INFO]   [EXPIRÉE] لائحة الناجحين في مناصب المسؤولية ب وزارة الداخلية -إقليم ال... → 2026-07-22
+2026-11-10 16:13:39,336 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/cb10246f-888d-4789-9322-8d88f1ca4e21
+2026-11-10 16:14:20,585 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:14:20,586 [INFO]   [EXPIRÉE] لائحة الناجحين في مناصب المسؤولية ب وزارة الداخلية -إقليم ال... → 2026-07-22
+2026-11-10 16:14:20,586 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/558f23e7-7989-4f9c-92e0-0a469e30efd4
+2026-11-10 16:14:24,585 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:14:24,586 [INFO]   [EXPIRÉE] لائحة الناجحين في مناصب المسؤولية ب وزارة الداخلية -إقليم ال... → 2026-08-07
+2026-11-10 16:14:24,586 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/17a0cc96-7f11-40a1-bce9-3a756fd108d5
+2026-11-10 16:14:26,515 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:14:26,516 [INFO]   [EN COURS] فتح باب الترشيح ل مناصب المسؤولية ب وزارة الداخلية -عمالة ال... → 2026-11-27
+2026-11-10 16:14:26,516 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/c65d81d0-32ab-4849-81c8-61e94816e01b
+2026-11-10 16:14:46,324 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:14:46,325 [INFO]   [EN COURS] رئيس قسم تنسيق مراكز تنمية المهارات (RH 138/2026)... → 2026-11-11
+2026-11-10 16:14:46,325 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/14a4fe0d-028f-435b-8ddf-bbddd1716763
+2026-11-10 16:14:47,572 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:14:47,573 [INFO]   [EN COURS] تقني المساحات الخضراء... → 2026-11-11
+2026-11-10 16:14:47,573 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/4d5b8114-375b-4865-87db-68dca55c6ed1
+2026-11-10 16:14:49,125 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:14:49,126 [INFO]   [EN COURS] مدير المعهد المتخصص للتكنولوجيا في الفندقة و السياحة - كلميم... → 2026-11-12
+2026-11-10 16:14:49,126 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D9%85%D8%B3%D8%A4%D9%88%D9%84%D9%8A%D8%A9/64b8f55c-4903-4d8c-982d-0277677aeb03
+2026-11-10 16:14:51,253 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:14:51,254 [INFO]   [EN COURS] رئيس مصلحة المشتريات و الصفقات... → 2026-11-12
+2026-11-10 16:14:51,254 [INFO] Page 4/5
+2026-11-10 16:14:51,254 [INFO] Scraping page: https://www.emploi-public.ma/ar/قائمة-مناصب-المسؤولية?page=3
+2026-11-10 16:15:22,402 [ERROR] Erreur scraping page https://www.emploi-public.ma/ar/قائمة-مناصب-المسؤولية?page=3: HTTPSConnectionPool(host='www.emploi-public.ma', port=443): Read timed out. (read timeout=30)
+2026-11-10 16:15:22,402 [INFO]   Aucune annonce trouvée, arrêt.
+2026-11-10 16:15:22,402 [INFO] 
+--- Catégorie: المناصب العليا ---
+2026-11-10 16:15:22,402 [INFO] Page 1/5
+2026-11-10 16:15:22,402 [INFO] Scraping page: https://www.emploi-public.ma/ar/قائمة-المناصب-العليا
+2026-11-10 16:15:25,380 [INFO]   → 9 annonces trouvées sur cette page
+2026-11-10 16:15:25,381 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/3a856856-b3b2-45f1-a175-a91fa40674bf
+2026-11-10 16:15:27,241 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:15:27,243 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:15:27,243 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير المكتب الجهوي للاستثمار ...
+2026-11-10 16:15:27,244 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/d493ad61-3a96-402b-821a-8af8cef12ecd
+2026-11-10 16:15:28,490 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:15:28,491 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:15:28,492 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا المدير العام للمكتب الوطني لل...
+2026-11-10 16:15:28,492 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/275fa880-80a4-443f-90b0-8b3f190d76df
+2026-11-10 16:15:30,390 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:15:30,391 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:15:30,392 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا المفتش العام لوزارة الفلاحة و...
+2026-11-10 16:15:30,392 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/a2f90b67-bb1c-42a3-bd62-7e3b9d70beab
+2026-11-10 16:15:31,655 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:15:31,656 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:15:31,657 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير النقل الجوي...
+2026-11-10 16:15:31,657 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/adb009b6-d9e6-4a81-ba14-b793dce37591
+2026-11-10 16:16:10,382 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:16:10,383 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:16:10,384 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير الدرسات والجبايات والتعا...
+2026-11-10 16:16:10,384 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/2c118db1-684f-4ae4-8913-d9fce58d2cee
+2026-11-10 16:16:42,281 [ERROR] Erreur détails annonce https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/2c118db1-684f-4ae4-8913-d9fce58d2cee: HTTPSConnectionPool(host='www.emploi-public.ma', port=443): Read timed out. (read timeout=30)
+2026-11-10 16:16:42,281 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير نظم المعلومات...
+2026-11-10 16:16:42,281 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/d7388486-fd01-4194-af1b-cb3b7d88a8ef
+2026-11-10 16:16:44,251 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:16:44,252 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:16:44,253 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير المساطر والشراكة وتسوية ...
+2026-11-10 16:16:44,253 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/d35f9436-c21b-42ea-ae4e-69c290875508
+2026-11-10 16:16:45,528 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:16:45,529 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:16:45,530 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير الموارد...
+2026-11-10 16:16:45,531 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/fb33496a-b3e4-46d5-a556-86d0223b04f8
+2026-11-10 16:16:46,340 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:16:46,341 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:16:46,342 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير(ة) الشؤون العامة...
+2026-11-10 16:16:46,342 [INFO] Page 2/5
+2026-11-10 16:16:46,342 [INFO] Scraping page: https://www.emploi-public.ma/ar/قائمة-المناصب-العليا?page=1
+2026-11-10 16:16:48,209 [INFO]   → 9 annonces trouvées sur cette page
+2026-11-10 16:16:48,210 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/3a856856-b3b2-45f1-a175-a91fa40674bf
+2026-11-10 16:16:49,504 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:16:49,505 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:16:49,506 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير المكتب الجهوي للاستثمار ...
+2026-11-10 16:16:49,506 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/d493ad61-3a96-402b-821a-8af8cef12ecd
+2026-11-10 16:16:57,892 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:16:57,893 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:16:57,894 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا المدير العام للمكتب الوطني لل...
+2026-11-10 16:16:57,894 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/275fa880-80a4-443f-90b0-8b3f190d76df
+2026-11-10 16:16:58,669 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:16:58,670 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:16:58,671 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا المفتش العام لوزارة الفلاحة و...
+2026-11-10 16:16:58,671 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/a2f90b67-bb1c-42a3-bd62-7e3b9d70beab
+2026-11-10 16:16:59,825 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:16:59,826 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:16:59,827 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير النقل الجوي...
+2026-11-10 16:16:59,827 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/adb009b6-d9e6-4a81-ba14-b793dce37591
+2026-11-10 16:17:01,796 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:17:01,797 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:17:01,798 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير الدرسات والجبايات والتعا...
+2026-11-10 16:17:01,798 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/2c118db1-684f-4ae4-8913-d9fce58d2cee
+2026-11-10 16:17:16,105 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:17:16,106 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:17:16,106 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير نظم المعلومات...
+2026-11-10 16:17:16,107 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/d7388486-fd01-4194-af1b-cb3b7d88a8ef
+2026-11-10 16:17:18,145 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:17:18,146 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:17:18,147 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير المساطر والشراكة وتسوية ...
+2026-11-10 16:17:18,147 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/d35f9436-c21b-42ea-ae4e-69c290875508
+2026-11-10 16:17:48,004 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:17:48,005 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:17:48,006 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير الموارد...
+2026-11-10 16:17:48,006 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/fb33496a-b3e4-46d5-a556-86d0223b04f8
+2026-11-10 16:17:50,235 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:17:50,236 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:17:50,237 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير(ة) الشؤون العامة...
+2026-11-10 16:17:50,237 [INFO] Page 3/5
+2026-11-10 16:17:50,237 [INFO] Scraping page: https://www.emploi-public.ma/ar/قائمة-المناصب-العليا?page=2
+2026-11-10 16:17:51,864 [INFO]   → 9 annonces trouvées sur cette page
+2026-11-10 16:17:51,865 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/0caf53e1-867a-4e91-a2d5-4f18a1b80e58
+2026-11-10 16:17:53,893 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:17:53,893 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:17:53,894 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير الموارد البشرية والمالية...
+2026-11-10 16:17:53,895 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/a260f3d6-19bf-4755-87e7-64988bd5d952
+2026-11-10 16:17:55,241 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:17:55,242 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:17:55,243 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير الملاحة الجوية المدنية...
+2026-11-10 16:17:55,243 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/30d00bcd-df71-43f3-945e-2204e61cb425
+2026-11-10 16:18:04,570 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:18:04,571 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:18:04,572 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير المعهد الوطني لكتابة الض...
+2026-11-10 16:18:04,572 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/803881f5-f7fa-4f8f-b2cd-d6b1566b7fe5
+2026-11-10 16:18:09,557 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:18:09,558 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:18:09,559 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير المعهد العالي للدراسات ا...
+2026-11-10 16:18:09,559 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/43fe4445-da66-401e-a3c4-2562a221a332
+2026-11-10 16:18:11,674 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:18:11,675 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:18:11,676 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير مؤسسة النهوض بالأعمال ال...
+2026-11-10 16:18:11,676 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/2c16f418-dd0f-4bb2-b66e-f926057114f9
+2026-11-10 16:18:14,243 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:18:14,244 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:18:14,245 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير الشباب...
+2026-11-10 16:18:14,245 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/d75f25b8-e1b6-4bba-9bf2-9bcc6a5e913c
+2026-11-10 16:18:15,578 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:18:15,579 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:18:15,580 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير الانظمة والدراسات التاري...
+2026-11-10 16:18:15,580 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/4d6a3c99-2658-4cfd-99b5-bc5c012c8e55
+2026-11-10 16:18:17,664 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:18:17,665 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:18:17,666 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير(ة) المركز الوطني للامتحا...
+2026-11-10 16:18:17,666 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/d5445636-5a56-491e-9305-8cd418b361f8
+2026-11-10 16:18:19,901 [WARNING] Format de date non reconnu: 00
+2026-11-10 16:18:19,902 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:18:19,903 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير إعداد التراب الوطني...
+2026-11-10 16:18:19,903 [INFO] Page 4/5
+2026-11-10 16:18:19,903 [INFO] Scraping page: https://www.emploi-public.ma/ar/قائمة-المناصب-العليا?page=3
+2026-11-10 16:18:51,100 [INFO]   → 9 annonces trouvées sur cette page
+2026-11-10 16:18:51,101 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/a19c981f-5e73-4699-978a-3c26f387e76d
+2026-11-10 16:19:00,888 [WARNING] Format de date non reconnu: 00
+2026-11-10 16:19:00,889 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:19:00,890 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير الوكالة الحضرية للحسيمة...
+2026-11-10 16:19:00,890 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/c3eed04a-67b9-4ceb-b4c3-b32e0273c191
+2026-11-10 16:19:01,672 [WARNING] Format de date non reconnu: 00
+2026-11-10 16:19:01,673 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:19:01,674 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير الوكالة الحضرية للعرائش...
+2026-11-10 16:19:01,674 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/6bbca177-c943-4200-991d-4945c7de6c3e
+2026-11-10 16:19:04,757 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:19:04,758 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:19:04,759 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير(ة) الشؤون العامة...
+2026-11-10 16:19:04,759 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/971391f4-c3ed-4054-b39a-d498fdbfba4b
+2026-11-10 16:19:27,668 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:19:27,669 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:19:27,670 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير(ة) المعهد الملكي لتكوين ...
+2026-11-10 16:19:27,670 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/1afa70c8-a02b-457d-98c8-6787ae253f28
+2026-11-10 16:20:02,911 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:20:02,912 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:20:02,913 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير مدرسة علوم المعلومات...
+2026-11-10 16:20:02,913 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/e1c5923d-7307-42c7-90ed-21db5ce34a49
+2026-11-10 16:20:33,463 [ERROR] Erreur détails annonce https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/e1c5923d-7307-42c7-90ed-21db5ce34a49: HTTPSConnectionPool(host='www.emploi-public.ma', port=443): Read timed out. (read timeout=30)
+2026-11-10 16:20:33,463 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا منصب مدير تشريعات البنيات الأ...
+2026-11-10 16:20:33,463 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/cb431ce3-c104-457a-b464-8ca3b4a5fe55
+2026-11-10 16:21:04,283 [ERROR] Erreur détails annonce https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/cb431ce3-c104-457a-b464-8ca3b4a5fe55: HTTPSConnectionPool(host='www.emploi-public.ma', port=443): Read timed out. (read timeout=30)
+2026-11-10 16:21:04,283 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير تشريعات الحكامة والحقوق ...
+2026-11-10 16:21:04,283 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/83256c4b-36f7-461e-8579-7dbec3b6aae0
+2026-11-10 16:21:54,550 [ERROR] Erreur détails annonce https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/83256c4b-36f7-461e-8579-7dbec3b6aae0: HTTPSConnectionPool(host='www.emploi-public.ma', port=443): Read timed out.
+2026-11-10 16:21:54,551 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا عميد كلية الطب والصيدلة بالرب...
+2026-11-10 16:21:54,551 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/e1054489-8a0a-4d64-92ab-55a9dbb52ac5
+2026-11-10 16:22:27,278 [ERROR] Erreur détails annonce https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/e1054489-8a0a-4d64-92ab-55a9dbb52ac5: HTTPSConnectionPool(host='www.emploi-public.ma', port=443): Read timed out.
+2026-11-10 16:22:27,280 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير المدرسة المحمدية للمهندس...
+2026-11-10 16:22:27,280 [INFO] Page 5/5
+2026-11-10 16:22:27,280 [INFO] Scraping page: https://www.emploi-public.ma/ar/قائمة-المناصب-العليا?page=4
+2026-11-10 16:22:29,451 [INFO]   → 9 annonces trouvées sur cette page
+2026-11-10 16:22:29,452 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/4276b348-5dae-41c9-b638-6ca89ffaf304
+2026-11-10 16:23:00,537 [ERROR] Erreur détails annonce https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/4276b348-5dae-41c9-b638-6ca89ffaf304: HTTPSConnectionPool(host='www.emploi-public.ma', port=443): Read timed out. (read timeout=30)
+2026-11-10 16:23:00,537 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا منصب مدير(ة) المركز الجهوي لم...
+2026-11-10 16:23:00,537 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/0f48ee65-4c13-4056-a870-a38f35f26eee
+2026-11-10 16:23:03,398 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:23:03,399 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:23:03,400 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير الانظمة والدراسات التاري...
+2026-11-10 16:23:03,400 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/17544c4c-7a33-48bd-be97-d4e261c4b1ba
+2026-11-10 16:23:33,775 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:23:33,776 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:23:33,777 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا المدير(ة) العام(ة) لتنظيم الح...
+2026-11-10 16:23:33,777 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/2062be70-06c0-4b02-b143-bb2108a03421
+2026-11-10 16:23:36,738 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:23:36,739 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:23:36,740 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير(ة) المركز الوطني للأستاذ...
+2026-11-10 16:23:36,740 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/5b7e6e30-4777-469d-9fa2-856d4390a35f
+2026-11-10 16:23:53,256 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:23:53,257 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:23:53,259 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير الشباب...
+2026-11-10 16:23:53,259 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/5313b8af-912f-4d82-b328-04c94fbe4562
+2026-11-10 16:23:54,662 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:23:54,663 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:23:54,664 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير (ة) التعاون والشراكة...
+2026-11-10 16:23:54,664 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/52349e85-618a-444c-94ae-a269dcb8ede6
+2026-11-10 16:23:55,423 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:23:55,424 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:23:55,425 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير (ة) الموارد البشرية...
+2026-11-10 16:23:55,425 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/b993993a-7a9f-4f82-a95d-4c705192b5c5
+2026-11-10 16:23:56,563 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:23:56,564 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:23:56,565 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير(ة) الأكاديمية الجهوية لل...
+2026-11-10 16:23:56,565 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B5%D8%A8-%D8%A7%D9%84%D8%B9%D9%84%D9%8A%D8%A7/a8514544-73e5-48b0-bc95-4e3782a246c4
+2026-11-10 16:23:57,504 [WARNING] Format de date non reconnu: 30
+2026-11-10 16:23:57,505 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:23:57,506 [INFO]   [PAS DE DATE] فتح باب الترشيح للمناصب العليا مدير المكتب الجهوي للاستثمار ...
+2026-11-10 16:23:57,506 [INFO] 
+--- Catégorie: المباريات ---
+2026-11-10 16:23:57,506 [INFO] Page 1/5
+2026-11-10 16:23:57,506 [INFO] Scraping page: https://www.emploi-public.ma/ar/قائمة-المباريات
+2026-11-10 16:23:59,149 [INFO]   → 9 annonces trouvées sur cette page
+2026-11-10 16:23:59,150 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/03905d86-bfa2-4e5f-9173-f46289658267
+2026-11-10 16:24:00,686 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:24:00,687 [INFO]   [EN COURS] مباراة لتوظيف تقني من الدرجة الثالثة - سلم 9... → 2026-11-24
+2026-11-10 16:24:00,687 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/96a8aed2-a1e6-438f-bf45-556e8168bbcf
+2026-11-10 16:24:01,784 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:24:01,785 [INFO]   [EN COURS] مباراة لتوظيف مختص إجتماعي من الدرجة الثانية... → 2026-11-25
+2026-11-10 16:24:01,785 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/635d1ad9-b421-4ef4-b5ef-6cf021ba412a
+2026-11-10 16:24:02,861 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:24:02,862 [INFO]   [EN COURS] مباراة لتوظيف مختص الاقتصاد والإدارة من الدرجة الثانية... → 2026-11-25
+2026-11-10 16:24:02,862 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/b4147b79-25b9-4344-a801-20220a6b5cd4
+2026-11-10 16:24:26,791 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:24:26,792 [INFO]   [EN COURS] مباراة لتوظيف مختص تربوي من الدرجة الثانية... → 2026-11-25
+2026-11-10 16:24:26,792 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/0ce1c9ce-1d0d-4ee0-a8cb-5b05f5d4e640
+2026-11-10 16:24:33,729 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:24:33,730 [INFO]   [EN COURS] مباراة لتوظيف متصرف من الدرجة الثانية - سلم 11... → 2026-11-23
+2026-11-10 16:24:33,730 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/284c1fe0-0a78-4892-87df-3e083e6a65d2
+2026-11-10 16:24:36,737 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:24:36,738 [INFO]   [EN COURS] مباراة لتوظيف مهندس دولة من الدرجة الأولى - سلم 11... → 2026-11-23
+2026-11-10 16:24:36,739 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/e0775437-60f2-4958-9306-7bfe8a1524f4
+2026-11-10 16:24:37,694 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:24:37,695 [INFO]   [EN COURS] مباراة لتوظيف ممرض من الدرجة الأولى - سلم 10... → 2026-11-19
+2026-11-10 16:24:37,695 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/90fbe2e0-329d-4898-b339-5d4e0e85f5f8
+2026-11-10 16:24:56,926 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:24:56,927 [INFO]   [EN COURS] مباراة لتوظيف ممرض من الدرجة الأولى - سلم 10... → 2026-11-19
+2026-11-10 16:24:56,927 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/402b2997-0464-4c79-93c7-c4a918d05b34
+2026-11-10 16:24:58,101 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:24:58,102 [INFO]   [EN COURS] مباراة لتوظيف ممرض من الدرجة الأولى - سلم 10... → 2026-11-19
+2026-11-10 16:24:58,102 [INFO] Page 2/5
+2026-11-10 16:24:58,102 [INFO] Scraping page: https://www.emploi-public.ma/ar/قائمة-المباريات?page=1
+2026-11-10 16:25:03,649 [INFO]   → 9 annonces trouvées sur cette page
+2026-11-10 16:25:03,650 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/03905d86-bfa2-4e5f-9173-f46289658267
+2026-11-10 16:25:08,512 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:25:08,513 [INFO]   [EN COURS] مباراة لتوظيف تقني من الدرجة الثالثة - سلم 9... → 2026-11-24
+2026-11-10 16:25:08,514 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/96a8aed2-a1e6-438f-bf45-556e8168bbcf
+2026-11-10 16:25:10,761 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:25:10,762 [INFO]   [EN COURS] مباراة لتوظيف مختص إجتماعي من الدرجة الثانية... → 2026-11-25
+2026-11-10 16:25:10,762 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/635d1ad9-b421-4ef4-b5ef-6cf021ba412a
+2026-11-10 16:25:12,680 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:25:12,681 [INFO]   [EN COURS] مباراة لتوظيف مختص الاقتصاد والإدارة من الدرجة الثانية... → 2026-11-25
+2026-11-10 16:25:12,682 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/b4147b79-25b9-4344-a801-20220a6b5cd4
+2026-11-10 16:25:14,788 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:25:14,789 [INFO]   [EN COURS] مباراة لتوظيف مختص تربوي من الدرجة الثانية... → 2026-11-25
+2026-11-10 16:25:14,789 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/0ce1c9ce-1d0d-4ee0-a8cb-5b05f5d4e640
+2026-11-10 16:25:19,745 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:25:19,746 [INFO]   [EN COURS] مباراة لتوظيف متصرف من الدرجة الثانية - سلم 11... → 2026-11-23
+2026-11-10 16:25:19,746 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/284c1fe0-0a78-4892-87df-3e083e6a65d2
+2026-11-10 16:25:29,404 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:25:29,405 [INFO]   [EN COURS] مباراة لتوظيف مهندس دولة من الدرجة الأولى - سلم 11... → 2026-11-23
+2026-11-10 16:25:29,406 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/e0775437-60f2-4958-9306-7bfe8a1524f4
+2026-11-10 16:25:32,059 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:25:32,060 [INFO]   [EN COURS] مباراة لتوظيف ممرض من الدرجة الأولى - سلم 10... → 2026-11-19
+2026-11-10 16:25:32,060 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/90fbe2e0-329d-4898-b339-5d4e0e85f5f8
+2026-11-10 16:25:33,463 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:25:33,464 [INFO]   [EN COURS] مباراة لتوظيف ممرض من الدرجة الأولى - سلم 10... → 2026-11-19
+2026-11-10 16:25:33,464 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/402b2997-0464-4c79-93c7-c4a918d05b34
+2026-11-10 16:25:36,421 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:25:36,423 [INFO]   [EN COURS] مباراة لتوظيف ممرض من الدرجة الأولى - سلم 10... → 2026-11-19
+2026-11-10 16:25:36,423 [INFO] Page 3/5
+2026-11-10 16:25:36,423 [INFO] Scraping page: https://www.emploi-public.ma/ar/قائمة-المباريات?page=2
+2026-11-10 16:25:41,796 [INFO]   → 9 annonces trouvées sur cette page
+2026-11-10 16:25:41,798 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/04a91581-186c-41d8-82e4-3cea07204037
+2026-11-10 16:25:42,735 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:25:42,736 [INFO]   [EN COURS] مباراة لتوظيف ممرض من الدرجة الأولى - سلم 10... → 2026-11-19
+2026-11-10 16:25:42,736 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/34f82ed2-c3fa-4496-a8e3-3a1159e4adf3
+2026-11-10 16:25:44,508 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:25:44,509 [INFO]   [EN COURS] مباراة لتوظيف ممرض من الدرجة الأولى - سلم 10... → 2026-11-19
+2026-11-10 16:25:44,509 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/5f66d5b3-6fe7-4e8a-8258-014f3f3022cf
+2026-11-10 16:25:47,610 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:25:47,611 [INFO]   [EN COURS] مباراة لتوظيف ممرض من الدرجة الأولى - سلم 10... → 2026-11-19
+2026-11-10 16:25:47,612 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/089b0b6f-62e2-4acf-bf7c-42d661636619
+2026-11-10 16:25:48,885 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:25:48,886 [INFO]   [EN COURS] مباراة لتوظيف أستاذ التعليم الثانوي التأهيلي من الدرجة الثان... → 2026-11-19
+2026-11-10 16:25:48,886 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/94547633-d587-46c5-bfc1-d1c343a0413d
+2026-11-10 16:26:00,503 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:26:00,504 [INFO]   [EN COURS] مباراة لتوظيف أستاذ التعليم الثانوي الإعدادي من الدرجة الثان... → 2026-11-19
+2026-11-10 16:26:00,505 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/f773dd7f-be02-42b7-a9d8-c941fef7d31e
+2026-11-10 16:26:01,869 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:26:01,870 [INFO]   [EN COURS] مباراة لتوظيف أستاذ التعليم الإبتدائي من الدرجة الثانية - سل... → 2026-11-19
+2026-11-10 16:26:01,870 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/144317d0-3827-46f6-94c3-a5fbd18b2c85
+2026-11-10 16:26:17,014 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:26:17,015 [INFO]   [EN COURS] مباراة لتوظيف متصرف من الدرجة الثانية - سلم 11... → 2026-11-13
+2026-11-10 16:26:17,015 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/fb2e5ca9-e80e-4765-afc1-587b15f0ae33
+2026-11-10 16:26:19,120 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:26:19,121 [INFO]   [EN COURS] مباراة لتوظيف أمين قضائي مساعد من الدرجة الرابعة... → 2026-11-10
+2026-11-10 16:26:19,121 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/7cf772aa-1a10-4769-8d24-bf2e5d55a471
+2026-11-10 16:26:27,731 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:26:27,732 [INFO]   [EXPIRÉE] مباراة لتوظيف مهندس دولة من الدرجة الأولى - سلم 11... → 2026-11-09
+2026-11-10 16:26:27,732 [INFO] Page 4/5
+2026-11-10 16:26:27,732 [INFO] Scraping page: https://www.emploi-public.ma/ar/قائمة-المباريات?page=3
+2026-11-10 16:26:29,581 [INFO]   → 9 annonces trouvées sur cette page
+2026-11-10 16:26:29,582 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/53e69319-5ad4-41c7-a63a-ae85dbb6094b
+2026-11-10 16:26:30,824 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:26:30,825 [INFO]   [EXPIRÉE] مباراة لتوظيف مهندس دولة من الدرجة الأولى - سلم 11... → 2026-11-09
+2026-11-10 16:26:30,825 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/932f24ff-71a0-4088-8356-e919e41bd720
+2026-11-10 16:26:32,030 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:26:32,031 [INFO]   [EXPIRÉE] مباراة لتوظيف مهندس دولة من الدرجة الأولى - سلم 11... → 2026-11-09
+2026-11-10 16:26:32,031 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/58ca2f2e-9b75-404a-909a-8248b29feaed
+2026-11-10 16:26:33,578 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:26:33,579 [INFO]   [EXPIRÉE] مباراة لتوظيف متصرف من الدرجة الثانية - سلم 11... → 2026-11-09
+2026-11-10 16:26:33,579 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/81e89845-6649-430e-98a2-65a32c048a48
+2026-11-10 16:27:03,999 [ERROR] Erreur détails annonce https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/81e89845-6649-430e-98a2-65a32c048a48: HTTPSConnectionPool(host='www.emploi-public.ma', port=443): Read timed out. (read timeout=30)
+2026-11-10 16:27:03,999 [INFO]   [PAS DE DATE] مباراة لتوظيف متصرف من الدرجة الثانية - سلم 11...
+2026-11-10 16:27:03,999 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/0bc3b58e-cfd7-466e-9023-6faf53a94738
+2026-11-10 16:27:06,353 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:27:06,354 [INFO]   [EXPIRÉE] لائحة المدعوين لإجراء الاختبار الكتابي لمباراة توظيف التلامي... → 2026-10-31
+2026-11-10 16:27:06,354 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/cdda2f24-9751-4129-85a7-220a7716847a
+2026-11-10 16:27:08,073 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:27:08,074 [INFO]   [EXPIRÉE] لائحة المدعوين لإجراء الاختبار الكتابي لمباراة توظيف مساعد ت... → 2026-11-08
+2026-11-10 16:27:08,074 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/17f2da87-11bb-4fb4-8b3c-1712f117c3ce
+2026-11-10 16:27:09,557 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:27:09,558 [INFO]   [EXPIRÉE] لائحة المدعوين لإجراء الاختبار الكتابي لمباراة توظيف تقني من... → 2026-11-08
+2026-11-10 16:27:09,558 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/7c571fa5-42a7-46a6-8021-aed9ed9ec5f0
+2026-11-10 16:27:10,951 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:27:10,952 [INFO]   [EXPIRÉE] إلغاء مباراة توظيف متصرف من الدرجة الثانية - سلم 11... → 2026-11-09
+2026-11-10 16:27:10,952 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/bd7d21e6-ce27-4590-9ae0-ba4755897c51
+2026-11-10 16:27:17,657 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:27:17,658 [INFO]   [EXPIRÉE] لائحة المدعوين لإجراء الاختبار الشفوي لمباراة توظيف مهندس دو... → 2026-10-07
+2026-11-10 16:27:17,658 [INFO] Page 5/5
+2026-11-10 16:27:17,658 [INFO] Scraping page: https://www.emploi-public.ma/ar/قائمة-المباريات?page=4
+2026-11-10 16:27:19,752 [INFO]   → 9 annonces trouvées sur cette page
+2026-11-10 16:27:19,753 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/8cad4f28-8207-43e7-b653-29498a7ed5e0
+2026-11-10 16:27:20,524 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:27:20,525 [INFO]   [EXPIRÉE] لائحة المدعوين لإجراء الاختبار الشفوي لمباراة توظيف متصرف من... → 2026-10-07
+2026-11-10 16:27:20,525 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/8056cf15-3c75-4428-a0b1-a75387b069bd
+2026-11-10 16:27:21,701 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:27:21,702 [INFO]   [EXPIRÉE] لائحة المدعوين لإجراء الاختبار الشفوي لمباراة توظيف متصرف من... → 2026-10-07
+2026-11-10 16:27:21,702 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/78213ebc-6540-4ee1-8732-f5b9d4219945
+2026-11-10 16:27:23,814 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:27:23,815 [INFO]   [EXPIRÉE] لائحة المدعوين لإجراء الاختبار الكتابي لمباراة توظيف مهندس د... → 2026-10-05
+2026-11-10 16:27:23,815 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/52e12b8e-9551-4cd5-913c-a6af6b39db73
+2026-11-10 16:27:25,430 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:27:25,431 [INFO]   [EXPIRÉE] لائحة المدعوين لإجراء الاختبار الكتابي لمباراة توظيف تقني من... → 2026-10-05
+2026-11-10 16:27:25,431 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/1ca7c692-2941-4aed-8903-a6d7758252d0
+2026-11-10 16:27:55,141 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:27:55,142 [INFO]   [EXPIRÉE] لائحة الناجحين في مباراة التوظيف صيدلي من الدرجة الأولى - سل... → 2026-09-30
+2026-11-10 16:27:55,142 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/0bcfe0ed-c273-4358-947a-76594b2f2dde
+2026-11-10 16:27:57,843 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:27:57,844 [INFO]   [EXPIRÉE] لائحة المدعوين لإجراء الاختبار الكتابي لمباراة توظيف مهندس د... → 2026-10-15
+2026-11-10 16:27:57,844 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/163393e4-8773-494e-ba2d-ad108262c366
+2026-11-10 16:28:15,199 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:28:15,200 [INFO]   [EXPIRÉE] لائحة الناجحين في مباراة التوظيف تقني من الدرجة الثالثة - سل... → 2026-09-27
+2026-11-10 16:28:15,200 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/610a541b-4cfe-4d44-8cac-c963b740652f
+2026-11-10 16:28:33,429 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:28:33,430 [INFO]   [EXPIRÉE] لائحة الناجحين في مباراة التوظيف متصرف من الدرجة الثالثة - س... → 2026-09-27
+2026-11-10 16:28:33,430 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%A7%D9%84%D9%85%D8%A8%D8%A7%D8%B1%D9%8A%D8%A7%D8%AA/57d80740-6401-4401-88e8-1545790f97b6
+2026-11-10 16:28:34,331 [INFO]     PDF trouvé: قرار فتح المباراة (score: 25)
+2026-11-10 16:28:34,332 [INFO]   [EXPIRÉE] لائحة المدعوين لإجراء الاختبار الكتابي لمباراة توظيف تقني من... → 2026-09-25
+2026-11-10 16:28:34,332 [INFO] 
+--- Catégorie: تشغيل الخبراء ---
+2026-11-10 16:28:34,332 [INFO] Page 1/5
+2026-11-10 16:28:34,332 [INFO] Scraping page: https://www.emploi-public.ma/ar/قائمة-تشغيل-الخبراء
+2026-11-10 16:28:36,716 [INFO]   → 9 annonces trouvées sur cette page
+2026-11-10 16:28:36,717 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/864df67b-0489-46b4-af1c-5595040c8ef7
+2026-11-10 16:28:41,795 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:28:41,796 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير... → 2026-11-06
+2026-11-10 16:28:41,796 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/9ec33ce6-535f-4934-affb-1a818c2ed40c
+2026-11-10 16:28:43,184 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:28:43,185 [INFO]   [EXPIRÉE] لائحة الناجحين لمنصب خبير... → 2026-08-24
+2026-11-10 16:28:43,185 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/8d8d7aa5-5ea0-4632-92f2-e11bc1d6c351
+2026-11-10 16:28:44,702 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:28:44,703 [INFO]   [EXPIRÉE] لائحة الناجحين لمنصب خبير في الشؤون التنظيمية للأدوية... → 2026-09-20
+2026-11-10 16:28:44,703 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/4854b58c-c09e-4edd-9a39-c01a0c414425
+2026-11-10 16:28:52,286 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:28:52,287 [INFO]   [EXPIRÉE] لائحة الناجحين لمنصب خبير في مجال الملاحة التجارية... → 2026-04-12
+2026-11-10 16:28:52,287 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/ff8d6494-748d-4698-8ef0-676cbd5b1951
+2026-11-10 16:28:55,590 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:28:55,591 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير في الشؤون القانونية... → 2026-06-25
+2026-11-10 16:28:55,591 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/abce4b98-a1d8-48f9-a84c-053f53697154
+2026-11-10 16:29:02,309 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:29:02,310 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير... → 2026-06-15
+2026-11-10 16:29:02,310 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/5030f678-19f4-4bc0-96c6-f5462b134c1c
+2026-11-10 16:29:04,302 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:29:04,303 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير... → 2026-06-08
+2026-11-10 16:29:04,304 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/b0a97522-0c72-4a26-8b32-da0c02e79891
+2026-11-10 16:29:05,299 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:29:05,300 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير متعاقد... → 2026-06-03
+2026-11-10 16:29:05,300 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/b3f7145b-9f2a-4cb4-aef7-1d917c679a65
+2026-11-10 16:29:06,251 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:29:06,252 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير... → 2026-05-29
+2026-11-10 16:29:06,252 [INFO] Page 2/5
+2026-11-10 16:29:06,252 [INFO] Scraping page: https://www.emploi-public.ma/ar/قائمة-تشغيل-الخبراء?page=1
+2026-11-10 16:29:07,359 [INFO]   → 9 annonces trouvées sur cette page
+2026-11-10 16:29:07,360 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/864df67b-0489-46b4-af1c-5595040c8ef7
+2026-11-10 16:29:08,355 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:29:08,356 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير... → 2026-11-06
+2026-11-10 16:29:08,356 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/9ec33ce6-535f-4934-affb-1a818c2ed40c
+2026-11-10 16:29:15,358 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:29:15,359 [INFO]   [EXPIRÉE] لائحة الناجحين لمنصب خبير... → 2026-08-24
+2026-11-10 16:29:15,359 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/8d8d7aa5-5ea0-4632-92f2-e11bc1d6c351
+2026-11-10 16:29:17,228 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:29:17,229 [INFO]   [EXPIRÉE] لائحة الناجحين لمنصب خبير في الشؤون التنظيمية للأدوية... → 2026-09-20
+2026-11-10 16:29:17,230 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/4854b58c-c09e-4edd-9a39-c01a0c414425
+2026-11-10 16:29:18,570 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:29:18,571 [INFO]   [EXPIRÉE] لائحة الناجحين لمنصب خبير في مجال الملاحة التجارية... → 2026-04-12
+2026-11-10 16:29:18,571 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/ff8d6494-748d-4698-8ef0-676cbd5b1951
+2026-11-10 16:29:20,567 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:29:20,568 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير في الشؤون القانونية... → 2026-06-25
+2026-11-10 16:29:20,568 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/abce4b98-a1d8-48f9-a84c-053f53697154
+2026-11-10 16:29:22,293 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:29:22,294 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير... → 2026-06-15
+2026-11-10 16:29:22,294 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/5030f678-19f4-4bc0-96c6-f5462b134c1c
+2026-11-10 16:29:23,735 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:29:23,736 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير... → 2026-06-08
+2026-11-10 16:29:23,736 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/b0a97522-0c72-4a26-8b32-da0c02e79891
+2026-11-10 16:29:24,604 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:29:24,605 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير متعاقد... → 2026-06-03
+2026-11-10 16:29:24,605 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/b3f7145b-9f2a-4cb4-aef7-1d917c679a65
+2026-11-10 16:29:26,907 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:29:26,909 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير... → 2026-05-29
+2026-11-10 16:29:26,909 [INFO] Page 3/5
+2026-11-10 16:29:26,909 [INFO] Scraping page: https://www.emploi-public.ma/ar/قائمة-تشغيل-الخبراء?page=2
+2026-11-10 16:29:27,683 [INFO]   → 9 annonces trouvées sur cette page
+2026-11-10 16:29:27,684 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/d9255cd9-fe2e-4248-8eba-adf58b668823
+2026-11-10 16:29:28,855 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:29:28,856 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير في مجال التفاوض والسياسة التجارية... → 2026-04-03
+2026-11-10 16:29:28,856 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/0236914d-e17c-41c5-a5be-e632ad35f838
+2026-11-10 16:29:30,880 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:29:30,881 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير... → 2026-03-17
+2026-11-10 16:29:30,881 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/2a449c40-1832-450d-9eae-a70607bcac07
+2026-11-10 16:29:33,938 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:29:33,939 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير... → 2026-03-16
+2026-11-10 16:29:33,939 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/1f2e38a5-0fe9-4f17-89fb-d23ab9140242
+2026-11-10 16:29:35,057 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:29:35,058 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير في المجالات المرتبطة بتطوير آليات... → 2026-03-12
+2026-11-10 16:29:35,058 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/2401abad-8177-4fdc-8c76-354d03f61cd3
+2026-11-10 16:29:43,225 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:29:43,226 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير... → 2026-02-18
+2026-11-10 16:29:43,226 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/ad16f9e2-25eb-4a06-9a7a-572410c14d55
+2026-11-10 16:29:44,739 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:29:44,740 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير في مجال حكامة المؤسسات والمنشآت ا... → 2025-12-23
+2026-11-10 16:29:44,740 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/302ab5a1-fa28-4ec1-9341-8ba50b6bf810
+2026-11-10 16:29:50,189 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:29:50,190 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير بموجب عقد... → 2025-12-21
+2026-11-10 16:29:50,190 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/f9f74e66-af9e-4c4a-9cec-491e7d25fbbb
+2026-11-10 16:29:51,823 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:29:51,824 [INFO]   [EXPIRÉE] لائحة الناجحين لمنصب خبير في مجال التقييم ومنح التراخيص... → 2025-12-06
+2026-11-10 16:29:51,824 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/99f49e97-4b0e-4897-b1c6-a1a811d179d9
+2026-11-10 16:29:53,887 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:29:53,888 [INFO]   [EXPIRÉE] لائحة الناجحين لمنصب خبيرفي مجال مراقبة الجودة الدوائية... → 2025-12-06
+2026-11-10 16:29:53,888 [INFO] Page 4/5
+2026-11-10 16:29:53,888 [INFO] Scraping page: https://www.emploi-public.ma/ar/قائمة-تشغيل-الخبراء?page=3
+2026-11-10 16:29:55,370 [INFO]   → 9 annonces trouvées sur cette page
+2026-11-10 16:29:55,371 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/121493c9-78d8-44bf-b408-e42f8bf43d27
+2026-11-10 16:29:58,114 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:29:58,115 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير في التنسيق المؤسساتي والتعاون الد... → 2025-12-05
+2026-11-10 16:29:58,115 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/336eb4a9-c147-4981-94da-c636a748f7a0
+2026-11-10 16:30:01,770 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:30:01,771 [INFO]   [EXPIRÉE] لائحة الناجحين لمنصب خبير مكلف بقيادة إنجاز دراسات وأشغال مل... → 2025-09-30
+2026-11-10 16:30:01,771 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/0917753f-ac81-4229-b8d4-5292cae1510a
+2026-11-10 16:30:02,664 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:30:02,665 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير بموجب عقد... → 2025-06-11
+2026-11-10 16:30:02,666 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/1e6a6ce8-141e-4fe3-b660-097a9342e904
+2026-11-10 16:30:12,942 [ERROR] Erreur détails annonce https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/1e6a6ce8-141e-4fe3-b660-097a9342e904: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+2026-11-10 16:30:12,942 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير في مجال الشؤون القانونية... → 2025-06-09
+2026-11-10 16:30:12,942 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/9973e98f-4e11-40f1-aeae-194d055be60c
+2026-11-10 16:30:15,151 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:30:15,152 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير في مجال علوم المحيطات و البيئة ال... → 2025-06-06
+2026-11-10 16:30:15,152 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/c4333ade-5b69-4a9b-b1d6-23858dca3e02
+2026-11-10 16:30:16,673 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:30:16,674 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب 4 خبراء في المجالات المبينة في بطائق ا... → 2025-05-14
+2026-11-10 16:30:16,674 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/3d556890-d88a-4b78-aa10-b953f3a04785
+2026-11-10 16:30:17,595 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:30:17,596 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير في الشؤون القانونية... → 2025-05-02
+2026-11-10 16:30:17,596 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/1d5f52e9-1b4b-423d-bf9b-935a34d3caf2
+2026-11-10 16:30:20,707 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:30:20,708 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير بعقد... → 2025-04-18
+2026-11-10 16:30:20,708 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/ee7b273d-5714-41aa-9489-a47d37eb618e
+2026-11-10 16:30:21,525 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:30:21,526 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبيرفي مجال السياسة المائية و الري... → 2025-04-07
+2026-11-10 16:30:21,526 [INFO] Page 5/5
+2026-11-10 16:30:21,526 [INFO] Scraping page: https://www.emploi-public.ma/ar/قائمة-تشغيل-الخبراء?page=4
+2026-11-10 16:30:32,453 [INFO]   → 9 annonces trouvées sur cette page
+2026-11-10 16:30:32,454 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/74c6b2c0-7af0-4688-937b-1881caa843f0
+2026-11-10 16:30:34,213 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:30:34,214 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير في مجال السمعي البصري و السينما... → 2025-03-31
+2026-11-10 16:30:34,214 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/efe61f8c-79ae-41bf-851e-67e779047d6a
+2026-11-10 16:30:35,490 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:30:35,491 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب منصب خبير في المجال المرتبط بمجال الهن... → 2025-03-27
+2026-11-10 16:30:35,492 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/c8ffa879-6f01-46df-9beb-eb9ae0a6f554
+2026-11-10 16:30:36,706 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:30:36,707 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير في مجال صياغة إستراتيجية شاملة و ... → 2025-03-21
+2026-11-10 16:30:36,707 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/55bfa14b-dac1-4967-b1b6-8983cea09ed9
+2026-11-10 16:30:37,417 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:30:37,418 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير في مجال نظم المعلوميات... → 2025-03-21
+2026-11-10 16:30:37,418 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/cf3172d1-8c15-4404-b1ff-21c154c7da2f
+2026-11-10 16:30:42,268 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:30:42,269 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير في مجال تطوير التعاون... → 2025-03-21
+2026-11-10 16:30:42,269 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/a538c27d-7e09-4441-9551-b22fe9e9d017
+2026-11-10 16:30:43,037 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:30:43,038 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير في مجال إستراتيجية منظومة التعليم... → 2025-03-21
+2026-11-10 16:30:43,038 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/9ebae75d-f857-4c4d-9e16-0108b872c04f
+2026-11-10 16:30:45,237 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:30:45,238 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب إدارة المشاريع و التدبير الإداري و الم... → 2025-03-19
+2026-11-10 16:30:45,238 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/0608bdd0-0a58-4c90-a1d5-bd3483116452
+2026-11-10 16:30:50,043 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:30:50,045 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب منصب خبير في مجال البحوث والتجارب العل... → 2025-02-03
+2026-11-10 16:30:50,045 [INFO]   Détails: https://www.emploi-public.ma/ar/%D8%AA%D9%81%D8%A7%D8%B5%D9%8A%D9%84/%D8%AA%D8%B4%D8%BA%D9%8A%D9%84-%D8%A7%D9%84%D8%AE%D8%A8%D8%B1%D8%A7%D8%A1/728ebc5b-6b53-4539-b18a-620011be8614
+2026-11-10 16:31:10,029 [INFO]     PDF trouvé: قرار فتح باب الترشيح (score: 35)
+2026-11-10 16:31:10,030 [INFO]   [EXPIRÉE] فتح باب الترشيح لمنصب خبير... → 2025-01-24
+2026-11-10 16:31:10,053 [INFO] 
+============================================================
+2026-11-10 16:31:10,053 [INFO] RÉSUMÉ
+2026-11-10 16:31:10,053 [INFO] ============================================================
+2026-11-10 16:31:10,053 [INFO] Annonces traitées: 174
+2026-11-10 16:31:10,053 [INFO] Dates en cours: 52
+2026-11-10 16:31:10,053 [INFO] Dates expirées: 75
+2026-11-10 16:31:10,053 [INFO] Total résultats en base: 1901
+2026-11-10 16:31:12,188 [INFO] Email envoyé à cavalkhalid@gmail.com
+2026-11-10 16:31:12,189 [INFO] 
+Scraper terminé.
