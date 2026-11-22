@@ -31889,3 +31889,727 @@ Scraper terminé.
 2026-11-19 18:09:33,729 [INFO] Email envoyé à cavalkhalid@gmail.com
 2026-11-19 18:09:33,730 [INFO] 
 Scraper terminé.
+2026-11-22 16:59:37,988 [INFO] ============================================================
+2026-11-22 16:59:37,988 [INFO] DÉMARRAGE DU SCRAPER emploi-public.ma (FR)
+2026-11-22 16:59:37,988 [INFO] Date: 2026-11-22 16:59:37
+2026-11-22 16:59:37,988 [INFO] ============================================================
+2026-11-22 16:59:37,998 [INFO] 
+--- Catégorie: Concours de recrutement ---
+2026-11-22 16:59:37,998 [INFO] Page 1/5
+2026-11-22 16:59:37,998 [INFO] Scraping page: https://www.emploi-public.ma/fr/concours-liste
+2026-11-22 16:59:39,472 [INFO]   → 9 annonces trouvées sur cette page
+2026-11-22 16:59:39,473 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/b7f02f9d-4b66-4dcd-8365-f3b1001009c1
+2026-11-22 16:59:40,537 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 16:59:40,538 [INFO]   [EN COURS] Avis de concours de recrutement de Rédacteur Judiciaire 4ème... → 2026-12-02
+2026-11-22 16:59:40,538 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/f13bac44-60cc-4ed5-897a-905111afbeb2
+2026-11-22 16:59:41,657 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 16:59:41,658 [INFO]   [EN COURS] Avis de concours de recrutement de Rédacteur Judiciaire 3ème... → 2026-12-02
+2026-11-22 16:59:41,658 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/bc819c35-294c-4f6e-bcb7-6ab471454c51
+2026-11-22 16:59:42,731 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 16:59:42,732 [INFO]   [EN COURS] Avis de concours de recrutement de Commissaire Judiciaire 3è... → 2026-12-02
+2026-11-22 16:59:42,732 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/965c72f0-c5df-4a41-abe8-19287fb24ac2
+2026-11-22 16:59:43,852 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 16:59:43,853 [INFO]   [EN COURS] Avis de concours de recrutement de Commissaire Judiciaire 2è... → 2026-12-02
+2026-11-22 16:59:43,853 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/bc216516-0478-4fb6-a857-a114988f6cb3
+2026-11-22 16:59:44,974 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 16:59:44,975 [INFO]   [EN COURS] Avis de concours de recrutement de Maître de conférences gra... → 2026-12-04
+2026-11-22 16:59:44,975 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/b2542f15-9180-4680-9a40-56cab838599c
+2026-11-22 16:59:46,052 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 16:59:46,053 [INFO]   [EN COURS] Avis de concours de recrutement de Commandant pénitentiaire ... → 2026-11-26
+2026-11-22 16:59:46,053 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/cc2bd7ff-97cf-4de3-9665-4e7c05c3c825
+2026-11-22 16:59:47,194 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 16:59:47,195 [INFO]   [EN COURS] Avis de concours de recrutement de Surveillant pénitentiaire... → 2026-11-26
+2026-11-22 16:59:47,195 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/c1856307-e18c-4053-8079-1efd4ebd63dd
+2026-11-22 16:59:48,194 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 16:59:48,195 [INFO]   [EN COURS] Avis de concours de recrutement de Surveillant pénitentiaire... → 2026-11-26
+2026-11-22 16:59:48,195 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/03905d86-bfa2-4e5f-9173-f46289658267
+2026-11-22 16:59:49,423 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 16:59:49,424 [INFO]   [EN COURS] Avis de concours de recrutement de Technicien de 3ème grade ... → 2026-11-24
+2026-11-22 16:59:49,424 [INFO] Page 2/5
+2026-11-22 16:59:49,424 [INFO] Scraping page: https://www.emploi-public.ma/fr/concours-liste?page=1
+2026-11-22 16:59:50,780 [INFO]   → 9 annonces trouvées sur cette page
+2026-11-22 16:59:50,781 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/b7f02f9d-4b66-4dcd-8365-f3b1001009c1
+2026-11-22 16:59:51,721 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 16:59:51,722 [INFO]   [EN COURS] Avis de concours de recrutement de Rédacteur Judiciaire 4ème... → 2026-12-02
+2026-11-22 16:59:51,722 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/f13bac44-60cc-4ed5-897a-905111afbeb2
+2026-11-22 16:59:52,847 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 16:59:52,848 [INFO]   [EN COURS] Avis de concours de recrutement de Rédacteur Judiciaire 3ème... → 2026-12-02
+2026-11-22 16:59:52,848 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/bc819c35-294c-4f6e-bcb7-6ab471454c51
+2026-11-22 16:59:53,779 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 16:59:53,780 [INFO]   [EN COURS] Avis de concours de recrutement de Commissaire Judiciaire 3è... → 2026-12-02
+2026-11-22 16:59:53,780 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/965c72f0-c5df-4a41-abe8-19287fb24ac2
+2026-11-22 16:59:54,705 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 16:59:54,706 [INFO]   [EN COURS] Avis de concours de recrutement de Commissaire Judiciaire 2è... → 2026-12-02
+2026-11-22 16:59:54,706 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/bc216516-0478-4fb6-a857-a114988f6cb3
+2026-11-22 16:59:59,749 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 16:59:59,750 [INFO]   [EN COURS] Avis de concours de recrutement de Maître de conférences gra... → 2026-12-04
+2026-11-22 16:59:59,750 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/b2542f15-9180-4680-9a40-56cab838599c
+2026-11-22 17:00:00,808 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:00,809 [INFO]   [EN COURS] Avis de concours de recrutement de Commandant pénitentiaire ... → 2026-11-26
+2026-11-22 17:00:00,809 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/cc2bd7ff-97cf-4de3-9665-4e7c05c3c825
+2026-11-22 17:00:01,813 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:01,814 [INFO]   [EN COURS] Avis de concours de recrutement de Surveillant pénitentiaire... → 2026-11-26
+2026-11-22 17:00:01,814 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/c1856307-e18c-4053-8079-1efd4ebd63dd
+2026-11-22 17:00:06,286 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:06,287 [INFO]   [EN COURS] Avis de concours de recrutement de Surveillant pénitentiaire... → 2026-11-26
+2026-11-22 17:00:06,287 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/03905d86-bfa2-4e5f-9173-f46289658267
+2026-11-22 17:00:07,453 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:07,454 [INFO]   [EN COURS] Avis de concours de recrutement de Technicien de 3ème grade ... → 2026-11-24
+2026-11-22 17:00:07,454 [INFO] Page 3/5
+2026-11-22 17:00:07,455 [INFO] Scraping page: https://www.emploi-public.ma/fr/concours-liste?page=2
+2026-11-22 17:00:08,788 [INFO]   → 9 annonces trouvées sur cette page
+2026-11-22 17:00:08,789 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/96a8aed2-a1e6-438f-bf45-556e8168bbcf
+2026-11-22 17:00:10,082 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:10,083 [INFO]   [EN COURS] Avis de concours de recrutement de Spécialiste social 2ème g... → 2026-11-25
+2026-11-22 17:00:10,083 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/635d1ad9-b421-4ef4-b5ef-6cf021ba412a
+2026-11-22 17:00:14,283 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:14,284 [INFO]   [EN COURS] Avis de concours de recrutement de Spécialiste d'économie et... → 2026-11-25
+2026-11-22 17:00:14,284 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/b4147b79-25b9-4344-a801-20220a6b5cd4
+2026-11-22 17:00:15,362 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:15,363 [INFO]   [EN COURS] Avis de concours de recrutement de Spécialiste pédagogique 2... → 2026-11-25
+2026-11-22 17:00:15,363 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/0ce1c9ce-1d0d-4ee0-a8cb-5b05f5d4e640
+2026-11-22 17:00:16,373 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:16,374 [INFO]   [EN COURS] Avis de concours de recrutement de Administrateur 2ème grade... → 2026-11-23
+2026-11-22 17:00:16,374 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/284c1fe0-0a78-4892-87df-3e083e6a65d2
+2026-11-22 17:00:17,915 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:17,916 [INFO]   [EN COURS] Avis de concours de recrutement de Ingénieur d'Etat 1er grad... → 2026-11-23
+2026-11-22 17:00:17,916 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/e0775437-60f2-4958-9306-7bfe8a1524f4
+2026-11-22 17:00:19,001 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:19,002 [INFO]   [EXPIRÉE] Publication de la liste des convoqués pour l'examen écrit du... → 2026-11-19
+2026-11-22 17:00:19,002 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/90fbe2e0-329d-4898-b339-5d4e0e85f5f8
+2026-11-22 17:00:20,193 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:20,194 [INFO]   [EXPIRÉE] Publication de la liste des convoqués pour l'examen écrit du... → 2026-11-19
+2026-11-22 17:00:20,194 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/402b2997-0464-4c79-93c7-c4a918d05b34
+2026-11-22 17:00:21,867 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:21,868 [INFO]   [EXPIRÉE] Publication de la liste des convoqués pour l'examen écrit du... → 2026-11-19
+2026-11-22 17:00:21,868 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/04a91581-186c-41d8-82e4-3cea07204037
+2026-11-22 17:00:22,904 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:22,905 [INFO]   [EXPIRÉE] Publication de la liste des convoqués pour l'examen écrit du... → 2026-11-19
+2026-11-22 17:00:22,905 [INFO] Page 4/5
+2026-11-22 17:00:22,905 [INFO] Scraping page: https://www.emploi-public.ma/fr/concours-liste?page=3
+2026-11-22 17:00:24,158 [INFO]   → 9 annonces trouvées sur cette page
+2026-11-22 17:00:24,159 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/34f82ed2-c3fa-4496-a8e3-3a1159e4adf3
+2026-11-22 17:00:25,230 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:25,231 [INFO]   [EXPIRÉE] Publication de la liste des convoqués pour l'examen écrit du... → 2026-11-19
+2026-11-22 17:00:25,231 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/5f66d5b3-6fe7-4e8a-8258-014f3f3022cf
+2026-11-22 17:00:26,635 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:26,636 [INFO]   [EXPIRÉE] Publication de la liste des convoqués pour l'examen écrit du... → 2026-11-19
+2026-11-22 17:00:26,636 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/089b0b6f-62e2-4acf-bf7c-42d661636619
+2026-11-22 17:00:27,577 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:27,578 [INFO]   [EXPIRÉE] Avis de concours de recrutement de Professeur de l'enseignem... → 2026-11-19
+2026-11-22 17:00:27,578 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/94547633-d587-46c5-bfc1-d1c343a0413d
+2026-11-22 17:00:29,062 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:29,063 [INFO]   [EXPIRÉE] Avis de concours de recrutement de Professeur de l'enseignem... → 2026-11-19
+2026-11-22 17:00:29,063 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/f773dd7f-be02-42b7-a9d8-c941fef7d31e
+2026-11-22 17:00:29,966 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:29,967 [INFO]   [EXPIRÉE] Avis de concours de recrutement de Professeur de l'enseignem... → 2026-11-19
+2026-11-22 17:00:29,967 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/144317d0-3827-46f6-94c3-a5fbd18b2c85
+2026-11-22 17:00:30,904 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:30,905 [INFO]   [EXPIRÉE] Avis de concours de recrutement de Administrateur 2ème grade... → 2026-11-13
+2026-11-22 17:00:30,905 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/fb2e5ca9-e80e-4765-afc1-587b15f0ae33
+2026-11-22 17:00:32,362 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:32,363 [INFO]   [EXPIRÉE] Avis de concours de recrutement de Secrétaire juridique adjo... → 2026-11-10
+2026-11-22 17:00:32,363 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/7cf772aa-1a10-4769-8d24-bf2e5d55a471
+2026-11-22 17:00:33,603 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:33,604 [INFO]   [EXPIRÉE] Avis de concours de recrutement de Ingénieur d'Etat 1er grad... → 2026-11-09
+2026-11-22 17:00:33,604 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/53e69319-5ad4-41c7-a63a-ae85dbb6094b
+2026-11-22 17:00:34,521 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:34,522 [INFO]   [EXPIRÉE] Avis de concours de recrutement de Ingénieur d'Etat 1er grad... → 2026-11-09
+2026-11-22 17:00:34,522 [INFO] Page 5/5
+2026-11-22 17:00:34,522 [INFO] Scraping page: https://www.emploi-public.ma/fr/concours-liste?page=4
+2026-11-22 17:00:35,764 [INFO]   → 9 annonces trouvées sur cette page
+2026-11-22 17:00:35,765 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/932f24ff-71a0-4088-8356-e919e41bd720
+2026-11-22 17:00:36,705 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:36,706 [INFO]   [EXPIRÉE] Avis de concours de recrutement de Ingénieur d'Etat 1er grad... → 2026-11-09
+2026-11-22 17:00:36,706 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/58ca2f2e-9b75-404a-909a-8248b29feaed
+2026-11-22 17:00:37,667 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:37,668 [INFO]   [EXPIRÉE] Avis de concours de recrutement de Administrateur 2ème grade... → 2026-11-09
+2026-11-22 17:00:37,668 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/81e89845-6649-430e-98a2-65a32c048a48
+2026-11-22 17:00:38,593 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:38,594 [INFO]   [EXPIRÉE] Avis de concours de recrutement de Administrateur 2ème grade... → 2026-11-09
+2026-11-22 17:00:38,594 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/0bc3b58e-cfd7-466e-9023-6faf53a94738
+2026-11-22 17:00:39,643 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:39,644 [INFO]   [EXPIRÉE] Publication de la liste des convoqués pour l'examen écrit du... → 2026-10-31
+2026-11-22 17:00:39,644 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/cdda2f24-9751-4129-85a7-220a7716847a
+2026-11-22 17:00:40,892 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:40,893 [INFO]   [EXPIRÉE] Publication de la liste des convoqués pour l'examen écrit du... → 2026-11-08
+2026-11-22 17:00:40,893 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/17f2da87-11bb-4fb4-8b3c-1712f117c3ce
+2026-11-22 17:00:41,940 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:41,941 [INFO]   [EXPIRÉE] Publication de la liste des convoqués pour l'examen écrit du... → 2026-11-08
+2026-11-22 17:00:41,941 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/7c571fa5-42a7-46a6-8021-aed9ed9ec5f0
+2026-11-22 17:00:43,568 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:43,569 [INFO]   [EXPIRÉE] Annulation du concours de recrutement d'un Administrateur 2è... → 2026-11-09
+2026-11-22 17:00:43,569 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/bd7d21e6-ce27-4590-9ae0-ba4755897c51
+2026-11-22 17:00:44,539 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:44,540 [INFO]   [EXPIRÉE] Publication de la liste des convoqués pour l'entretien oral ... → 2026-10-07
+2026-11-22 17:00:44,540 [INFO]   Détails: https://www.emploi-public.ma/fr/concours/details/8cad4f28-8207-43e7-b653-29498a7ed5e0
+2026-11-22 17:00:45,452 [INFO]     PDF trouvé: Arrêté d'ouverture du concours (score: 25)
+2026-11-22 17:00:45,453 [INFO]   [EXPIRÉE] Publication de la liste des convoqués pour l'entretien oral ... → 2026-10-07
+2026-11-22 17:00:45,453 [INFO] 
+--- Catégorie: Emplois supérieurs ---
+2026-11-22 17:00:45,453 [INFO] Page 1/5
+2026-11-22 17:00:45,453 [INFO] Scraping page: https://www.emploi-public.ma/fr/emploi-sup-liste
+2026-11-22 17:00:50,398 [INFO]   → 9 annonces trouvées sur cette page
+2026-11-22 17:00:50,399 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/4ac2bfbc-90e4-441e-adb2-37f45bece2d1
+2026-11-22 17:00:51,564 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:00:51,565 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:00:51,565 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur général de la Fondation ...
+2026-11-22 17:00:51,565 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/15eee217-83ec-4a3a-a9bf-3b08ae1514e0
+2026-11-22 17:00:52,481 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:00:52,482 [INFO]   [EN COURS] Avis d'emplois supérieurs Directeur des Nations Unies et des... → 2026-12-04
+2026-11-22 17:00:52,482 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/3e5d80d3-bdcd-4b09-a151-8afcfc559a55
+2026-11-22 17:00:53,384 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:00:53,385 [INFO]   [EN COURS] Avis d'emplois supérieurs Directeur de l’Union Africaine et ... → 2026-12-04
+2026-11-22 17:00:53,385 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/6d212b52-283e-4e84-9f2e-1a00075c53c9
+2026-11-22 17:00:54,298 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:00:54,299 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:00:54,300 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur de l'Office Régional de ...
+2026-11-22 17:00:54,300 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/71e9b8d0-928c-4bba-97c4-e67b508cf78e
+2026-11-22 17:00:55,246 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:00:55,247 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:00:55,248 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur Général de l'Établisseme...
+2026-11-22 17:00:55,248 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/275fa880-80a4-443f-90b0-8b3f190d76df
+2026-11-22 17:00:56,189 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:00:56,190 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:00:56,191 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Inspecteur général du Ministère de...
+2026-11-22 17:00:56,191 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/d493ad61-3a96-402b-821a-8af8cef12ecd
+2026-11-22 17:00:57,177 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:00:57,177 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:00:57,178 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur général de l'Office Nati...
+2026-11-22 17:00:57,178 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/3a856856-b3b2-45f1-a175-a91fa40674bf
+2026-11-22 17:00:58,135 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:00:58,136 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:00:58,137 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur de l'Office Régional de ...
+2026-11-22 17:00:58,137 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/ca0f1177-15d4-42de-9ebd-ba363723bf4c
+2026-11-22 17:00:59,059 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:00:59,060 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:00:59,061 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs secrétaire général...
+2026-11-22 17:00:59,061 [INFO] Page 2/5
+2026-11-22 17:00:59,061 [INFO] Scraping page: https://www.emploi-public.ma/fr/emploi-sup-liste?page=1
+2026-11-22 17:00:59,990 [INFO]   → 9 annonces trouvées sur cette page
+2026-11-22 17:00:59,991 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/4ac2bfbc-90e4-441e-adb2-37f45bece2d1
+2026-11-22 17:01:00,914 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:00,914 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:00,915 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur général de la Fondation ...
+2026-11-22 17:01:00,915 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/15eee217-83ec-4a3a-a9bf-3b08ae1514e0
+2026-11-22 17:01:01,858 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:01,859 [INFO]   [EN COURS] Avis d'emplois supérieurs Directeur des Nations Unies et des... → 2026-12-04
+2026-11-22 17:01:01,859 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/3e5d80d3-bdcd-4b09-a151-8afcfc559a55
+2026-11-22 17:01:02,962 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:02,963 [INFO]   [EN COURS] Avis d'emplois supérieurs Directeur de l’Union Africaine et ... → 2026-12-04
+2026-11-22 17:01:02,963 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/6d212b52-283e-4e84-9f2e-1a00075c53c9
+2026-11-22 17:01:03,877 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:03,878 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:03,879 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur de l'Office Régional de ...
+2026-11-22 17:01:03,879 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/71e9b8d0-928c-4bba-97c4-e67b508cf78e
+2026-11-22 17:01:04,817 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:04,818 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:04,818 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur Général de l'Établisseme...
+2026-11-22 17:01:04,819 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/275fa880-80a4-443f-90b0-8b3f190d76df
+2026-11-22 17:01:05,738 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:05,739 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:05,739 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Inspecteur général du Ministère de...
+2026-11-22 17:01:05,739 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/d493ad61-3a96-402b-821a-8af8cef12ecd
+2026-11-22 17:01:06,645 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:06,646 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:06,647 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur général de l'Office Nati...
+2026-11-22 17:01:06,647 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/3a856856-b3b2-45f1-a175-a91fa40674bf
+2026-11-22 17:01:07,553 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:07,554 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:07,555 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur de l'Office Régional de ...
+2026-11-22 17:01:07,555 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/ca0f1177-15d4-42de-9ebd-ba363723bf4c
+2026-11-22 17:01:08,455 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:08,456 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:08,456 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs secrétaire général...
+2026-11-22 17:01:08,456 [INFO] Page 3/5
+2026-11-22 17:01:08,456 [INFO] Scraping page: https://www.emploi-public.ma/fr/emploi-sup-liste?page=2
+2026-11-22 17:01:09,385 [INFO]   → 9 annonces trouvées sur cette page
+2026-11-22 17:01:09,386 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/143a3fa8-28a8-4a6a-be8c-e3ba3dc6a74c
+2026-11-22 17:01:10,301 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:10,302 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:10,303 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur de l’Académie Internatio...
+2026-11-22 17:01:10,303 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/d2167bab-c450-45d8-b8de-9bc9e6dc596f
+2026-11-22 17:01:11,210 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:11,211 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:11,212 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur des statuts et des Eudes...
+2026-11-22 17:01:11,212 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/a2f90b67-bb1c-42a3-bd62-7e3b9d70beab
+2026-11-22 17:01:12,160 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:12,161 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:12,162 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs DIRECTEUR DU TRANSPORT AÉRIEN...
+2026-11-22 17:01:12,162 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/adb009b6-d9e6-4a81-ba14-b793dce37591
+2026-11-22 17:01:13,109 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:13,110 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:13,111 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur des études, de la fiscal...
+2026-11-22 17:01:13,111 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/2c118db1-684f-4ae4-8913-d9fce58d2cee
+2026-11-22 17:01:14,014 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:14,015 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:14,016 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur des systèmes d'informat...
+2026-11-22 17:01:14,016 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/d7388486-fd01-4194-af1b-cb3b7d88a8ef
+2026-11-22 17:01:14,925 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:14,926 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:14,927 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur des procédures du parte...
+2026-11-22 17:01:14,927 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/d35f9436-c21b-42ea-ae4e-69c290875508
+2026-11-22 17:01:15,826 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:15,826 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:15,827 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur des Ressources...
+2026-11-22 17:01:15,827 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/fb33496a-b3e4-46d5-a556-86d0223b04f8
+2026-11-22 17:01:17,022 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:17,023 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:17,024 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur(trice) des Affaires géné...
+2026-11-22 17:01:17,024 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/0caf53e1-867a-4e91-a2d5-4f18a1b80e58
+2026-11-22 17:01:17,929 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:17,930 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:17,931 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur des Ressources Humaines,...
+2026-11-22 17:01:17,931 [INFO] Page 4/5
+2026-11-22 17:01:17,931 [INFO] Scraping page: https://www.emploi-public.ma/fr/emploi-sup-liste?page=3
+2026-11-22 17:01:18,895 [INFO]   → 9 annonces trouvées sur cette page
+2026-11-22 17:01:18,896 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/a260f3d6-19bf-4755-87e7-64988bd5d952
+2026-11-22 17:01:19,910 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:19,910 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:19,911 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs directeur de l'Aéronautique Civile...
+2026-11-22 17:01:19,911 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/30d00bcd-df71-43f3-945e-2204e61cb425
+2026-11-22 17:01:20,816 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:20,817 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:20,818 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur de l'Institut National d...
+2026-11-22 17:01:20,818 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/803881f5-f7fa-4f8f-b2cd-d6b1566b7fe5
+2026-11-22 17:01:21,820 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:21,821 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:21,822 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs DIRECTEUR DE L’INSTITUT SUPERIEUR ...
+2026-11-22 17:01:21,822 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/43fe4445-da66-401e-a3c4-2562a221a332
+2026-11-22 17:01:22,735 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:22,736 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:22,737 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs DIRECTEUR FONSAFJS...
+2026-11-22 17:01:22,737 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/2c16f418-dd0f-4bb2-b66e-f926057114f9
+2026-11-22 17:01:23,644 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:23,645 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:23,646 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur de la jeunesse...
+2026-11-22 17:01:23,646 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/d75f25b8-e1b6-4bba-9bf2-9bcc6a5e913c
+2026-11-22 17:01:24,569 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:24,570 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:24,571 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur des statuts et des Eudes...
+2026-11-22 17:01:24,571 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/4d6a3c99-2658-4cfd-99b5-bc5c012c8e55
+2026-11-22 17:01:25,465 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:25,465 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:25,466 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur(trice) du Centre nationa...
+2026-11-22 17:01:25,466 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/d5445636-5a56-491e-9305-8cd418b361f8
+2026-11-22 17:01:26,382 [WARNING] Format de date non reconnu: 00
+2026-11-22 17:01:26,383 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:26,383 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur de l'Aménagement du Terr...
+2026-11-22 17:01:26,384 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/a19c981f-5e73-4699-978a-3c26f387e76d
+2026-11-22 17:01:27,323 [WARNING] Format de date non reconnu: 00
+2026-11-22 17:01:27,324 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:27,325 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur de l'Agence Urbaine d'Al...
+2026-11-22 17:01:27,325 [INFO] Page 5/5
+2026-11-22 17:01:27,325 [INFO] Scraping page: https://www.emploi-public.ma/fr/emploi-sup-liste?page=4
+2026-11-22 17:01:28,264 [INFO]   → 9 annonces trouvées sur cette page
+2026-11-22 17:01:28,265 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/c3eed04a-67b9-4ceb-b4c3-b32e0273c191
+2026-11-22 17:01:29,220 [WARNING] Format de date non reconnu: 00
+2026-11-22 17:01:29,220 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:29,221 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur de l'Agence Urbaine de L...
+2026-11-22 17:01:29,221 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/6bbca177-c943-4200-991d-4945c7de6c3e
+2026-11-22 17:01:30,134 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:30,135 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:30,136 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur(trice) des affaires géné...
+2026-11-22 17:01:30,136 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/971391f4-c3ed-4054-b39a-d498fdbfba4b
+2026-11-22 17:01:31,055 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:31,056 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:31,057 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur(trice) de l’Institut Roy...
+2026-11-22 17:01:31,057 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/1afa70c8-a02b-457d-98c8-6787ae253f28
+2026-11-22 17:01:31,963 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:31,964 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:31,965 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur de l'Ecole des Sciences ...
+2026-11-22 17:01:31,965 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/e1c5923d-7307-42c7-90ed-21db5ce34a49
+2026-11-22 17:01:32,867 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:32,868 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:32,869 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur des législations des Inf...
+2026-11-22 17:01:32,869 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/cb431ce3-c104-457a-b464-8ca3b4a5fe55
+2026-11-22 17:01:33,783 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:33,784 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:33,785 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur des législations de la g...
+2026-11-22 17:01:33,785 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/83256c4b-36f7-461e-8579-7dbec3b6aae0
+2026-11-22 17:01:34,730 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:34,730 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:34,731 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Doyen de la Faculté de Médecine et...
+2026-11-22 17:01:34,731 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/e1054489-8a0a-4d64-92ab-55a9dbb52ac5
+2026-11-22 17:01:36,503 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:36,504 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:36,505 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur de l'Ecole Mohammadia de...
+2026-11-22 17:01:36,505 [INFO]   Détails: https://www.emploi-public.ma/fr/emploi-sup/details/4276b348-5dae-41c9-b638-6ca89ffaf304
+2026-11-22 17:01:37,433 [WARNING] Format de date non reconnu: 30
+2026-11-22 17:01:37,434 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:37,435 [INFO]   [PAS DE DATE] Avis d'emplois supérieurs Directeur(trice) du Centre régiona...
+2026-11-22 17:01:37,435 [INFO] 
+--- Catégorie: Postes de responsabilités ---
+2026-11-22 17:01:37,435 [INFO] Page 1/5
+2026-11-22 17:01:37,435 [INFO] Scraping page: https://www.emploi-public.ma/fr/postes-respo-liste
+2026-11-22 17:01:39,126 [INFO]   → 13 annonces trouvées sur cette page
+2026-11-22 17:01:39,127 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/e398faa0-116f-47c3-8b6a-3815a61ec223
+2026-11-22 17:01:40,137 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:40,138 [INFO]   [EXPIRÉE] Avis de Postes de responsabilités au Ministère de l’intérieu... → 2026-11-20
+2026-11-22 17:01:40,138 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/c13f9f16-8b1e-45ba-9ee8-7c872c74fc98
+2026-11-22 17:01:41,142 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:41,143 [INFO]   [EXPIRÉE] Avis de Postes de responsabilités au Ministère de l'Intérieu... → 2026-11-20
+2026-11-22 17:01:41,143 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/eac64629-ab0d-40e6-a610-b2f2070c3bb7
+2026-11-22 17:01:42,149 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:42,150 [INFO]   [EXPIRÉE] Avis de Postes de responsabilités au Ministère de l’intérieu... → 2026-11-20
+2026-11-22 17:01:42,151 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/5dd53900-ff73-4b75-a570-97c0e13a20ea
+2026-11-22 17:01:43,203 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:43,204 [INFO]   [EXPIRÉE] Avis de Postes de responsabilités au Ministère de l’intérieu... → 2026-09-15
+2026-11-22 17:01:43,204 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/b55261c8-974d-4212-bd45-c111ef102494
+2026-11-22 17:01:44,240 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:44,241 [INFO]   [EN COURS] Avis de Postes de responsabilités au Ministère de l’intérieu... → 2026-12-03
+2026-11-22 17:01:44,241 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/bff7fa6c-26e9-406b-ab8f-ab05ac1f6ba3
+2026-11-22 17:01:45,279 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:45,280 [INFO]   [EN COURS] Avis de Postes de responsabilités au Ministère de l’Agricult... → 2026-12-03
+2026-11-22 17:01:45,280 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/76a56856-e065-42b1-b3d2-f5e76c00ca10
+2026-11-22 17:01:46,310 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:46,311 [INFO]   [EN COURS] Avis de Postes de responsabilités au Ministère de l’Agricult... → 2026-12-03
+2026-11-22 17:01:46,311 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/91992b72-9128-42ec-b4c8-a289a810cec6
+2026-11-22 17:01:47,331 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:47,332 [INFO]   [EN COURS] Avis de Postes de responsabilités au Ministère de l’intérieu... → 2026-12-14
+2026-11-22 17:01:47,332 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/b5d7fc60-5998-4efd-b5bf-2c08ff999e3c
+2026-11-22 17:01:48,334 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:48,335 [INFO]   [EXPIRÉE] Publication de la liste des convoqués pour l'appel à candida... → 2026-04-24
+2026-11-22 17:01:48,335 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/6e089894-ea84-4677-ac8f-9bb7754888b4
+2026-11-22 17:01:49,329 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:49,330 [INFO]   [EN COURS] Chefs de Services... → 2026-11-23
+2026-11-22 17:01:49,330 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/28cf1ba3-bec4-45ef-9e11-dc826ca144e9
+2026-11-22 17:01:50,321 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:50,322 [INFO]   [EN COURS] CHEF DU CCA AZEMMOUR RELEVANT DE LA DIRECTION REGIONALE DU C... → 2026-11-23
+2026-11-22 17:01:50,322 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/eeab42e6-7dca-4dba-8a63-dc68d71fe075
+2026-11-22 17:01:51,340 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:51,341 [INFO]   [EN COURS] Appel à candidature pour les postes de responsabilité au Pro... → 2026-11-23
+2026-11-22 17:01:51,341 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/09d36416-2330-4ee5-a050-eddbb8ed9727
+2026-11-22 17:01:52,355 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:52,356 [INFO]   [EN COURS] CHEF DE SERVICE SUIVI DES PROJETS D'INVESTISSEMENT... → 2026-11-23
+2026-11-22 17:01:52,356 [INFO] Page 2/5
+2026-11-22 17:01:52,356 [INFO] Scraping page: https://www.emploi-public.ma/fr/postes-respo-liste?page=1
+2026-11-22 17:01:53,519 [INFO]   → 13 annonces trouvées sur cette page
+2026-11-22 17:01:53,520 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/e398faa0-116f-47c3-8b6a-3815a61ec223
+2026-11-22 17:01:54,522 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:54,523 [INFO]   [EXPIRÉE] Avis de Postes de responsabilités au Ministère de l’intérieu... → 2026-11-20
+2026-11-22 17:01:54,523 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/c13f9f16-8b1e-45ba-9ee8-7c872c74fc98
+2026-11-22 17:01:55,540 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:55,541 [INFO]   [EXPIRÉE] Avis de Postes de responsabilités au Ministère de l'Intérieu... → 2026-11-20
+2026-11-22 17:01:55,541 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/eac64629-ab0d-40e6-a610-b2f2070c3bb7
+2026-11-22 17:01:56,949 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:56,950 [INFO]   [EXPIRÉE] Avis de Postes de responsabilités au Ministère de l’intérieu... → 2026-11-20
+2026-11-22 17:01:56,950 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/5dd53900-ff73-4b75-a570-97c0e13a20ea
+2026-11-22 17:01:57,997 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:57,998 [INFO]   [EXPIRÉE] Avis de Postes de responsabilités au Ministère de l’intérieu... → 2026-09-15
+2026-11-22 17:01:57,998 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/b55261c8-974d-4212-bd45-c111ef102494
+2026-11-22 17:01:59,020 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:01:59,021 [INFO]   [EN COURS] Avis de Postes de responsabilités au Ministère de l’intérieu... → 2026-12-03
+2026-11-22 17:01:59,021 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/bff7fa6c-26e9-406b-ab8f-ab05ac1f6ba3
+2026-11-22 17:02:00,027 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:00,028 [INFO]   [EN COURS] Avis de Postes de responsabilités au Ministère de l’Agricult... → 2026-12-03
+2026-11-22 17:02:00,028 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/76a56856-e065-42b1-b3d2-f5e76c00ca10
+2026-11-22 17:02:01,042 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:01,043 [INFO]   [EN COURS] Avis de Postes de responsabilités au Ministère de l’Agricult... → 2026-12-03
+2026-11-22 17:02:01,044 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/91992b72-9128-42ec-b4c8-a289a810cec6
+2026-11-22 17:02:02,055 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:02,056 [INFO]   [EN COURS] Avis de Postes de responsabilités au Ministère de l’intérieu... → 2026-12-14
+2026-11-22 17:02:02,056 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/b5d7fc60-5998-4efd-b5bf-2c08ff999e3c
+2026-11-22 17:02:03,081 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:03,082 [INFO]   [EXPIRÉE] Publication de la liste des convoqués pour l'appel à candida... → 2026-04-24
+2026-11-22 17:02:03,082 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/6e089894-ea84-4677-ac8f-9bb7754888b4
+2026-11-22 17:02:04,132 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:04,133 [INFO]   [EN COURS] Chefs de Services... → 2026-11-23
+2026-11-22 17:02:04,133 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/28cf1ba3-bec4-45ef-9e11-dc826ca144e9
+2026-11-22 17:02:05,307 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:05,308 [INFO]   [EN COURS] CHEF DU CCA AZEMMOUR RELEVANT DE LA DIRECTION REGIONALE DU C... → 2026-11-23
+2026-11-22 17:02:05,308 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/eeab42e6-7dca-4dba-8a63-dc68d71fe075
+2026-11-22 17:02:06,450 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:06,451 [INFO]   [EN COURS] Appel à candidature pour les postes de responsabilité au Pro... → 2026-11-23
+2026-11-22 17:02:06,451 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/09d36416-2330-4ee5-a050-eddbb8ed9727
+2026-11-22 17:02:10,871 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:10,872 [INFO]   [EN COURS] CHEF DE SERVICE SUIVI DES PROJETS D'INVESTISSEMENT... → 2026-11-23
+2026-11-22 17:02:10,872 [INFO] Page 3/5
+2026-11-22 17:02:10,873 [INFO] Scraping page: https://www.emploi-public.ma/fr/postes-respo-liste?page=2
+2026-11-22 17:02:12,192 [INFO]   → 13 annonces trouvées sur cette page
+2026-11-22 17:02:12,193 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/51719149-c7a8-4731-9f7b-0e1ea6851b01
+2026-11-22 17:02:13,368 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:13,369 [INFO]   [EXPIRÉE] Publication de la liste des convoqués pour l'appel à candida... → 2026-11-09
+2026-11-22 17:02:13,369 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/e908bdb6-1bd6-452b-b483-65afd8344015
+2026-11-22 17:02:14,578 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:14,579 [INFO]   [EN COURS] Avis de Postes de responsabilités au Ministère de l’intérieu... → 2026-12-11
+2026-11-22 17:02:14,579 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/488d1c18-9e2c-43ba-8f9a-a2c001e96de6
+2026-11-22 17:02:15,623 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:15,624 [INFO]   [EXPIRÉE] Publication de la liste des convoqués pour l'appel à candida... → 2026-04-30
+2026-11-22 17:02:15,624 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/a19f9dca-8d30-40d2-a2e5-c226208f09cb
+2026-11-22 17:02:16,753 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:16,754 [INFO]   [EXPIRÉE] Publication de la liste des convoqués pour l'appel à candida... → 2026-04-30
+2026-11-22 17:02:16,754 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/f123f369-72e1-4c70-a7f2-931b97adb415
+2026-11-22 17:02:17,780 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:17,781 [INFO]   [EXPIRÉE] Publication de la liste des convoqués pour l'appel à candida... → 2026-04-30
+2026-11-22 17:02:17,781 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/08bce30d-579d-46e9-876f-9212ac6f01a5
+2026-11-22 17:02:18,929 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:18,930 [INFO]   [EXPIRÉE] Publication de la liste des convoqués pour l'appel à candida... → 2026-04-30
+2026-11-22 17:02:18,930 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/e11e8a63-a9e5-4d56-b9fa-4462a625007a
+2026-11-22 17:02:19,978 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:19,979 [INFO]   [EN COURS] Avis de Postes de responsabilités au Ministère du Transport ... → 2026-11-26
+2026-11-22 17:02:19,979 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/29b63448-6753-4c5b-a64d-5db8457458ed
+2026-11-22 17:02:21,153 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:21,154 [INFO]   [EN COURS] Avis de Postes de responsabilités au Présidence du parquet g... → 2026-11-30
+2026-11-22 17:02:21,154 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/5f0e20f6-104e-4430-b61a-4e6edb498030
+2026-11-22 17:02:22,296 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:22,297 [INFO]   [EN COURS] Avis de Postes de responsabilités au Présidence du parquet g... → 2026-11-30
+2026-11-22 17:02:22,297 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/6e089894-ea84-4677-ac8f-9bb7754888b4
+2026-11-22 17:02:23,423 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:23,424 [INFO]   [EN COURS] Chefs de Services... → 2026-11-23
+2026-11-22 17:02:23,425 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/28cf1ba3-bec4-45ef-9e11-dc826ca144e9
+2026-11-22 17:02:24,611 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:24,612 [INFO]   [EN COURS] CHEF DU CCA AZEMMOUR RELEVANT DE LA DIRECTION REGIONALE DU C... → 2026-11-23
+2026-11-22 17:02:24,612 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/eeab42e6-7dca-4dba-8a63-dc68d71fe075
+2026-11-22 17:02:25,792 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:25,793 [INFO]   [EN COURS] Appel à candidature pour les postes de responsabilité au Pro... → 2026-11-23
+2026-11-22 17:02:25,793 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/09d36416-2330-4ee5-a050-eddbb8ed9727
+2026-11-22 17:02:26,792 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:26,793 [INFO]   [EN COURS] CHEF DE SERVICE SUIVI DES PROJETS D'INVESTISSEMENT... → 2026-11-23
+2026-11-22 17:02:26,793 [INFO] Page 4/5
+2026-11-22 17:02:26,793 [INFO] Scraping page: https://www.emploi-public.ma/fr/postes-respo-liste?page=3
+2026-11-22 17:02:28,092 [INFO]   → 13 annonces trouvées sur cette page
+2026-11-22 17:02:28,093 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/6265cb73-7811-4039-9b0a-dee990981a69
+2026-11-22 17:02:29,134 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:29,135 [INFO]   [EN COURS] Avis de Postes de responsabilités au Présidence du parquet g... → 2026-11-30
+2026-11-22 17:02:29,135 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/b5a2d017-1d88-4411-9a1e-ce22e76450f8
+2026-11-22 17:02:30,178 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:30,179 [INFO]   [EN COURS] Avis de Postes de responsabilités au Présidence du parquet g... → 2026-11-30
+2026-11-22 17:02:30,179 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/c0e92e33-784d-41e5-aa3a-d0def0d6e61c
+2026-11-22 17:02:31,180 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:31,181 [INFO]   [EN COURS] Avis de Postes de responsabilités au Ministère du Transport ... → 2026-11-30
+2026-11-22 17:02:31,181 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/d4d4aada-b0ec-4c4d-a7db-fa8d7d740757
+2026-11-22 17:02:32,183 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:32,184 [INFO]   [EXPIRÉE] Publication de la liste des convoqués pour l'appel à candida... → 2026-09-22
+2026-11-22 17:02:32,184 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/e158175b-0e30-450e-a7e7-9b9da6f1c365
+2026-11-22 17:02:33,172 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:33,173 [INFO]   [EN COURS] Avis de Postes de responsabilités au Ministère de l’intérieu... → 2026-11-26
+2026-11-22 17:02:33,173 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/f6e0d1e2-fbb1-4901-a651-07251f5392cc
+2026-11-22 17:02:34,179 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:34,180 [INFO]   [EN COURS] Annulation de l'appel à candidature pour les Postes de respo... → 2026-11-26
+2026-11-22 17:02:34,181 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/4e1b26fa-673f-4821-b7b6-ed7e927540b6
+2026-11-22 17:02:36,644 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:36,645 [INFO]   [EN COURS] Avis de Postes de responsabilités au Ministère de l’intérieu... → 2026-11-27
+2026-11-22 17:02:36,645 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/43cab1c7-c0d4-44ba-b62d-4f60c1d2356c
+2026-11-22 17:02:38,168 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:38,169 [INFO]   [EN COURS] Avis de Postes de responsabilités au Ministère de la Jeuness... → 2026-11-27
+2026-11-22 17:02:38,169 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/919e2c31-e153-4165-bf47-d16ca2c7391f
+2026-11-22 17:02:39,212 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:39,213 [INFO]   [EXPIRÉE] Publication de la liste des convoqués pour l'appel à candida... → 2026-08-10
+2026-11-22 17:02:39,213 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/6e089894-ea84-4677-ac8f-9bb7754888b4
+2026-11-22 17:02:40,236 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:40,237 [INFO]   [EN COURS] Chefs de Services... → 2026-11-23
+2026-11-22 17:02:40,237 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/28cf1ba3-bec4-45ef-9e11-dc826ca144e9
+2026-11-22 17:02:41,227 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:41,228 [INFO]   [EN COURS] CHEF DU CCA AZEMMOUR RELEVANT DE LA DIRECTION REGIONALE DU C... → 2026-11-23
+2026-11-22 17:02:41,228 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/eeab42e6-7dca-4dba-8a63-dc68d71fe075
+2026-11-22 17:02:42,381 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:42,382 [INFO]   [EN COURS] Appel à candidature pour les postes de responsabilité au Pro... → 2026-11-23
+2026-11-22 17:02:42,382 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/09d36416-2330-4ee5-a050-eddbb8ed9727
+2026-11-22 17:02:43,373 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:43,374 [INFO]   [EN COURS] CHEF DE SERVICE SUIVI DES PROJETS D'INVESTISSEMENT... → 2026-11-23
+2026-11-22 17:02:43,374 [INFO] Page 5/5
+2026-11-22 17:02:43,374 [INFO] Scraping page: https://www.emploi-public.ma/fr/postes-respo-liste?page=4
+2026-11-22 17:02:48,328 [INFO]   → 13 annonces trouvées sur cette page
+2026-11-22 17:02:48,329 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/816c355c-63ed-4a1e-a4b2-b4b3242c1d6f
+2026-11-22 17:02:49,325 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:49,326 [INFO]   [EN COURS] Avis de Postes de responsabilités au Ministère de l’intérieu... → 2026-11-25
+2026-11-22 17:02:49,326 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/a7b12891-87f1-4755-8fbd-3b7469c72f92
+2026-11-22 17:02:50,364 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:50,365 [INFO]   [EXPIRÉE] Publication de la liste des résultats pour les Postes de res... → 2026-09-18
+2026-11-22 17:02:50,365 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/b17ef8a6-3e8f-4526-9e8e-a24ef4a0665c
+2026-11-22 17:02:51,372 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:51,373 [INFO]   [EN COURS] Avis de Postes de responsabilités au Ministère de l’Educatio... → 2026-11-25
+2026-11-22 17:02:51,373 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/85b40fa2-f86f-4616-b7d6-662888c1aede
+2026-11-22 17:02:52,421 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:52,422 [INFO]   [EXPIRÉE] Publication de la liste des convoqués pour l'appel à candida... → 2026-06-30
+2026-11-22 17:02:52,422 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/058aa888-21b8-4b10-973c-f7c1e5e5854f
+2026-11-22 17:02:53,438 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:53,439 [INFO]   [EN COURS] Avis de Postes de responsabilités au Ministère de l’Educatio... → 2026-11-25
+2026-11-22 17:02:53,439 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/0e5d58da-4e01-4c93-aa2e-19742d24534c
+2026-11-22 17:02:54,455 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:54,456 [INFO]   [EN COURS] Avis de Postes de responsabilités au Ministère de l’Educatio... → 2026-11-25
+2026-11-22 17:02:54,456 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/4048cf75-62bb-480f-b89f-14a71a768a3f
+2026-11-22 17:02:55,448 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:55,449 [INFO]   [EN COURS] Avis de Postes de responsabilités au Ministère de l’Educatio... → 2026-11-25
+2026-11-22 17:02:55,449 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/472b283a-287d-40db-80f8-e326043c8b45
+2026-11-22 17:02:56,474 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:56,475 [INFO]   [EXPIRÉE] Publication de la liste des résultats pour les Postes de res... → 2026-07-03
+2026-11-22 17:02:56,475 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/329616b8-f812-4d70-a8fe-1509e09fae9d
+2026-11-22 17:02:57,491 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:57,492 [INFO]   [EXPIRÉE] Avis de Postes de responsabilités au Ministère de l’intérieu... → 2026-11-06
+2026-11-22 17:02:57,492 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/6e089894-ea84-4677-ac8f-9bb7754888b4
+2026-11-22 17:02:58,502 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:58,503 [INFO]   [EN COURS] Chefs de Services... → 2026-11-23
+2026-11-22 17:02:58,503 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/28cf1ba3-bec4-45ef-9e11-dc826ca144e9
+2026-11-22 17:02:59,572 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:02:59,573 [INFO]   [EN COURS] CHEF DU CCA AZEMMOUR RELEVANT DE LA DIRECTION REGIONALE DU C... → 2026-11-23
+2026-11-22 17:02:59,573 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/eeab42e6-7dca-4dba-8a63-dc68d71fe075
+2026-11-22 17:03:00,783 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:00,784 [INFO]   [EN COURS] Appel à candidature pour les postes de responsabilité au Pro... → 2026-11-23
+2026-11-22 17:03:00,785 [INFO]   Détails: https://www.emploi-public.ma/fr/postes-respo/details/09d36416-2330-4ee5-a050-eddbb8ed9727
+2026-11-22 17:03:01,811 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:01,812 [INFO]   [EN COURS] CHEF DE SERVICE SUIVI DES PROJETS D'INVESTISSEMENT... → 2026-11-23
+2026-11-22 17:03:01,812 [INFO] 
+--- Catégorie: Recrutement des experts ---
+2026-11-22 17:03:01,812 [INFO] Page 1/5
+2026-11-22 17:03:01,812 [INFO] Scraping page: https://www.emploi-public.ma/fr/experts-liste
+2026-11-22 17:03:02,713 [INFO]   → 9 annonces trouvées sur cette page
+2026-11-22 17:03:02,714 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/c72d962a-9124-4c59-a087-537c1f9a2de8
+2026-11-22 17:03:03,650 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:03,651 [INFO]   [EN COURS] Appel à candidature pour le poste Expert... → 2026-12-01
+2026-11-22 17:03:03,651 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/864df67b-0489-46b4-af1c-5595040c8ef7
+2026-11-22 17:03:04,770 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:04,771 [INFO]   [EXPIRÉE] Appel à candidature pour le poste Expert... → 2026-11-06
+2026-11-22 17:03:04,771 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/9ec33ce6-535f-4934-affb-1a818c2ed40c
+2026-11-22 17:03:05,688 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:05,689 [INFO]   [EXPIRÉE] Publication de la liste des résultats pour le poste de Exper... → 2026-08-24
+2026-11-22 17:03:05,689 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/8d8d7aa5-5ea0-4632-92f2-e11bc1d6c351
+2026-11-22 17:03:10,081 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:10,082 [INFO]   [EXPIRÉE] Publication de la liste des résultats pour le poste de Exper... → 2026-09-20
+2026-11-22 17:03:10,082 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/4854b58c-c09e-4edd-9a39-c01a0c414425
+2026-11-22 17:03:11,836 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:11,837 [INFO]   [EXPIRÉE] Publication de la liste des résultats pour le poste de EXPER... → 2026-04-12
+2026-11-22 17:03:11,837 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/ff8d6494-748d-4698-8ef0-676cbd5b1951
+2026-11-22 17:03:12,735 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:12,736 [INFO]   [EXPIRÉE] Appel à candidature pour le poste Expert des Affaires Juridi... → 2026-06-25
+2026-11-22 17:03:12,736 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/abce4b98-a1d8-48f9-a84c-053f53697154
+2026-11-22 17:03:14,488 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:14,489 [INFO]   [EXPIRÉE] Appel à candidature pour le poste expert... → 2026-06-15
+2026-11-22 17:03:14,489 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/5030f678-19f4-4bc0-96c6-f5462b134c1c
+2026-11-22 17:03:15,375 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:15,376 [INFO]   [EXPIRÉE] Appel à candidature pour le poste expert... → 2026-06-08
+2026-11-22 17:03:15,377 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/b0a97522-0c72-4a26-8b32-da0c02e79891
+2026-11-22 17:03:16,271 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:16,272 [INFO]   [EXPIRÉE] Appel à candidature pour le poste EXPERT CONTRACTUEL... → 2026-06-03
+2026-11-22 17:03:16,273 [INFO] Page 2/5
+2026-11-22 17:03:16,273 [INFO] Scraping page: https://www.emploi-public.ma/fr/experts-liste?page=1
+2026-11-22 17:03:17,181 [INFO]   → 9 annonces trouvées sur cette page
+2026-11-22 17:03:17,182 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/c72d962a-9124-4c59-a087-537c1f9a2de8
+2026-11-22 17:03:18,076 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:18,077 [INFO]   [EN COURS] Appel à candidature pour le poste Expert... → 2026-12-01
+2026-11-22 17:03:18,077 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/864df67b-0489-46b4-af1c-5595040c8ef7
+2026-11-22 17:03:19,025 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:19,026 [INFO]   [EXPIRÉE] Appel à candidature pour le poste Expert... → 2026-11-06
+2026-11-22 17:03:19,026 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/9ec33ce6-535f-4934-affb-1a818c2ed40c
+2026-11-22 17:03:19,943 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:19,944 [INFO]   [EXPIRÉE] Publication de la liste des résultats pour le poste de Exper... → 2026-08-24
+2026-11-22 17:03:19,944 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/8d8d7aa5-5ea0-4632-92f2-e11bc1d6c351
+2026-11-22 17:03:20,860 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:20,861 [INFO]   [EXPIRÉE] Publication de la liste des résultats pour le poste de Exper... → 2026-09-20
+2026-11-22 17:03:20,861 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/4854b58c-c09e-4edd-9a39-c01a0c414425
+2026-11-22 17:03:21,816 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:21,817 [INFO]   [EXPIRÉE] Publication de la liste des résultats pour le poste de EXPER... → 2026-04-12
+2026-11-22 17:03:21,817 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/ff8d6494-748d-4698-8ef0-676cbd5b1951
+2026-11-22 17:03:22,727 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:22,728 [INFO]   [EXPIRÉE] Appel à candidature pour le poste Expert des Affaires Juridi... → 2026-06-25
+2026-11-22 17:03:22,729 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/abce4b98-a1d8-48f9-a84c-053f53697154
+2026-11-22 17:03:23,643 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:23,644 [INFO]   [EXPIRÉE] Appel à candidature pour le poste expert... → 2026-06-15
+2026-11-22 17:03:23,644 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/5030f678-19f4-4bc0-96c6-f5462b134c1c
+2026-11-22 17:03:24,533 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:24,534 [INFO]   [EXPIRÉE] Appel à candidature pour le poste expert... → 2026-06-08
+2026-11-22 17:03:24,534 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/b0a97522-0c72-4a26-8b32-da0c02e79891
+2026-11-22 17:03:25,436 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:25,437 [INFO]   [EXPIRÉE] Appel à candidature pour le poste EXPERT CONTRACTUEL... → 2026-06-03
+2026-11-22 17:03:25,437 [INFO] Page 3/5
+2026-11-22 17:03:25,437 [INFO] Scraping page: https://www.emploi-public.ma/fr/experts-liste?page=2
+2026-11-22 17:03:26,361 [INFO]   → 9 annonces trouvées sur cette page
+2026-11-22 17:03:26,362 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/b3f7145b-9f2a-4cb4-aef7-1d917c679a65
+2026-11-22 17:03:27,340 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:27,341 [INFO]   [EXPIRÉE] Appel à candidature pour le poste expert... → 2026-05-29
+2026-11-22 17:03:27,341 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/d9255cd9-fe2e-4248-8eba-adf58b668823
+2026-11-22 17:03:29,399 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:29,400 [INFO]   [EXPIRÉE] Appel à candidature pour le poste Expert en matière de négoc... → 2026-04-03
+2026-11-22 17:03:29,400 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/0236914d-e17c-41c5-a5be-e632ad35f838
+2026-11-22 17:03:30,395 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:30,396 [INFO]   [EXPIRÉE] Appel à candidature pour le poste expert... → 2026-03-17
+2026-11-22 17:03:30,396 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/2a449c40-1832-450d-9eae-a70607bcac07
+2026-11-22 17:03:31,296 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:31,297 [INFO]   [EXPIRÉE] Appel à candidature pour le poste Expert... → 2026-03-16
+2026-11-22 17:03:31,297 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/1f2e38a5-0fe9-4f17-89fb-d23ab9140242
+2026-11-22 17:03:32,206 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:32,207 [INFO]   [EXPIRÉE] Appel à candidature pour le poste expert dans les domaines l... → 2026-03-12
+2026-11-22 17:03:32,207 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/2401abad-8177-4fdc-8c76-354d03f61cd3
+2026-11-22 17:03:33,124 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:33,125 [INFO]   [EXPIRÉE] Appel à candidature pour le poste expert... → 2026-02-18
+2026-11-22 17:03:33,125 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/ad16f9e2-25eb-4a06-9a7a-572410c14d55
+2026-11-22 17:03:34,210 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:34,211 [INFO]   [EXPIRÉE] Appel à candidature pour le poste Expert en gouvernance des ... → 2025-12-23
+2026-11-22 17:03:34,211 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/302ab5a1-fa28-4ec1-9341-8ba50b6bf810
+2026-11-22 17:03:35,127 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:35,128 [INFO]   [EXPIRÉE] Appel à candidature pour le poste expert... → 2025-12-21
+2026-11-22 17:03:35,128 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/f9f74e66-af9e-4c4a-9cec-491e7d25fbbb
+2026-11-22 17:03:36,052 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:36,053 [INFO]   [EXPIRÉE] Publication de la liste des résultats pour le poste de Exper... → 2025-12-06
+2026-11-22 17:03:36,053 [INFO] Page 4/5
+2026-11-22 17:03:36,053 [INFO] Scraping page: https://www.emploi-public.ma/fr/experts-liste?page=3
+2026-11-22 17:03:36,968 [INFO]   → 9 annonces trouvées sur cette page
+2026-11-22 17:03:36,969 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/99f49e97-4b0e-4897-b1c6-a1a811d179d9
+2026-11-22 17:03:37,985 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:37,986 [INFO]   [EXPIRÉE] Publication de la liste des résultats pour le poste de Exper... → 2025-12-06
+2026-11-22 17:03:37,986 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/121493c9-78d8-44bf-b408-e42f8bf43d27
+2026-11-22 17:03:42,628 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:42,629 [INFO]   [EXPIRÉE] Appel à candidature pour le poste Expert en coordination ins... → 2025-12-05
+2026-11-22 17:03:42,629 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/336eb4a9-c147-4981-94da-c636a748f7a0
+2026-11-22 17:03:43,630 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:43,631 [INFO]   [EXPIRÉE] Publication de la liste des résultats pour le poste de Exper... → 2025-09-30
+2026-11-22 17:03:43,631 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/0917753f-ac81-4229-b8d4-5292cae1510a
+2026-11-22 17:03:44,519 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:44,520 [INFO]   [EXPIRÉE] Appel à candidature pour le poste Expert contractuel... → 2025-06-11
+2026-11-22 17:03:44,520 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/1e6a6ce8-141e-4fe3-b660-097a9342e904
+2026-11-22 17:03:45,416 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:45,417 [INFO]   [EXPIRÉE] Appel à candidature pour le poste expert en affaires juridiq... → 2025-06-09
+2026-11-22 17:03:45,417 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/9973e98f-4e11-40f1-aeae-194d055be60c
+2026-11-22 17:03:46,344 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:46,345 [INFO]   [EXPIRÉE] Appel à candidature pour le poste Expert en océanographie et... → 2025-06-06
+2026-11-22 17:03:46,345 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/c4333ade-5b69-4a9b-b1d6-23858dca3e02
+2026-11-22 17:03:47,255 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:47,256 [INFO]   [EXPIRÉE] Appel à candidature pour le poste Quatre experts aux compéte... → 2025-05-14
+2026-11-22 17:03:47,256 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/3d556890-d88a-4b78-aa10-b953f3a04785
+2026-11-22 17:03:48,175 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:48,176 [INFO]   [EXPIRÉE] Appel à candidature pour le poste expert en affaires juridiq... → 2025-05-02
+2026-11-22 17:03:48,176 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/1d5f52e9-1b4b-423d-bf9b-935a34d3caf2
+2026-11-22 17:03:49,135 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:49,136 [INFO]   [EXPIRÉE] Appel à candidature pour le poste expert... → 2025-04-18
+2026-11-22 17:03:49,136 [INFO] Page 5/5
+2026-11-22 17:03:49,136 [INFO] Scraping page: https://www.emploi-public.ma/fr/experts-liste?page=4
+2026-11-22 17:03:50,053 [INFO]   → 9 annonces trouvées sur cette page
+2026-11-22 17:03:50,054 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/ee7b273d-5714-41aa-9489-a47d37eb618e
+2026-11-22 17:03:50,953 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:50,954 [INFO]   [EXPIRÉE] Appel à candidature pour le poste Expert en Politique Hydriq... → 2025-04-07
+2026-11-22 17:03:50,954 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/74c6b2c0-7af0-4688-937b-1881caa843f0
+2026-11-22 17:03:51,851 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:51,852 [INFO]   [EXPIRÉE] Appel à candidature pour le poste expert dans le domaine de ... → 2025-03-31
+2026-11-22 17:03:51,852 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/efe61f8c-79ae-41bf-851e-67e779047d6a
+2026-11-22 17:03:52,750 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:52,751 [INFO]   [EXPIRÉE] Appel à candidature pour le poste Poste d'Expert en génie ci... → 2025-03-27
+2026-11-22 17:03:52,751 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/c8ffa879-6f01-46df-9beb-eb9ae0a6f554
+2026-11-22 17:03:53,654 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:53,655 [INFO]   [EXPIRÉE] Appel à candidature pour le poste خبير في مجال صياغة إستراتي... → 2025-03-21
+2026-11-22 17:03:53,655 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/55bfa14b-dac1-4967-b1b6-8983cea09ed9
+2026-11-22 17:03:54,575 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:54,576 [INFO]   [EXPIRÉE] Appel à candidature pour le poste خبير في مجال نظم المعلوميا... → 2025-03-21
+2026-11-22 17:03:54,576 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/cf3172d1-8c15-4404-b1ff-21c154c7da2f
+2026-11-22 17:03:55,486 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:55,487 [INFO]   [EXPIRÉE] Appel à candidature pour le poste خبير في مجال تطوير التعاون... → 2025-03-21
+2026-11-22 17:03:55,487 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/a538c27d-7e09-4441-9551-b22fe9e9d017
+2026-11-22 17:03:56,394 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:56,395 [INFO]   [EXPIRÉE] Appel à candidature pour le poste خبير في مجال إستراتيجية من... → 2025-03-21
+2026-11-22 17:03:56,395 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/9ebae75d-f857-4c4d-9e16-0108b872c04f
+2026-11-22 17:03:57,284 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:57,285 [INFO]   [EXPIRÉE] Appel à candidature pour le poste gestion des projets et ges... → 2025-03-19
+2026-11-22 17:03:57,285 [INFO]   Détails: https://www.emploi-public.ma/fr/experts/details/0608bdd0-0a58-4c90-a1d5-bd3483116452
+2026-11-22 17:03:58,199 [INFO]     PDF trouvé: Arrêté d'appel à candidature (score: 20)
+2026-11-22 17:03:58,200 [INFO]   [EXPIRÉE] Appel à candidature pour le poste Poste d'expert dans les re... → 2025-02-03
+2026-11-22 17:03:58,220 [INFO] 
+============================================================
+2026-11-22 17:03:58,220 [INFO] RÉSUMÉ
+2026-11-22 17:03:58,220 [INFO] ============================================================
+2026-11-22 17:03:58,220 [INFO] Annonces traitées: 200
+2026-11-22 17:03:58,220 [INFO] Dates en cours: 73
+2026-11-22 17:03:58,220 [INFO] Dates expirées: 86
+2026-11-22 17:03:58,220 [INFO] Total résultats en base: 2292
+2026-11-22 17:04:00,038 [INFO] Email envoyé à cavalkhalid@gmail.com
+2026-11-22 17:04:00,038 [INFO] 
+Scraper terminé.
